@@ -19,14 +19,11 @@ class MainTabBarViewController: UITabBarController {
     private func configTabBar() {
         self.tabBar.tintColor = .red // Selected item color
         self.tabBar.unselectedItemTintColor = .systemGray // Un selected item color
-        
+        self.tabBar.isTranslucent = true
+        self.tabBar.backgroundColor = .clear
         // Make background blur view
-        let effectView = UIVisualEffectView()
-        let blurEffect = UIBlurEffect(style: .dark)
-        effectView.effect = blurEffect
-        effectView.frame = self.tabBar.bounds
-        effectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        self.tabBar.insertSubview(effectView, at: 0)
+        
+        self.tabBar.insertSubview(UIView.blurView(frame: self.tabBar.bounds), at: 0)
     }
     
     private func setupView() {

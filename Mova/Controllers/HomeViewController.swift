@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
         self.homeFeedTableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         self.homeFeedTableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         self.homeFeedTableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.homeFeedTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        self.homeFeedTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
     
 }

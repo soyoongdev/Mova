@@ -11,9 +11,16 @@ class FeedImageCollectionViewCell: UICollectionViewCell {
         
     static let identifier = "FeedImageCollectionViewCellID"
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         self.backgroundColor = .yellow
     }
     
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }

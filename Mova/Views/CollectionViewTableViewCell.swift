@@ -39,7 +39,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.tag = self.tag
-        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        self.collectionView.register(FeedImageCollectionViewCell.self, forCellWithReuseIdentifier: FeedImageCollectionViewCell.identifier)
     }
     
     private func setupLayouts() {
@@ -62,9 +62,9 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-
-        cell.backgroundColor = .green
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedImageCollectionViewCell.identifier, for: indexPath) as? FeedImageCollectionViewCell else {
+            return UICollectionViewCell()
+        }
 
         return cell
     }
