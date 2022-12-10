@@ -9,8 +9,8 @@ import Foundation
 
 enum MainTabBar: String {
     case home = "Home"
-    case search = "Top Search"
-    case upcomming = "Coming Soon"
+    case explore = "Explore"
+    case mylist = "My List"
     case download = "Download"
-    case more = "More"
+    case profile = "Profile"
 }

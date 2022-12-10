@@ -43,13 +43,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
     
     private func setupLayouts() {
-        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
-        self.collectionView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor).isActive = true
-        self.collectionView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor).isActive = true
-        self.collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
-        self.collectionView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor).isActive = true
-        self.collectionView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor).isActive = true
+        self.collectionView.setupConstraintLayout(superView: self.contentView)
     }
 
 }

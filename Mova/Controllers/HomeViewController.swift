@@ -12,11 +12,11 @@ func generateRandomData() -> [[UIColor]] {
     let numberOfItemsPerRow = 15
 
     return (0..<numberOfRows).map { _ in
-        return (0..<numberOfItemsPerRow).map { _ in UIColor.randomColor() }
+        return (0..<numberOfItemsPerRow).map { _ in UIColor.random() }
     }
 }
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     // MARK: - Variables
     public let models = generateRandomData()
@@ -32,19 +32,19 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         self.configNavigation()
-        self.setupView()
+        self.setupViews()
         self.setupLayouts()
     }
     
-    private func setupView() {
+    private func setupViews() {
         self.view.addSubview(self.homeFeedTableView)
         self.homeFeedTableView.delegate = self
         self.homeFeedTableView.dataSource = self
         self.homeFeedTableView.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         
         // Header
-        let headerView = UIView(frame: CGRect(x: self.view.bounds.maxX, y: self.view.bounds.maxY, width: self.view.bounds.width, height: 540))
-        headerView.backgroundColor = .brown
+        let headerView = StretchyTableViewHeader(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: CGFloat(350).relativeToIphone8Height())))
+        headerView.imageView.image = UIImage(named: "mountain")
         self.homeFeedTableView.tableHeaderView = headerView
     }
     
@@ -54,11 +54,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupLayouts() {
-        self.homeFeedTableView.translatesAutoresizingMaskIntoConstraints = false
-        self.homeFeedTableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.homeFeedTableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        self.homeFeedTableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.homeFeedTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        self.homeFeedTableView.setupConstraintLayout(superView: self)
     }
     
 }
@@ -91,4 +87,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let header = self.homeFeedTableView.tableHeaderView as? StretchyTableViewHeader else { return }
+        
+        header.scrollViewDidScroll(scrollView: self.homeFeedTableView)
+    }
+    
 }
