@@ -14,13 +14,23 @@ import UIKit
  configuration permissions to access user location,
  screenshots, v.v..
  */
+let appConfig = AppConfig.sharedInstance()
+
 public class AppConfig: NSObject {
     
+    var isDarkMode: Bool {
+        get {
+            return _isDarkMode
+        }
+    }
+    
+    private var _isDarkMode: Bool = false
+    
     func setDarkLightMode(style: UIUserInterfaceStyle) {
-        guard let window = UIApplication.shared.windows.first else { return }
-        
-        UIView.animate(withDuration: 0.3) {
-            window.overrideUserInterfaceStyle = style
+        if style == .dark {
+            self._isDarkMode = true
+        } else {
+            self._isDarkMode = false
         }
     }
     
@@ -29,10 +39,14 @@ public class AppConfig: NSObject {
 // MARK: - Extension
 extension AppConfig {
     
-    class var shared: AppConfig {
-        get {
-            return AppConfig()
+    private static var instance: AppConfig!
+    
+    public class func sharedInstance() -> AppConfig {
+        if(self.instance == nil)
+        {
+            self.instance = AppConfig()
         }
+        return self.instance
     }
     
 }

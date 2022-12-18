@@ -6,22 +6,325 @@
 //
 
 import UIKit
+import SwiftUI
 
-class MasterButton: MasterView {
-
+class MasterButton: UIButton {
+    
+    enum BackgroundType {
+        case fill
+        case outline
+    }
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print("init")
+        self.setupViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        print("init1")
+        self.setupViews()
     }
     
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
-        print("awakeFromNib")
+        self.setupViews()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.setupLayouts()
+    }
+    
+    private var backgroundType: BackgroundType = .fill
+        
+    private lazy var isActive: Bool = false
+    
+    private var block: (() -> Void)?
+        
+    private lazy var isTouched: Bool = false
+    
+    private lazy var _axis: NSLayoutConstraint.Axis = .horizontal
+    
+    private var backgroundGradientNormal: CAGradientLayer?
+    
+    private var backgroundGradientSelected: CAGradientLayer?
+    
+    private var backgroundNormal: CALayer?
+    
+    private var backgroundSelected: CALayer?
+    
+    private var backgroundImageNormal = UIImage()
+    
+    private var backgroundImageSelected = UIImage()
+    
+    private var imageiconNormal : UIImage? = {
+        return UIImage()
+    }()
+    
+    private var imageiconSelected : UIImage? = {
+        return UIImage()
+    }()
+    
+    func setupViews() {
+        self.backgroundColor = nil
+        self.clipsToBounds = true
+        self.layer.masksToBounds = true
+        self.titleLabel?.lineBreakMode = .byWordWrapping
+        self.titleLabel?.textAlignment = .center
+        self.titleLabel?.numberOfLines = 1
+        self.contentMode = .scaleAspectFit
+    }
+    
+    private func setupLayouts() {
+        if isLayerExist(layer: backgroundGradientNormal) {
+            self.backgroundGradientNormal?.frame = self.bounds
+            self.layer.insertSublayer(self.backgroundGradientNormal!, at: 0)
+        }
+        if isLayerExist(layer: backgroundGradientSelected) {
+            self.backgroundGradientSelected?.frame = self.bounds
+            self.layer.insertSublayer(self.backgroundGradientSelected!, at: 1)
+        }
+        
+        if isLayerExist(layer: backgroundNormal) {
+            self.backgroundNormal?.frame = self.bounds
+            self.layer.insertSublayer(self.backgroundNormal!, at: 0)
+        }
+        if isLayerExist(layer: backgroundSelected) {
+            self.backgroundSelected?.frame = self.bounds
+            self.layer.insertSublayer(self.backgroundSelected!, at: 0)
+        }
+    }
+    
+    var axis: NSLayoutConstraint.Axis {
+        get {
+            return self._axis
+        }
+        set {
+            _axis = newValue
+        }
+    }
+    
+    func setButtonStyle(type: UIButton.CustomButtonType, backgroundType: MasterButton.BackgroundType) {
+        var insets = UIEdgeInsets()
+        var spacePadding: CGFloat = 0
+        var cornerRadius: CGFloat = 0
+        
+        switch type {
+        case .small: // 8
+            spacePadding = 4
+            cornerRadius = 16
+            insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
+        case .medium: // 10
+            spacePadding = 8
+            cornerRadius = 27
+            insets = UIEdgeInsets(top: 10, left: 18, bottom: 10, right: 18)
+        default: // 14
+            spacePadding = 8
+            cornerRadius = 16
+            insets = UIEdgeInsets(top: 14, left: 28, bottom: 14, right: 28)
+        }
+        
+        switch backgroundType {
+        case .outline:
+            self.backgroundType = .outline
+            self.backgroundNormal?.isHidden = true
+            self.backgroundSelected?.isHidden = true
+            self.backgroundGradientNormal?.isHidden = true
+            self.backgroundGradientSelected?.isHidden = true
+            self.layer.borderWidth = 1.0
+            self.layer.frame = self.bounds
+            self.layer.borderColor = UIColor.textButtonColor?.deactive?.cgColor
+        default:
+            self.backgroundType = .fill
+        }
+        
+        self.setInsets(forContentPadding: insets, imageTitlePadding: spacePadding)
+        self.layer.cornerRadius = cornerRadius
+    }
+    
+    func setTitle(_ title: String, color: UIColor? = .textButtonColor?.deactive, fontSize: CGFloat? = .small) {
+        self.titleLabel?.font = .regular(size: 14)
+        self.setTitle(title, for: .normal)
+        self.setTitleColor(color, for: .normal)
     }
 
+    func setBackgroundGradient(colors: [UIColor], startPoint: DirectionPoint, endPoint: DirectionPoint, for state: UIControl.State) {
+        let layer : CAGradientLayer = CAGradientLayer()
+        layer.frame = self.bounds
+        layer.colors = colors
+        layer.locations = [0.0, 1.0]
+        layer.startPoint = startPoint.rawValue
+        layer.endPoint = endPoint.rawValue
+        
+        if state == .normal {
+            self.backgroundGradientNormal = layer
+        }
+        if state == .selected {
+            self.backgroundGradientSelected = layer
+        }
+    }
+
+    func setBackground(color: UIColor, for state: UIControl.State) {
+        let layer : CALayer = CALayer()
+        layer.frame = self.bounds
+        layer.backgroundColor = color.cgColor
+        if state == .normal {
+            self.backgroundNormal = layer
+        }
+        if state == .selected {
+            self.backgroundSelected = layer
+        }
+    }
+
+    func setImageIcon(image: UIImage?, color: UIColor? = .textButtonColor?.deactive, size: CGFloat? = .small, for state: UIControl.State) {
+        var getImage = image?.resize(with: size!)
+        getImage = getImage?.withTintColor(color!, renderingMode: .alwaysTemplate)
+        if state == .normal {
+            self.imageiconNormal = getImage
+            self.setImage(getImage, for: state)
+        } else {
+            self.imageiconSelected = getImage
+            self.setImage(getImage, for: state)
+        }
+        self.tintColor = color!
+    }
+    
+    func setSelected() {
+        
+    }
+    
+    func setDeselected() {
+        print("Deselected")
+    }
+    
+    func setAction(action: @escaping () -> Void) {
+        self.block = action
+        self.addTarget(self, action: #selector(blockAction(_ :)), for: .touchUpInside)
+    }
+    
+    func setContentPositionAttribute(positionAttribute: ContentPositionAttribute) {
+        switch positionAttribute {
+        case .rightToleft:
+            self.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            self.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            self.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        case .bottomToTop: // ???
+            self.transform = CGAffineTransform(rotationAngle: -90 * .pi/180)
+            self.titleLabel?.transform = CGAffineTransform(rotationAngle: 90 * .pi/180)
+            self.imageView?.transform = CGAffineTransform(rotationAngle: 90 * .pi/180)
+        case .topToBottom: // ???
+            self.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            self.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+            self.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        default: // Default left to right
+            self.transform = CGAffineTransform(scaleX: 1.0, y: -1.0)
+            self.titleLabel?.transform = CGAffineTransform(scaleX: 1.0, y: -1.0)
+            self.imageView?.transform = CGAffineTransform(scaleX: 1.0, y: -1.0)
+            break;
+        }
+    }
+    
+    func setContentAxis(axis: NSLayoutConstraint.Axis) {
+        if axis == .vertical {
+            self.transform = CGAffineTransform(rotationAngle: -90 * .pi/180)
+            self.titleLabel?.transform = CGAffineTransform(rotationAngle: 90 * .pi/180)
+            self.imageView?.transform = CGAffineTransform(rotationAngle: 90 * .pi/180)
+        } else {
+            return // Default is Horizontal
+        }
+    }
+    
+    @objc private func blockAction(_ sender: UIButton) {
+        self.isActive = !self.isActive
+        
+        if self.isActive {
+            self.setSelected()
+        } else {
+            self.setDeselected()
+        }
+        
+        self.block?()
+    }
+    
+}
+
+// Extension override
+extension MasterButton {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        UIView.animate(withDuration: 0.015) {
+            self.isTouched = true
+            if self.backgroundType == .fill {
+                self.layerProgress(normal: self.backgroundGradientNormal, selected: self.backgroundGradientSelected, for: .active)
+                self.layerProgress(normal: self.backgroundNormal, selected: self.backgroundSelected, for: .active)
+            }
+            self.alpha = 0.8
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        UIView.animate(withDuration: 0.015) {
+            self.isTouched = false
+            if self.backgroundType == .fill {
+                self.layerProgress(normal: self.backgroundGradientNormal, selected: self.backgroundGradientSelected, for: .deactive)
+                self.layerProgress(normal: self.backgroundNormal, selected: self.backgroundSelected, for: .deactive)
+            }
+            self.alpha = 1
+        }
+    }
+    
+}
+
+// Extension make enum
+extension MasterButton {
+    
+    enum ContentPositionAttribute {
+        case rightToleft
+        case leftToRight
+        case bottomToTop
+        case topToBottom
+    }
+    
+    private func isLayerExist(layer: CALayer?) -> Bool {
+        if let _ = layer {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func layerProgress(normal layerNormal: CALayer?, selected layerSelected: CALayer?, for state: ActiveState) {
+        if state == .active {
+            if self.isLayerExist(layer: layerNormal) && self.isLayerExist(layer: layerSelected) {
+                layerNormal?.isHidden = true
+                layerSelected?.isHidden = false
+            }
+            if self.isLayerExist(layer: layerNormal) && !self.isLayerExist(layer: layerSelected) {
+                layerNormal?.isHidden = true
+            }
+            if !self.isLayerExist(layer: layerNormal) && self.isLayerExist(layer: layerSelected) {
+                layerSelected?.isHidden = false
+            }
+        } else {
+            if self.isLayerExist(layer: layerSelected) && self.isLayerExist(layer: layerSelected) {
+                layerNormal?.isHidden = false
+                layerSelected?.isHidden = true
+            }
+            if self.isLayerExist(layer: layerNormal) && !self.isLayerExist(layer: layerSelected) {
+                layerNormal?.isHidden = false
+            }
+            if !self.isLayerExist(layer: layerNormal) && self.isLayerExist(layer: layerSelected) {
+                layerSelected?.isHidden = true
+            }
+        }
+    }
+    
+}
+
+struct MasterButton_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewUIViewController(viewController: HomeViewController())
+    }
 }

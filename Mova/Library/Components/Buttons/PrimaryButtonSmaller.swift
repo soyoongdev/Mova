@@ -6,15 +6,21 @@
 //
 
 import UIKit
+import SwiftUI
 
-class PrimaryButtonSmaller: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class PrimaryButtonSmaller: MasterButton, MasterButtonDelegate {
+    
+    override func setupViews() {
+        super.setupViews()
+        
+        self.setButtonStyle(type: .small, backgroundType: .fill)
+        
     }
-    */
 
+}
+
+struct PrimaryButtonSmaller_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewUIViewController(viewController: HomeViewController())
+    }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension UIColor {
+extension UIColor {
     
     convenience init(hex: String) {
         
@@ -30,6 +30,31 @@ public extension UIColor {
     
     static func random() -> UIColor {
         return UIColor(red: .random(), green: .random(), blue: .random(), alpha: 1.0)
+    }
+
+    
+}
+
+extension [UIColor] {
+    
+    var toCGColors: [CGColor] {
+        var colors = [CGColor]()
+        for color in self {
+            colors.append(color.cgColor)
+        }
+        return colors
+    }
+    
+}
+
+// Make extension for app template
+extension UIColor {
+    private static var template: AppTemplate {
+        return AppTemplate()
+    }
+    
+    static var textButtonColor: ColorState? {
+        return template.textButtonColor
     }
     
 }

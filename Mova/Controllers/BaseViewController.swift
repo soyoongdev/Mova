@@ -52,3 +52,18 @@ public class BaseViewController: UIViewController {
     }
     
 }
+
+
+extension BaseViewController {
+    
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        let appConfig = AppConfig()
+        if previousTraitCollection?.userInterfaceStyle == .dark {
+            appConfig.setDarkLightMode(style: .dark)
+        } else {
+            appConfig.setDarkLightMode(style: .light)
+        }
+    }
+    
+}

@@ -7,7 +7,21 @@
 
 import UIKit
 
-public extension UIImage {
+extension UIImage {
+    
+    static func pixel(ofColor color: UIColor) -> UIImage {
+        let pixel = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        
+        UIGraphicsBeginImageContext(pixel.size)
+        defer { UIGraphicsEndImageContext() }
+        
+        guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }
+        
+        context.setFillColor(color.cgColor)
+        context.fill(pixel)
+        
+        return UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+    }
     
     func resizeWithPercent(percentage: CGFloat) -> UIImage? {
         let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: size.width * percentage, height: size.height * percentage)))
@@ -21,14 +35,14 @@ public extension UIImage {
         return result
     }
     
-    func resize(width: CGFloat) -> UIImage? {
+    func resize(with targetSize: CGFloat) -> UIImage? {
         
-        if(self.size.width < width)
+        if(self.size.width < targetSize)
         {
             return self
         }
         
-        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))))
+        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: targetSize, height: CGFloat(ceil(targetSize/size.width * size.height)))))
         imageView.contentMode = .scaleAspectFit
         imageView.image = self
         UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
@@ -37,6 +51,14 @@ public extension UIImage {
         guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
         UIGraphicsEndImageContext()
         return result
+    }
+    
+    func resize(with size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        self.draw(in: CGRect(origin: CGPoint.zero, size: size))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return resizedImage
     }
     
     func resizeImage() -> UIImage {

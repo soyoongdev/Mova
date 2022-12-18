@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension CGFloat {
+extension CGFloat {
     
     static func random() -> CGFloat {
         return CGFloat(arc4random()) / CGFloat(UInt32.max)
@@ -15,8 +15,6 @@ public extension CGFloat {
     
 }
 
-// Min value that should undergo upper scaling for bigger iphones and iPads
-fileprivate let minScalableValue: CGFloat = 8.0
 extension CGFloat {
     
     func relativeToIphone8Width() -> CGFloat {
@@ -36,3 +34,17 @@ extension CGFloat {
   
 }
 			
+extension CGFloat {
+    
+    static var small: CGFloat {
+        return 14.0
+    }
+    
+    static var medium: CGFloat {
+        return 16.0
+    }
+    
+    static var bigger: CGFloat {
+        return 18.0
+    }
+}

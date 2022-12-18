@@ -38,7 +38,6 @@ class FeedNewBannerHeader: MasterView {
     }
     
     @objc func pressed() {
-        AppConfig.shared.setDarkLightMode(style: self.darkMode ? .dark : .light)
         self.darkMode.toggle()
         
         print("Changed")

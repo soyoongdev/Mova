@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		B2358771294231DA001C8BB0 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2358770294231DA001C8BB0 /* AppConfig.swift */; };
 		B235877329424611001C8BB0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235877229424611001C8BB0 /* BaseViewController.swift */; };
+		B244B33C2948DD3E00E92915 /* Extension+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244B33B2948DD3E00E92915 /* Extension+NSObject.swift */; };
 		B27106BB294435E700403D75 /* StretchyTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27106BA294435E700403D75 /* StretchyTableViewHeader.swift */; };
 		B27FF2B32942D45B00371CD1 /* PrimaryButtonSmaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B22942D45B00371CD1 /* PrimaryButtonSmaller.swift */; };
 		B27FF2B62942D50300371CD1 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B52942D50300371CD1 /* MasterView.swift */; };
-		B27FF2B82942D52500371CD1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B72942D52500371CD1 /* PrimaryButton.swift */; };
 		B27FF2BA2942D6C000371CD1 /* PreviewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B92942D6C000371CD1 /* PreviewUI.swift */; };
 		B27FF2C92942DD8900371CD1 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B27FF2BD2942DD8800371CD1 /* Roboto-Medium.ttf */; };
 		B27FF2CA2942DD8900371CD1 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B27FF2BE2942DD8800371CD1 /* Roboto-Light.ttf */; };
@@ -26,10 +26,15 @@
 		B27FF2D22942DD8900371CD1 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B27FF2C62942DD8900371CD1 /* Roboto-Bold.ttf */; };
 		B27FF2D32942DD8900371CD1 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B27FF2C72942DD8900371CD1 /* Roboto-Thin.ttf */; };
 		B27FF2D42942DD8900371CD1 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B27FF2C82942DD8900371CD1 /* Roboto-Black.ttf */; };
-		B27FF2D62942E06900371CD1 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2D52942E06900371CD1 /* FontStyle.swift */; };
+		B28F027F294975200011B191 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F027E294975200011B191 /* CustomButton.swift */; };
+		B28F0281294978700011B191 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F0280294978700011B191 /* Extension+UIFont.swift */; };
+		B2A0FA832947490A00346E2E /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0FA822947490A00346E2E /* RoundedButton.swift */; };
+		B2A0FA85294761D200346E2E /* Extension+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0FA84294761D200346E2E /* Extension+CGPoint.swift */; };
+		B2AB6FD3294C931E009CE621 /* CommonButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AB6FD2294C931E009CE621 /* CommonButtons.swift */; };
 		B2ACB5422943364B002B2E03 /* MasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ACB5412943364B002B2E03 /* MasterButton.swift */; };
 		B2ACB54429433E15002B2E03 /* Extension+CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ACB54329433E15002B2E03 /* Extension+CGSize.swift */; };
 		B2B298BF293FB1970050FEF3 /* FeedImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B298BE293FB1970050FEF3 /* FeedImageCollectionViewCell.swift */; };
+		B2B3887029488ADF00DC9175 /* PrimaryButtonMedium.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B3886F29488ADF00DC9175 /* PrimaryButtonMedium.swift */; };
 		B2C0B07E293CC72800DB441B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0B07D293CC72800DB441B /* AppDelegate.swift */; };
 		B2C0B080293CC72800DB441B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0B07F293CC72800DB441B /* SceneDelegate.swift */; };
 		B2C0B082293CC72800DB441B /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0B081293CC72800DB441B /* MainTabBarViewController.swift */; };
@@ -43,6 +48,8 @@
 		B2C0B0A1293CD27A00DB441B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0B0A0293CD27A00DB441B /* Utilities.swift */; };
 		B2C0B0A3293CD2C900DB441B /* Dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0B0A2293CD2C900DB441B /* Dictionaries.swift */; };
 		B2C0B0A5293CD30500DB441B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0B0A4293CD30500DB441B /* Enums.swift */; };
+		B2E62AC72944E7C200FC7BE9 /* MasterButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E62AC62944E7C200FC7BE9 /* MasterButtonDelegate.swift */; };
+		B2E62AC92944FC3000FC7BE9 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E62AC82944FC3000FC7BE9 /* Extension+UIButton.swift */; };
 		B2EC91822941EEBA0099FD08 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91812941EEBA0099FD08 /* Extension+String.swift */; };
 		B2EC91842941F02A0099FD08 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91832941F02A0099FD08 /* Extension+UIImage.swift */; };
 		B2EC91862941F3E90099FD08 /* Extension+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91852941F3E90099FD08 /* Extension+TextField.swift */; };
@@ -61,10 +68,10 @@
 /* Begin PBXFileReference section */
 		B2358770294231DA001C8BB0 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		B235877229424611001C8BB0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B244B33B2948DD3E00E92915 /* Extension+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSObject.swift"; sourceTree = "<group>"; };
 		B27106BA294435E700403D75 /* StretchyTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyTableViewHeader.swift; sourceTree = "<group>"; };
 		B27FF2B22942D45B00371CD1 /* PrimaryButtonSmaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonSmaller.swift; sourceTree = "<group>"; };
 		B27FF2B52942D50300371CD1 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
-		B27FF2B72942D52500371CD1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		B27FF2B92942D6C000371CD1 /* PreviewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewUI.swift; sourceTree = "<group>"; };
 		B27FF2BD2942DD8800371CD1 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		B27FF2BE2942DD8800371CD1 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
@@ -78,10 +85,15 @@
 		B27FF2C62942DD8900371CD1 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		B27FF2C72942DD8900371CD1 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		B27FF2C82942DD8900371CD1 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
-		B27FF2D52942E06900371CD1 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
+		B28F027E294975200011B191 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B28F0280294978700011B191 /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
+		B2A0FA822947490A00346E2E /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		B2A0FA84294761D200346E2E /* Extension+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGPoint.swift"; sourceTree = "<group>"; };
+		B2AB6FD2294C931E009CE621 /* CommonButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButtons.swift; sourceTree = "<group>"; };
 		B2ACB5412943364B002B2E03 /* MasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterButton.swift; sourceTree = "<group>"; };
 		B2ACB54329433E15002B2E03 /* Extension+CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGSize.swift"; sourceTree = "<group>"; };
 		B2B298BE293FB1970050FEF3 /* FeedImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		B2B3886F29488ADF00DC9175 /* PrimaryButtonMedium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonMedium.swift; sourceTree = "<group>"; };
 		B2C0B07A293CC72800DB441B /* Mova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2C0B07D293CC72800DB441B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2C0B07F293CC72800DB441B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +109,8 @@
 		B2C0B0A0293CD27A00DB441B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B2C0B0A2293CD2C900DB441B /* Dictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionaries.swift; sourceTree = "<group>"; };
 		B2C0B0A4293CD30500DB441B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		B2E62AC62944E7C200FC7BE9 /* MasterButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterButtonDelegate.swift; sourceTree = "<group>"; };
+		B2E62AC82944FC3000FC7BE9 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		B2EC91812941EEBA0099FD08 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		B2EC91832941F02A0099FD08 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		B2EC91852941F3E90099FD08 /* Extension+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+TextField.swift"; sourceTree = "<group>"; };
@@ -142,7 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				B27FF2B22942D45B00371CD1 /* PrimaryButtonSmaller.swift */,
-				B27FF2B72942D52500371CD1 /* PrimaryButton.swift */,
+				B2A0FA822947490A00346E2E /* RoundedButton.swift */,
+				B2B3886F29488ADF00DC9175 /* PrimaryButtonMedium.swift */,
+				B2AB6FD2294C931E009CE621 /* CommonButtons.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -152,6 +168,7 @@
 			children = (
 				B27FF2B52942D50300371CD1 /* MasterView.swift */,
 				B2ACB5412943364B002B2E03 /* MasterButton.swift */,
+				B28F027E294975200011B191 /* CustomButton.swift */,
 			);
 			path = Master;
 			sourceTree = "<group>";
@@ -160,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				B27FF2BC2942DD8800371CD1 /* Roboto */,
-				B27FF2D52942E06900371CD1 /* FontStyle.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -198,6 +214,7 @@
 			children = (
 				B2C0B07C293CC72800DB441B /* Mova */,
 				B2C0B07B293CC72800DB441B /* Products */,
+				D32BD158EAA9B14B5D1415B4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -285,6 +302,14 @@
 			path = Styles;
 			sourceTree = "<group>";
 		};
+		B2E62AC52944E7B700FC7BE9 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B2E62AC62944E7C200FC7BE9 /* MasterButtonDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		B2EC917C2941D48C0099FD08 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +321,7 @@
 		B2EC917F2941EE890099FD08 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				B2E62AC52944E7B700FC7BE9 /* Delegate */,
 				B27FF2B42942D4D700371CD1 /* Master */,
 				B27FF2B02942D2B900371CD1 /* Components */,
 				B2EC91802941EE9A0099FD08 /* Extension */,
@@ -317,6 +343,10 @@
 				B2EC919729421A7C0099FD08 /* Extension+UIViewController.swift */,
 				B2EC919929421C430099FD08 /* Extension+NSCoding.swift */,
 				B2ACB54329433E15002B2E03 /* Extension+CGSize.swift */,
+				B2E62AC82944FC3000FC7BE9 /* Extension+UIButton.swift */,
+				B2A0FA84294761D200346E2E /* Extension+CGPoint.swift */,
+				B244B33B2948DD3E00E92915 /* Extension+NSObject.swift */,
+				B28F0280294978700011B191 /* Extension+UIFont.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -338,6 +368,13 @@
 				B27106BA294435E700403D75 /* StretchyTableViewHeader.swift */,
 			);
 			path = Header;
+			sourceTree = "<group>";
+		};
+		D32BD158EAA9B14B5D1415B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,28 +461,35 @@
 			files = (
 				B2C0B098293CCD9700DB441B /* ExploreViewController.swift in Sources */,
 				B2B298BF293FB1970050FEF3 /* FeedImageCollectionViewCell.swift in Sources */,
+				B2A0FA85294761D200346E2E /* Extension+CGPoint.swift in Sources */,
 				B27FF2B62942D50300371CD1 /* MasterView.swift in Sources */,
+				B2B3887029488ADF00DC9175 /* PrimaryButtonMedium.swift in Sources */,
 				B2C0B0A3293CD2C900DB441B /* Dictionaries.swift in Sources */,
 				B2C0B09A293CCDD100DB441B /* MyListViewController.swift in Sources */,
 				B2C0B082293CC72800DB441B /* MainTabBarViewController.swift in Sources */,
 				B2EC91842941F02A0099FD08 /* Extension+UIImage.swift in Sources */,
 				B2C0B09C293CCDE100DB441B /* DownloadViewController.swift in Sources */,
 				B2EC919A29421C430099FD08 /* Extension+NSCoding.swift in Sources */,
+				B244B33C2948DD3E00E92915 /* Extension+NSObject.swift in Sources */,
 				B2EC918C2941F7740099FD08 /* Extension+CAGradientLayer.swift in Sources */,
 				B2F93F4E293F6BF200C1B7E2 /* CollectionViewTableViewCell.swift in Sources */,
 				B2EC919829421A7C0099FD08 /* Extension+UIViewController.swift in Sources */,
 				B2C0B07E293CC72800DB441B /* AppDelegate.swift in Sources */,
+				B2E62AC72944E7C200FC7BE9 /* MasterButtonDelegate.swift in Sources */,
 				B2ACB54429433E15002B2E03 /* Extension+CGSize.swift in Sources */,
-				B27FF2D62942E06900371CD1 /* FontStyle.swift in Sources */,
+				B28F027F294975200011B191 /* CustomButton.swift in Sources */,
 				B235877329424611001C8BB0 /* BaseViewController.swift in Sources */,
+				B2E62AC92944FC3000FC7BE9 /* Extension+UIButton.swift in Sources */,
 				B2EC91882941F4F90099FD08 /* Extension+UIColor.swift in Sources */,
 				B2C0B09E293CCDF000DB441B /* ProfileViewController.swift in Sources */,
 				B2EC91862941F3E90099FD08 /* Extension+TextField.swift in Sources */,
 				B2358771294231DA001C8BB0 /* AppConfig.swift in Sources */,
 				B27FF2B32942D45B00371CD1 /* PrimaryButtonSmaller.swift in Sources */,
 				B2C0B0A1293CD27A00DB441B /* Utilities.swift in Sources */,
+				B28F0281294978700011B191 /* Extension+UIFont.swift in Sources */,
 				B2EC919C294227B00099FD08 /* FeedNewBannerHeader.swift in Sources */,
 				B2EC918A2941F6FE0099FD08 /* Extension+CGFloat.swift in Sources */,
+				B2AB6FD3294C931E009CE621 /* CommonButtons.swift in Sources */,
 				B2EC91822941EEBA0099FD08 /* Extension+String.swift in Sources */,
 				B2EC919429420FF80099FD08 /* AppManager.swift in Sources */,
 				B2C0B080293CC72800DB441B /* SceneDelegate.swift in Sources */,
@@ -454,8 +498,8 @@
 				B27106BB294435E700403D75 /* StretchyTableViewHeader.swift in Sources */,
 				B2ACB5422943364B002B2E03 /* MasterButton.swift in Sources */,
 				B2C0B0A5293CD30500DB441B /* Enums.swift in Sources */,
-				B27FF2B82942D52500371CD1 /* PrimaryButton.swift in Sources */,
 				B2EC91922941FEA60099FD08 /* AppTemplate.swift in Sources */,
+				B2A0FA832947490A00346E2E /* RoundedButton.swift in Sources */,
 				B2EC918E2941F8B40099FD08 /* Extension+UIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

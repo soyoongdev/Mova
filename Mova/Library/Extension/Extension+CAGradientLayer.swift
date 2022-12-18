@@ -6,3 +6,14 @@
 //
 
 import UIKit
+
+extension CAGradientLayer {
+    
+    static func addGradient(with colors: [Any]?, frame: CGRect) -> CAGradientLayer {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colors
+        gradientLayer.frame = frame
+        return gradientLayer
+    }
+    
+}

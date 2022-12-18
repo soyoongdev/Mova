@@ -7,7 +7,7 @@
 
 import UIKit
 
-public extension UIView {
+extension UIView {
     
     class func blurView(frame: CGRect) -> UIView {
         let effectView = UIVisualEffectView()
@@ -17,6 +17,18 @@ public extension UIView {
         effectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return effectView
     }
+    
+    func addDrawRadius(_ radius: CGFloat) {
+        self.layer.cornerRadius = radius
+        self.layer.borderWidth = 0.5
+        self.layer.masksToBounds = true
+        self.clipsToBounds = true
+        
+        self.layer.borderColor = UIColor.clear.cgColor
+    }
+}
+
+extension UIView {
     
     func setupConstraintLayout(superView viewController: UIViewController, isSafeAreaLayout: Bool = false) {
         self.translatesAutoresizingMaskIntoConstraints = false

@@ -88,8 +88,8 @@ class MainTabBarViewController: UITabBarController {
                          _ title: String) -> UITabBarItem {
         let tabBarItem = UITabBarItem()
         
-        tabBarItem.image = UIImage(named: iconNameUnSelected)?.resize(width: 22)
-        tabBarItem.selectedImage = UIImage(named: iconNameSelected)?.resize(width: 22)
+        tabBarItem.image = UIImage(named: iconNameUnSelected)?.resize(with: 22)
+        tabBarItem.selectedImage = UIImage(named: iconNameSelected)?.resize(with: 22)
         tabBarItem.title = title
         return tabBarItem
     }

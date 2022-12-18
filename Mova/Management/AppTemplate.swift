@@ -7,22 +7,9 @@
 
 import UIKit
 
+let appTemplate = AppTemplate.sharedInstance()
+
 class AppTemplate: NSObject {
-    
-    private var _setDarkMode: Bool = false
-    
-    var isDarkMode: Bool {
-        get {
-            return _setDarkMode
-        }
-        set {
-            self.isDarkMode = newValue
-        }
-    }
-    
-    func setChangeMode(mode: UIStatusBarStyle) {
-        _setDarkMode = (mode == .darkContent) ? true : false
-    }
     
     weak var primaryBackground: UIColor? {
         return UIColor(hex: "181A20")
@@ -32,9 +19,17 @@ class AppTemplate: NSObject {
         return UIColor(hex: "d91120")
     }
     
-    weak var textColor: UIColor? {
-        return self.isDarkMode ? .yellow : .brown
-    }
+    var textFieldColor: ColorState? = {
+        return ColorState(active: .white.withAlphaComponent(0.8), deactive: .white)
+    }()
+    
+    var textButtonColor: ColorState? = {
+        return ColorState(active: .white.withAlphaComponent(0.8), deactive: .white)
+    }()
+    
+    var textButtonColorSelected: UIColor? = {
+        return .white.withAlphaComponent(0.8)
+    }()
     
     weak var textPlaceHolderLight: UIColor? {
         return UIColor(hex: "9c9c9f")
@@ -49,10 +44,14 @@ class AppTemplate: NSObject {
 // MARK: - Extension
 extension AppTemplate {
     
-    class var shared: AppTemplate {
-        get {
-            return AppTemplate()
+    private static var instance: AppConfig!
+    
+    public class func sharedInstance() -> AppConfig {
+        if(self.instance == nil)
+        {
+            self.instance = AppConfig()
         }
+        return self.instance
     }
     
 }

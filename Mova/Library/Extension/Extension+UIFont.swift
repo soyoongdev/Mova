@@ -1,28 +1,29 @@
 //
-//  FontStyle.swift
+//  Extension+UIFont.swift
 //  Mova
 //
-//  Created by HauNguyen on 09/12/2565 BE.
+//  Created by HauNguyen on 14/12/2565 BE.
 //
 
 import UIKit
 
-
 extension UIFont {
     
-    /// Regular
+    // Regular
     public static func regular(size: CGFloat) -> UIFont? {
-        return UIFont(name: FontType.robotoRegular.rawValue, size: size)
+        return UIFont(name: FontFamily.robotoRegular.rawValue, size: size)
     }
     
+    // Optional regular
+    public static func regular(size: CGFloat? = 0) -> UIFont? {
+        return UIFont(name: FontFamily.robotoRegular.rawValue, size: size!)
+    }
 }
 
 
 extension UIFont {
     
-    static var fontType: FontType!
-    
-    enum FontType : String {
+    enum FontFamily : String {
         case robotoRegular = "Roboto-Regular"
         case robotoBold = "Roboto-Bold"
         case robotoBoldItalic = "Roboto-BoldItalic"
