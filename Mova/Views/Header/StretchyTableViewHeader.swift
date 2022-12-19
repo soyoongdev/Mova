@@ -20,8 +20,7 @@ class StretchyTableViewHeader: MasterView {
     private var buttonPlay: PrimaryButtonSmaller = {
         let button = PrimaryButtonSmaller()
         
-        button.setBackground(color: .red, for: .selected)
-//        button.setBackground(color: .black, for: .selected)
+        button.setBackground(color: .red, for: .normal)
         button.setTitle("Play")
         button.setImageIcon(image: UIImage(named: "play-fill"), for: .normal)
         
@@ -33,7 +32,7 @@ class StretchyTableViewHeader: MasterView {
         
         button.setTitle("My List")
         button.setImageIcon(image: UIImage(named: "add"), for: .normal)
-        button.setButtonStyle(type: .small, backgroundType: .outline)
+        button.setBackgroundType(type: .outline)
         
         return button
     }()

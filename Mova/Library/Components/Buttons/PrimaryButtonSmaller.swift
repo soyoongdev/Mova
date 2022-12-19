@@ -13,7 +13,8 @@ class PrimaryButtonSmaller: MasterButton, MasterButtonDelegate {
     override func setupViews() {
         super.setupViews()
         
-        self.setButtonStyle(type: .small, backgroundType: .fill)
+        self.setBackgroundType(type: .fill)
+        self.setButtonStyle(style: .small)
         
     }
 

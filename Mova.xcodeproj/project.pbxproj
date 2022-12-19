@@ -61,7 +61,6 @@
 		B2EC919429420FF80099FD08 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC919329420FF80099FD08 /* AppManager.swift */; };
 		B2EC919829421A7C0099FD08 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC919729421A7C0099FD08 /* Extension+UIViewController.swift */; };
 		B2EC919A29421C430099FD08 /* Extension+NSCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC919929421C430099FD08 /* Extension+NSCoding.swift */; };
-		B2EC919C294227B00099FD08 /* FeedNewBannerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC919B294227B00099FD08 /* FeedNewBannerHeader.swift */; };
 		B2F93F4E293F6BF200C1B7E2 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F93F4D293F6BF200C1B7E2 /* CollectionViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -122,7 +121,6 @@
 		B2EC919329420FF80099FD08 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		B2EC919729421A7C0099FD08 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		B2EC919929421C430099FD08 /* Extension+NSCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSCoding.swift"; sourceTree = "<group>"; };
-		B2EC919B294227B00099FD08 /* FeedNewBannerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewBannerHeader.swift; sourceTree = "<group>"; };
 		B2F93F4D293F6BF200C1B7E2 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -364,7 +362,6 @@
 		B2EC919D294227B60099FD08 /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				B2EC919B294227B00099FD08 /* FeedNewBannerHeader.swift */,
 				B27106BA294435E700403D75 /* StretchyTableViewHeader.swift */,
 			);
 			path = Header;
@@ -487,7 +484,6 @@
 				B27FF2B32942D45B00371CD1 /* PrimaryButtonSmaller.swift in Sources */,
 				B2C0B0A1293CD27A00DB441B /* Utilities.swift in Sources */,
 				B28F0281294978700011B191 /* Extension+UIFont.swift in Sources */,
-				B2EC919C294227B00099FD08 /* FeedNewBannerHeader.swift in Sources */,
 				B2EC918A2941F6FE0099FD08 /* Extension+CGFloat.swift in Sources */,
 				B2AB6FD3294C931E009CE621 /* CommonButtons.swift in Sources */,
 				B2EC91822941EEBA0099FD08 /* Extension+String.swift in Sources */,
