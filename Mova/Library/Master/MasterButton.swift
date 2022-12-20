@@ -129,15 +129,15 @@ class MasterButton: UIButton {
         
         switch style {
         case .small: // 8
-            spacePadding = 4
+            spacePadding = 8
             cornerRadius = 16
             insets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         case .medium: // 10
-            spacePadding = 8
+            spacePadding = 10
             cornerRadius = 27
             insets = UIEdgeInsets(top: 10, left: 18, bottom: 10, right: 18)
         default: // 14
-            spacePadding = 8
+            spacePadding = 10
             cornerRadius = 16
             insets = UIEdgeInsets(top: 14, left: 28, bottom: 14, right: 28)
         }
@@ -146,8 +146,8 @@ class MasterButton: UIButton {
         self.layer.cornerRadius = cornerRadius
     }
     
-    func setTitle(_ title: String, color: UIColor? = .textButtonColor?.deactive, fontSize: CGFloat? = .small) {
-        self.titleLabel?.font = .regular(size: 14)
+    func setTitle(_ title: String? = "", color: UIColor? = .textButtonColor?.deactive, fontSize: CGFloat? = .small) {
+        self.titleLabel?.font = .regular(size: .small)
         self.setTitle(title, for: .normal)
         self.setTitleColor(color, for: .normal)
         self.titleLabel?.lineBreakMode = .byWordWrapping

@@ -43,7 +43,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
     
     private func setupLayouts() {
-        self.collectionView.setupConstraintLayout(superView: self.contentView)
+        self.collectionView.setupLayoutConstraint(superView: self.contentView)
     }
 
 }

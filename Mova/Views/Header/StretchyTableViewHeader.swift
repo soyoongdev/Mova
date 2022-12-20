@@ -14,6 +14,7 @@ class StretchyTableViewHeader: MasterView {
         let image = UIImageView(frame: .zero)
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
+        image.image = UIImage(named: "mountain")
         return image
     }()
     

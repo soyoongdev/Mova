@@ -15,6 +15,7 @@ class PrimaryButtonSmaller: MasterButton, MasterButtonDelegate {
         
         self.setBackgroundType(type: .fill)
         self.setButtonStyle(style: .small)
+        self.setTitle(color: .textColor, fontSize: .small)
         
     }
 

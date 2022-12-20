@@ -49,12 +49,40 @@ extension [UIColor] {
 
 // Make extension for app template
 extension UIColor {
-    private static var template: AppTemplate {
-        return AppTemplate()
+    
+    /// Unified background color for dark interface
+    static var primaryBackground: UIColor? {
+        return UIColor(hex: "181A20")
     }
     
-    static var textButtonColor: ColorState? {
-        return template.textButtonColor
+    /// Main color of the app
+    static var primaryRed: UIColor? {
+        return UIColor(hex: "D91120")
+    }
+    
+    /// Text color for buttons or titles using a light color (equivalent to default white)
+    static var textColor: UIColor? {
+        return UIColor(hex: "FFFFFF")
+    }
+    
+    /// Color used exclusively for buttons through states
+    static var textButtonColor: ColorState? = {
+        return ColorState(active: .white.withAlphaComponent(0.8), deactive: .white)
+    }()
+    
+    /// Placeholder color for text field is brighter
+    static var textPlaceholderLight: UIColor? {
+        return UIColor(hex: "9C9C9F")
+    }
+    
+    /// Dark gray
+    static var grayDark: UIColor? {
+        return UIColor(hex: "35383F")
+    }
+    
+    /// Light gray
+    static var grayLight: UIColor? {
+        return UIColor(hex: "B4B5B7")
     }
     
 }

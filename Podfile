@@ -6,5 +6,6 @@ target 'Mova' do
   use_frameworks!
 
   # Pods for Mova
+pod 'Alamofire'
 
 end

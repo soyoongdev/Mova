@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 func generateRandomData() -> [[UIColor]] {
     let numberOfRows = 20
@@ -43,8 +44,7 @@ class HomeViewController: BaseViewController {
         self.homeFeedTableView.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         
         // Header
-        let headerView = StretchyTableViewHeader(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: CGFloat(350).relativeToIphone8Height())))
-        headerView.imageView.image = UIImage(named: "mountain")
+        let headerView = HomeViewHeader(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: CGFloat(350).relativeToIphone8Height())))
         self.homeFeedTableView.tableHeaderView = headerView
     }
     
@@ -54,7 +54,7 @@ class HomeViewController: BaseViewController {
     }
     
     private func setupLayouts() {
-        self.homeFeedTableView.setupConstraintLayout(superView: self)
+        self.homeFeedTableView.setupLayoutConstraint(superView: self)
     }
     
 }
@@ -90,11 +90,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeViewController: UIScrollViewDelegate {
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let header = self.homeFeedTableView.tableHeaderView as? StretchyTableViewHeader else { return }
-        
-        header.scrollViewDidScroll(scrollView: self.homeFeedTableView)
+        guard let header = self.homeFeedTableView.tableHeaderView as? HomeViewHeader else { return }
+
+        header.stretchyHeader.scrollViewDidScroll(scrollView: self.homeFeedTableView)
+//        header.scrollViewDidScroll(scrollView: self.homeFeedTableView)
     }
-    
+
+}
+
+struct HomeViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewUIViewController(viewController: HomeViewController())
+    }
 }
