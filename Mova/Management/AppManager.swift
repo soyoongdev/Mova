@@ -13,17 +13,13 @@ import UIKit
  */
 public class AppManager: NSObject {
     
-    
+    static let shared: AppManager = AppManager()
     
 }
 
 
 extension AppManager {
     
-    class var shared: AppManager {
-        get {
-            return AppManager()
-        }
-    }
+    
     
 }

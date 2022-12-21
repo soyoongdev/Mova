@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (5.6.4)
+  - Codextended (0.3.0)
 
 DEPENDENCIES:
   - Alamofire
+  - Codextended
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Codextended
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Codextended: f384271b8694376ad766ddbf2a011efbfdcee905
 
-PODFILE CHECKSUM: 1bf5d9500c02c1211964b2048bfa5863007b975a
+PODFILE CHECKSUM: 96ffd7ceae4dff74add6d3710b919c5b6397f15a
 
 COCOAPODS: 1.11.3

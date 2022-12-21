@@ -66,3 +66,11 @@ extension DirectionPoint: RawRepresentable {
         }
     }
 }
+
+
+/// Enum error call API
+enum RequestAPIWithError: String, Error {
+    case FailedTogetData = "Failed to get data."
+    case NoInternetConnection = "Internet connection not available."
+    case FailedToConvertData = "Failed to convert data model."
+}

@@ -267,7 +267,7 @@ extension MasterButton {
             self.layerProgress(normal: self.backgroundNormal, selected: self.backgroundSelected, for: .active)
             self.alpha = 0.8
             self.tintColor = .white
-        }
+        }        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

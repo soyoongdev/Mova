@@ -7,9 +7,16 @@
 
 import UIKit
 
-struct BaseURL {
-    static let baseUrl = "https://api.themoviedb.org"
-    static let api_key = "697d439ac993538da4e3e60b54e762cd"
-    static let youtube_api_key = "AIzaSyDqX8axTGeNpXRiISTGL7Tya7fjKJDYi4g"
-    static let youtubeBaseUrl = "https://youtube.googleapis.com/youtube/v3/search?"
+class BaseURL: NSObject {
+    
+    static let shared = BaseURL()
+    
+    let baseUrl: String = "https://api.themoviedb.org/3/"
+    
+    let apiKey: String = "697d439ac993538da4e3e60b54e762cd"
+    
+    var requestToken: String = "697d439ac993538da4e3e60b54e762cd"
+    
+    var guestSessionId: String = "697d439ac993538da4e3e60b54e762cd"
+    
 }

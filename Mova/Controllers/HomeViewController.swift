@@ -35,6 +35,16 @@ class HomeViewController: BaseViewController {
         self.configNavigation()
         self.setupViews()
         self.setupLayouts()
+        APICaller.shared.getTrendingMovies { response in
+            switch response {
+            case .success(let data):
+                print("Success: \(data)")
+                break
+            case .failure(let error):
+                print("Failure: \(error.localizedDescription)")
+                break
+            }
+        }
     }
     
     private func setupViews() {
@@ -64,6 +74,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 20
     }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "\(section)"
     }

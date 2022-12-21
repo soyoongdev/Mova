@@ -14,9 +14,9 @@ import UIKit
  configuration permissions to access user location,
  screenshots, v.v..
  */
-let appConfig = AppConfig.sharedInstance()
-
 public class AppConfig: NSObject {
+    
+    static let shared: AppConfig = AppConfig()
     
     var isDarkMode: Bool {
         get {
@@ -34,19 +34,17 @@ public class AppConfig: NSObject {
         }
     }
     
+    
+    func checkConnectionActivity() {
+        
+    }
+    
+    var isNetworkConnected: Bool = false
+    
 }
 
 // MARK: - Extension
 extension AppConfig {
     
-    private static var instance: AppConfig!
-    
-    public class func sharedInstance() -> AppConfig {
-        if(self.instance == nil)
-        {
-            self.instance = AppConfig()
-        }
-        return self.instance
-    }
     
 }
