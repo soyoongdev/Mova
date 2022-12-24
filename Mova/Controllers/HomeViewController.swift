@@ -51,7 +51,7 @@ class HomeViewController: BaseViewController {
     }
     
     @objc private func reloadData() {
-        APICaller.shared.Changes(type: .movie) { data in
+        APICaller.shared.getChanges(type: .movie) { data in
             print("\(data)")
         }
     }

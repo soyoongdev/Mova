@@ -76,3 +76,13 @@ struct TranslationsResponse: Codable, Equatable {
     var id: Int
     var translations: [Translation]
 }
+
+struct TimeZones: Codable {
+    var countryCode: String?
+    var zones: [String]?
+    
+    enum CodingKeys: String, CodingKey {
+        case countryCode = "iso_3166_1"
+        case zones
+    }
+}

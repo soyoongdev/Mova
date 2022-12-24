@@ -9,7 +9,7 @@ import Foundation
 
 extension APICaller {
     
-    func Changes(type: ListType, page: Int? = 1, startDate: String? = Date().now(), endDate: String? = Date().now(), completion: @escaping (PagedResults<[Movie]>) -> Void) {
+    func getChanges(type: ListType, page: Int? = 1, startDate: String? = Date().now(), endDate: String? = Date().now(), completion: @escaping (PagedResults<[Movie]>) -> Void) {
 
         var parameters: [String: AnyObject] = [:]
 

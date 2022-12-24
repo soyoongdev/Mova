@@ -62,3 +62,9 @@ struct CertificationResponse: Codable {
         case _ca_qc = "CA-QC"
     }
 }
+
+struct CertificationInfomation: Codable {
+    var certification: String
+    var meaning: String
+    var order: Int
+}
