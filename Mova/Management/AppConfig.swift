@@ -7,39 +7,60 @@
 
 import UIKit
 
-/**
- The goal is to create this class to use for managing app configurations such as:
- device rotation,
- light and dark modes,
- configuration permissions to access user location,
- screenshots, v.v..
- */
+/// This class is used for server-related application configuration management.
 public class AppConfig: NSObject {
     
     static let shared: AppConfig = AppConfig()
     
-    var isDarkMode: Bool {
+    /// Host base url
+    let hostUrl: String = "https://api.themoviedb.org/3/"
+    
+    /// API key
+    var apiKey: String {
         get {
-            return _isDarkMode
+            return "bf4a7ffbc42719abb1793459cdd854e4"
+        }
+        set {
+            _ = newValue
         }
     }
     
-    private var _isDarkMode: Bool = false
+    // MARK: - Authentication
     
-    func setDarkLightMode(style: UIUserInterfaceStyle) {
-        if style == .dark {
-            self._isDarkMode = true
-        } else {
-            self._isDarkMode = false
+    /// Token value
+    var userRequestToken: String {
+        get {
+            return UserDefaults.standard.string(forKey: "request_token") ?? ""
         }
     }
     
-    
-    func checkConnectionActivity() {
-        
+    /// Session id
+    var userSessionId: String {
+        get {
+            return UserDefaults.standard.string(forKey: "session_id") ?? ""
+        }
     }
     
-    var isNetworkConnected: Bool = false
+    /// Guest Session id
+    var userGuestSessionId: String {
+        get {
+            return UserDefaults.standard.string(forKey: "guest_session_id") ?? ""
+        }
+    }
+    
+    /// Username of User
+    var userUsername: String {
+        get {
+            return UserDefaults.standard.string(forKey: "username") ?? ""
+        }
+    }
+    
+    /// Password of User
+    var userPassword: String {
+        get {
+            return UserDefaults.standard.string(forKey: "password") ?? ""
+        }
+    }
     
 }
 

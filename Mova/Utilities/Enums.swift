@@ -70,7 +70,9 @@ extension DirectionPoint: RawRepresentable {
 
 /// Enum error call API
 enum RequestAPIWithError: String, Error {
+    case CannotConvertDataToJsonObject = "Cannot convert data to json object."
     case FailedTogetData = "Failed to get data."
     case NoInternetConnection = "Internet connection not available."
     case FailedToConvertData = "Failed to convert data model."
+    case CannotDecodeJsonObject = "Cannot decode json object as T."
 }

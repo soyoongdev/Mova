@@ -8,21 +8,10 @@
 import UIKit
 import SwiftUI
 
-func generateRandomData() -> [[UIColor]] {
-    let numberOfRows = 20
-    let numberOfItemsPerRow = 15
-
-    return (0..<numberOfRows).map { _ in
-        return (0..<numberOfItemsPerRow).map { _ in UIColor.random() }
-    }
-}
 
 class HomeViewController: BaseViewController {
     
     // MARK: - Variables
-    public let models = generateRandomData()
-    
-    private var storedOffsets = [Int: CGFloat]()
     
     private let homeFeedTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -35,16 +24,7 @@ class HomeViewController: BaseViewController {
         self.configNavigation()
         self.setupViews()
         self.setupLayouts()
-        APICaller.shared.getTrendingMovies { response in
-            switch response {
-            case .success(let data):
-                print("Success: \(data)")
-                break
-            case .failure(let error):
-                print("Failure: \(error.localizedDescription)")
-                break
-            }
-        }
+        self.reloadData()
     }
     
     private func setupViews() {
@@ -56,6 +36,9 @@ class HomeViewController: BaseViewController {
         // Header
         let headerView = HomeViewHeader(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: CGFloat(350).relativeToIphone8Height())))
         self.homeFeedTableView.tableHeaderView = headerView
+        
+        // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
+        self.homeFeedTableView.refreshControl?.addTarget(self, action: #selector(self.reloadData), for: .valueChanged)
     }
     
     // Config navigation
@@ -65,6 +48,12 @@ class HomeViewController: BaseViewController {
     
     private func setupLayouts() {
         self.homeFeedTableView.setupLayoutConstraint(superView: self)
+    }
+    
+    @objc private func reloadData() {
+        APICaller.shared.certification(listType: .movie) { data in
+            print("\(data)")
+        }
     }
     
 }
@@ -106,7 +95,6 @@ extension HomeViewController: UIScrollViewDelegate {
         guard let header = self.homeFeedTableView.tableHeaderView as? HomeViewHeader else { return }
 
         header.stretchyHeader.scrollViewDidScroll(scrollView: self.homeFeedTableView)
-//        header.scrollViewDidScroll(scrollView: self.homeFeedTableView)
     }
 
 }
