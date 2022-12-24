@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3F0353D4D1D052DFC97F011D /* Pods_Mova.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A964553CCF0F64672A831E9 /* Pods_Mova.framework */; };
+		B22E3ABE2956D10000C3897E /* APICaller+Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E3ABD2956D10000C3897E /* APICaller+Changes.swift */; };
+		B22E3AC02956E0B800C3897E /* ResultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E3ABF2956E0B800C3897E /* ResultWrapper.swift */; };
+		B22E3AC22956EF3400C3897E /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E3AC12956EF3400C3897E /* Extension+Date.swift */; };
 		B2358771294231DA001C8BB0 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2358770294231DA001C8BB0 /* AppConfig.swift */; };
 		B235877329424611001C8BB0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B235877229424611001C8BB0 /* BaseViewController.swift */; };
 		B23EB7682950122000940D50 /* StretchyHeaderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EB7672950122000940D50 /* StretchyHeaderImageView.swift */; };
@@ -108,6 +111,9 @@
 /* Begin PBXFileReference section */
 		4A964553CCF0F64672A831E9 /* Pods_Mova.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mova.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC664F0DEEBE097E3537158 /* Pods-Mova.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mova.debug.xcconfig"; path = "Target Support Files/Pods-Mova/Pods-Mova.debug.xcconfig"; sourceTree = "<group>"; };
+		B22E3ABD2956D10000C3897E /* APICaller+Changes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Changes.swift"; sourceTree = "<group>"; };
+		B22E3ABF2956E0B800C3897E /* ResultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWrapper.swift; sourceTree = "<group>"; };
+		B22E3AC12956EF3400C3897E /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		B2358770294231DA001C8BB0 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		B235877229424611001C8BB0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B23EB7672950122000940D50 /* StretchyHeaderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyHeaderImageView.swift; sourceTree = "<group>"; };
@@ -315,6 +321,8 @@
 				B2927CE12953543800DB1975 /* Certifications */,
 				B2927CD22953430000DB1975 /* Authentication */,
 				B2927CDD2953479300DB1975 /* StatusResponse.swift */,
+				B2927CAC2952DD4B00DB1975 /* PagedResults.swift */,
+				B22E3ABF2956E0B800C3897E /* ResultWrapper.swift */,
 			);
 			path = ServerResponse;
 			sourceTree = "<group>";
@@ -426,7 +434,6 @@
 				B2927CB02952DD4B00DB1975 /* Language.swift */,
 				B2927CA62952DD4A00DB1975 /* List.swift */,
 				B2927CAB2952DD4B00DB1975 /* Movie.swift */,
-				B2927CAC2952DD4B00DB1975 /* PagedResults.swift */,
 				B2927CA32952DD4A00DB1975 /* Release.swift */,
 				B2927CAE2952DD4B00DB1975 /* ReleaseType.swift */,
 				B2927CB12952DD4B00DB1975 /* Review.swift */,
@@ -464,6 +471,7 @@
 			children = (
 				B2927CA02952DCCE00DB1975 /* APICaller+Authentication.swift */,
 				B2927CDF295353F900DB1975 /* APICaller+Certification.swift */,
+				B22E3ABD2956D10000C3897E /* APICaller+Changes.swift */,
 			);
 			path = ServerRequest;
 			sourceTree = "<group>";
@@ -526,6 +534,7 @@
 				B2D2B51F2951CDDF00EC39F5 /* Extension+Dictionary.swift */,
 				B2D2B5232951FEF000EC39F5 /* Extension+Data.swift */,
 				B2D2B5252951FF4300EC39F5 /* Extension+Codable.swift */,
+				B22E3AC12956EF3400C3897E /* Extension+Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -693,10 +702,12 @@
 				B2B3887029488ADF00DC9175 /* PrimaryButtonMedium.swift in Sources */,
 				B2C0B0A3293CD2C900DB441B /* Dictionaries.swift in Sources */,
 				B2C0B09A293CCDD100DB441B /* MyListViewController.swift in Sources */,
+				B22E3AC22956EF3400C3897E /* Extension+Date.swift in Sources */,
 				B2C0B082293CC72800DB441B /* MainTabBarViewController.swift in Sources */,
 				B2EC91842941F02A0099FD08 /* Extension+UIImage.swift in Sources */,
 				B2C0B09C293CCDE100DB441B /* DownloadViewController.swift in Sources */,
 				B2927CBD2952DD4B00DB1975 /* Translation.swift in Sources */,
+				B22E3AC02956E0B800C3897E /* ResultWrapper.swift in Sources */,
 				B2927CCD2952DD4B00DB1975 /* Video.swift in Sources */,
 				B2927CC92952DD4B00DB1975 /* Review.swift in Sources */,
 				B2927C9F2952DB9000DB1975 /* Client.swift in Sources */,
@@ -733,6 +744,7 @@
 				B2EC91862941F3E90099FD08 /* Extension+TextField.swift in Sources */,
 				B2927CC02952DD4B00DB1975 /* Keyword.swift in Sources */,
 				B2927CC62952DD4B00DB1975 /* ReleaseType.swift in Sources */,
+				B22E3ABE2956D10000C3897E /* APICaller+Changes.swift in Sources */,
 				B2927CBF2952DD4B00DB1975 /* Author.swift in Sources */,
 				B2927CBA2952DD4B00DB1975 /* Image.swift in Sources */,
 				B2927CC42952DD4B00DB1975 /* PagedResults.swift in Sources */,

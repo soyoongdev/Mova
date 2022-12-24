@@ -74,6 +74,11 @@ public struct Movie: Codable, Equatable {
     public var voteAverage: Double?
     /// The total number of user ratings.
     public var voteCount: Int?
+    
+    public init(id: Int, adult: Bool? = nil) {
+        self.id = id
+        self.adult = adult
+    }
 
     public init(id: Int,
                 adult: Bool? = nil,

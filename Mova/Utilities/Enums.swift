@@ -76,3 +76,10 @@ enum RequestAPIWithError: String, Error {
     case FailedToConvertData = "Failed to convert data model."
     case CannotDecodeJsonObject = "Cannot decode json object as T."
 }
+
+/// The Movie type
+enum ListType: String {
+    case movie = "movie"
+    case tv = "tv"
+    case person = "person"
+}
