@@ -38,14 +38,14 @@ extension APICaller {
     }
     
     func getPrimaryTranslationConfiguration(completion: @escaping (_ array:[String]) -> Void) {
-        let url = appConfig.hostUrl + "configuration/languages"
+        let url = appConfig.hostUrl + "configuration/primary_translations"
         appService.requestAPI(url: url, method: .get, objectType: [String].self) { isSuccess, data, statusCode in
             completion(data as! [String])
         }
     }
     
     func getTimeZonesConfiguration(completion: @escaping (TimeZones) -> Void) {
-        let url = appConfig.hostUrl + "configuration/languages"
+        let url = appConfig.hostUrl + "configuration/timezones"
         appService.requestAPI(url: url, method: .get, objectType: TimeZones.self) { isSuccess, data, statusCode in
             completion(data as! TimeZones)
         }
