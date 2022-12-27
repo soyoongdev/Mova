@@ -38,12 +38,22 @@ extension UIView {
         self.bottomAnchor.constraint(equalTo: isSafeAreaLayout ? viewController.view.safeAreaLayoutGuide.bottomAnchor : viewController.view.bottomAnchor).isActive = true
     }
     
-    func setupLayoutConstraint(superView view: UIView, isSafeAreaLayout: Bool = false) {
+    func setupLayoutConstraint(_ view: UIView, isSafeAreaLayout: Bool = false) {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.topAnchor.constraint(equalTo: isSafeAreaLayout ? view.safeAreaLayoutGuide.topAnchor : view.topAnchor).isActive = true
         self.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         self.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         self.bottomAnchor.constraint(equalTo: isSafeAreaLayout ? view.safeAreaLayoutGuide.bottomAnchor : view.bottomAnchor).isActive = true
+    }
+    
+    func setupLayoutConstraintWithCenter(_ view: UIView, isCenterXAnchor: Bool? = false, isCenterYAnchor: Bool? = false, isSafeAreaLayout: Bool? = false) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        if isCenterXAnchor! == true {
+            self.centerXAnchor.constraint(equalTo: (isSafeAreaLayout! == true) ? view.safeAreaLayoutGuide.centerXAnchor : view.centerXAnchor).isActive = true
+        }
+        if isCenterYAnchor! == true {
+            self.centerYAnchor.constraint(equalTo: (isSafeAreaLayout! == true) ? view.safeAreaLayoutGuide.centerYAnchor : view.centerYAnchor).isActive = true
+        }
     }
     
     func setupLayoutConstraint(attributes: [NSLayoutConstraint.Attribute], layoutMargins: UIEdgeInsets? = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), superView view: UIView, isSafeAreaLayout: Bool = false) {

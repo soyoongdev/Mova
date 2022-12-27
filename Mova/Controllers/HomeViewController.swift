@@ -17,10 +17,11 @@ class HomeViewController: BaseViewController {
         let tableView = UITableView(frame: .zero, style: .grouped)
         return tableView
     }()
+    
+    private let homeViewHeader: HomeViewHeader = HomeViewHeader()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBackground
         self.configNavigation()
         self.setupViews()
         self.setupLayouts()
@@ -34,8 +35,8 @@ class HomeViewController: BaseViewController {
         self.homeFeedTableView.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         
         // Header
-        let headerView = HomeViewHeader(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: CGFloat(350).relativeToIphone8Height())))
-        self.homeFeedTableView.tableHeaderView = headerView
+        self.homeViewHeader.frame = .init(origin: self.view.bounds.origin, size: .init(width: self.view.bounds.width, height: CGFloat(350).relativeToIphone8Height()))
+        self.homeFeedTableView.tableHeaderView = self.homeViewHeader
         
         // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
         self.homeFeedTableView.refreshControl?.addTarget(self, action: #selector(self.reloadData), for: .valueChanged)
@@ -51,14 +52,23 @@ class HomeViewController: BaseViewController {
     }
     
     @objc private func reloadData() {
-        APICaller.shared.getChanges(type: .movie) { data in
-            print("\(data)")
-        }
+//        APICaller.shared.getChanges(type: .movie) { data in
+//            print("\(data)")
+//        }
     }
     
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        
+        header.textLabel?.font = .medium(size: 18)
+        header.textLabel?.frame = CGRect(origin: header.bounds.origin, size: .init(width: 100, height: header.bounds.height))
+        header.textLabel?.textColor = .textColor
+        header.textLabel?.text = header.textLabel?.text?.lowercased()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 20
@@ -76,7 +86,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
-        
         return cell
     }
     
@@ -85,7 +94,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        let cell = CollectionViewTableViewCell()
+        
+        return cell.bounds.height * 5
     }
 }
 

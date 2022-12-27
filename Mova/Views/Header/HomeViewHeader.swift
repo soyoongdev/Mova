@@ -96,7 +96,7 @@ class HomeViewHeader: UIView {
     }
     
     private func setupLayouts() {
-        self.stretchyHeader.setupLayoutConstraint(superView: self)
+        self.stretchyHeader.setupLayoutConstraint(self)
         
         self.vStack.translatesAutoresizingMaskIntoConstraints = false
         self.vStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true

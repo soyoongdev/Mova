@@ -43,7 +43,7 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
     
     private func setupLayouts() {
-        self.collectionView.setupLayoutConstraint(superView: self.contentView)
+        self.collectionView.setupLayoutConstraint(self.contentView)
     }
 
 }
@@ -68,3 +68,13 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     }
     
 }
+
+
+import SwiftUI
+
+struct CollectionViewTableViewCell_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewUIViewController(viewController: HomeViewController())
+    }
+}
+
