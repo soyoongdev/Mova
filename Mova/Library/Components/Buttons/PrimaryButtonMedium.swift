@@ -7,14 +7,14 @@
 
 import UIKit
 
-class PrimaryButtonMedium: UIButton {
+class PrimaryButtonMedium: MasterButton, MasterButtonDelegate {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override func setupViews() {
+        super.setupViews()
+        
+        self.setBackgroundType(type: .fill)
+        self.setButtonStyle(style: .medium)
+        self.setTitle(color: .textColor, font: .bold(size: .medium))
     }
-    */
 
 }

@@ -15,14 +15,8 @@ class PrimaryButtonSmaller: MasterButton, MasterButtonDelegate {
         
         self.setBackgroundType(type: .fill)
         self.setButtonStyle(style: .small)
-        self.setTitle(color: .textColor, fontSize: .small)
+        self.setTitle(color: .textColor, font: .regular(size: .small))
         
     }
-
-}
-
-struct PrimaryButtonSmaller_Previews: PreviewProvider {
-    static var previews: some View {
-        PreviewUIViewController(viewController: HomeViewController())
-    }
+    
 }

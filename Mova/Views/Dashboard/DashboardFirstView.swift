@@ -8,7 +8,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-class DashboardView: UIView {
+class DashboardFirstView: UIView {
     
     private var logoImage: UIImageView = {
         let imageView = UIImageView()
@@ -69,7 +69,7 @@ import SwiftUI
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewUIView(view: DashboardView())
+        PreviewUIView(view: DashboardFirstView())
     }
 }
 

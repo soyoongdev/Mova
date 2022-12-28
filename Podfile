@@ -7,7 +7,8 @@ target 'Mova' do
 
   # Pods for Mova
 pod 'Alamofire'
-pod "Codextended"
+pod 'Codextended'
 pod 'NVActivityIndicatorView'
+pod 'CHIPageControl/Aleppo'
 
 end

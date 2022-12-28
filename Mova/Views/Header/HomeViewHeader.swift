@@ -19,14 +19,14 @@ class HomeViewHeader: UIView {
     private let buttonPlay: PrimaryButtonSmaller = {
         let button = PrimaryButtonSmaller()
         button.setBackground(color: .red, for: .normal)
-        button.setTitle("Play")
+        button.setTitle(title: "Play")
         button.setImageIcon(image: UIImage(named: "play-fill"), for: .normal)
         return button
     }()
     
     private let buttonList: PrimaryButtonSmaller = {
         let button = PrimaryButtonSmaller()
-        button.setTitle("My List")
+        button.setTitle(title: "My List")
         button.setImageIcon(image: UIImage(named: "add"), for: .normal)
         button.setBackgroundType(type: .outline)
         return button
@@ -36,7 +36,7 @@ class HomeViewHeader: UIView {
         let title = UILabel()
         
         title.text = "Dr.Strange 2"
-        title.font = .bold(size: .superLarger)
+        title.font = .bold(size: .extra34)
         title.textColor = .textColor
         
         return title

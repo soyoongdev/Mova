@@ -8,22 +8,37 @@
 import UIKit
 
 class DashboardViewController: UIViewController {
+    
+    private let numberOfPages = 4
+    
+    private let firstView: DashboardFirstView = {
+        let view = DashboardFirstView()
+        
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.setupFirstStartView()
+        self.setupIntroPageView()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupFirstStartView() {
+        self.view.addSubview(self.firstView)
     }
-    */
+    
+    private func setupIntroPageView() {
+        
+    }
 
 }
+
+import SwiftUI
+
+struct DashboardViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewUIViewController(viewController: DashboardViewController())
+    }
+}
+
