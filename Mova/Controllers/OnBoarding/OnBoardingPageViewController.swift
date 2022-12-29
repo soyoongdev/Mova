@@ -6,19 +6,13 @@
 //
 
 import UIKit
+import NukeUI
 
 class OnBoardingPageViewController: UIViewController {
     
-    var data: MovaIntroModel
+    // MARK: - Initilize variables
     
-    init(data: MovaIntroModel) {
-        self.data = data
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var model: MovaIntroModel
     
     private let vStack: UIStackView = {
         let _self = UIStackView()
@@ -29,10 +23,9 @@ class OnBoardingPageViewController: UIViewController {
     
     private let containerView: UIView = UIView()
     
-    private let imageView: UIImageView = {
-        let _self = UIImageView()
-        _self.contentMode = .scaleAspectFill
-        _self.clipsToBounds = true
+    private let imageView: LazyImageView = {
+        let _self = LazyImageView()
+        _self.placeholderView = UIActivityIndicatorView()
         return _self
     }()
     
@@ -53,6 +46,18 @@ class OnBoardingPageViewController: UIViewController {
         return _self
     }()
     
+    // MARK: - Override init
+    
+    init(model: MovaIntroModel) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+        self.setupViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViews()
@@ -65,40 +70,43 @@ class OnBoardingPageViewController: UIViewController {
     
     private func setupViews() {
         self.view.addSubview(self.containerView)
-        self.containerView.insertSubview(self.imageView, at: 0)
+        self.containerView.addSubview(self.imageView)
+        self.containerView.addSubview(self.vStack)
         
+        self.imageView.source = ImageRequest(url: URL(string: self.model.imageUrl))
         
         // Add subview VStack
         self.vStack.addArrangedSubview(self.titleLabel)
         self.vStack.addArrangedSubview(self.subTitle)
-        self.containerView.insertSubview(self.vStack, at: 1)
+                
+        self.titleLabel.text = self.model.title
+        self.subTitle.attributedText = NSAttributedString(string: self.model.subTitle)
         
-        
-        self.imageView.loadFromUrl(url: URL(string: self.data.imageUrl)!)
-        self.titleLabel.text = self.data.title
-        self.subTitle.attributedText = NSAttributedString(string: self.data.subTitle)
+        self.containerView.bringSubviewToFront(self.vStack)
     }
     
     private func setupLayouts() {
         // Setup anchor containerView
         self.containerView.setupLayoutConstraint(self.view)
+        
+        // Setup anchor imageView
+        self.imageView.setupLayoutConstraint(self.containerView)
+        
         // Setup anchor vStack
         self.vStack.spacing = 20
         self.vStack.translatesAutoresizingMaskIntoConstraints = false
         self.vStack.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 20).isActive = true
         self.vStack.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -20).isActive = true
         self.vStack.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -CGFloat(135).relativeToIphone8Height()).isActive = true
-        // Setup anchor imageView
-        self.imageView.setupLayoutConstraint(self.containerView)
     }
     
 }
 
 import SwiftUI
 
-struct OnBoardingPageViewController_Previews: PreviewProvider {
+struct OnBoardingPageView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewUIViewController(viewController: OnBoardingPageViewController(data: MovaIntroModel(id: 0, imageUrl: "https://wallpapers.com/images/file/sage-naruto-cell-phone-art-gbjepana241apniy-gbjepana241apniy.jpg", title: "Welcome to Mova", subTitle: "The best movie streaming app of the century to make your days great!")))
+        PreviewUIViewController(viewController: OnBoardingPageViewController(model: MovaIntroModel(id: 0, imageUrl: "https://wallpapers.com/images/file/sage-naruto-cell-phone-art-gbjepana241apniy-gbjepana241apniy.jpg", title: "Welcome to Mova", subTitle: "The best movie streaming app of the century to make your days great!")))
     }
 }
 

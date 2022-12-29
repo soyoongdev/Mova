@@ -98,9 +98,9 @@
 		B2E61E23295C154A008ACD43 /* MovaIntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E22295C154A008ACD43 /* MovaIntroModel.swift */; };
 		B2E61E25295C164A008ACD43 /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */; };
 		B2E61E27295C1D43008ACD43 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E26295C1D43008ACD43 /* Extension+UIImageView.swift */; };
-		B2E61E29295C2573008ACD43 /* OnBoardingPageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E28295C2573008ACD43 /* OnBoardingPageControlViewController.swift */; };
 		B2E62AC72944E7C200FC7BE9 /* MasterButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E62AC62944E7C200FC7BE9 /* MasterButtonDelegate.swift */; };
 		B2E62AC92944FC3000FC7BE9 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E62AC82944FC3000FC7BE9 /* Extension+UIButton.swift */; };
+		B2EB97FC295D5E9D000A3838 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EB97FB295D5E9D000A3838 /* OnBoardingViewModel.swift */; };
 		B2EC91822941EEBA0099FD08 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91812941EEBA0099FD08 /* Extension+String.swift */; };
 		B2EC91842941F02A0099FD08 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91832941F02A0099FD08 /* Extension+UIImage.swift */; };
 		B2EC91862941F3E90099FD08 /* Extension+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91852941F3E90099FD08 /* Extension+TextField.swift */; };
@@ -209,9 +209,9 @@
 		B2E61E22295C154A008ACD43 /* MovaIntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovaIntroModel.swift; sourceTree = "<group>"; };
 		B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
 		B2E61E26295C1D43008ACD43 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
-		B2E61E28295C2573008ACD43 /* OnBoardingPageControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageControlViewController.swift; sourceTree = "<group>"; };
 		B2E62AC62944E7C200FC7BE9 /* MasterButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterButtonDelegate.swift; sourceTree = "<group>"; };
 		B2E62AC82944FC3000FC7BE9 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		B2EB97FB295D5E9D000A3838 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		B2EC91812941EEBA0099FD08 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		B2EC91832941F02A0099FD08 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		B2EC91852941F3E90099FD08 /* Extension+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+TextField.swift"; sourceTree = "<group>"; };
@@ -463,6 +463,7 @@
 		B2C0B093293CCCF300DB441B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				B2EB97FB295D5E9D000A3838 /* OnBoardingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -545,7 +546,6 @@
 			children = (
 				B2E61E20295C0A59008ACD43 /* OnBoardingViewController.swift */,
 				B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */,
-				B2E61E28295C2573008ACD43 /* OnBoardingPageControlViewController.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -825,7 +825,6 @@
 				B23EB7682950122000940D50 /* StretchyHeaderImageView.swift in Sources */,
 				B2927CC72952DD4B00DB1975 /* Collection.swift in Sources */,
 				B2927CE0295353F900DB1975 /* APICaller+Certification.swift in Sources */,
-				B2E61E29295C2573008ACD43 /* OnBoardingPageControlViewController.swift in Sources */,
 				B214A04A295AEEB600F43A0E /* DashboardSecondView.swift in Sources */,
 				B2927CD02952DD4B00DB1975 /* CastMember.swift in Sources */,
 				B2B8DED829575F85009ECBF2 /* ConfigurationResponse.swift in Sources */,
@@ -838,6 +837,7 @@
 				B2EC919429420FF80099FD08 /* AppManager.swift in Sources */,
 				B207D09129570BCB001B3C89 /* APICaller+Collections.swift in Sources */,
 				B2C0B080293CC72800DB441B /* SceneDelegate.swift in Sources */,
+				B2EB97FC295D5E9D000A3838 /* OnBoardingViewModel.swift in Sources */,
 				B27FF2BA2942D6C000371CD1 /* PreviewUI.swift in Sources */,
 				B2C0B096293CCD2A00DB441B /* HomeViewController.swift in Sources */,
 				B2927CE32953545100DB1975 /* CertificationResponse.swift in Sources */,

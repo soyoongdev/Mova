@@ -8,6 +8,13 @@
 import UIKit
 
 struct MovaIntroModel: Codable {
+    init() {
+        self.id = 0
+        self.imageUrl = ""
+        self.title = ""
+        self.subTitle = ""
+    }
+    
     var id: Int64
     var imageUrl: String
     var title: String
