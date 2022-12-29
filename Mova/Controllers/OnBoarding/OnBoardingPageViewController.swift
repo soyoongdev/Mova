@@ -97,7 +97,7 @@ class OnBoardingPageViewController: UIViewController {
         self.vStack.translatesAutoresizingMaskIntoConstraints = false
         self.vStack.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 20).isActive = true
         self.vStack.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -20).isActive = true
-        self.vStack.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -CGFloat(135).relativeToIphone8Height()).isActive = true
+        self.vStack.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor, constant: -CGFloat(120).relativeToIphone8Height()).isActive = true
     }
     
 }
@@ -106,7 +106,8 @@ import SwiftUI
 
 struct OnBoardingPageView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewUIViewController(viewController: OnBoardingPageViewController(model: MovaIntroModel(id: 0, imageUrl: "https://wallpapers.com/images/file/sage-naruto-cell-phone-art-gbjepana241apniy-gbjepana241apniy.jpg", title: "Welcome to Mova", subTitle: "The best movie streaming app of the century to make your days great!")))
+//        PreviewUIViewController(viewController: OnBoardingPageViewController(model: MovaIntroModel(id: 0, imageUrl: "https://wallpapers.com/images/file/sage-naruto-cell-phone-art-gbjepana241apniy-gbjepana241apniy.jpg", title: "Welcome to Mova", subTitle: "The best movie streaming app of the century to make your days great!")))
+        PreviewUIViewController(viewController: OnBoardingViewController())
     }
 }
 

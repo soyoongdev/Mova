@@ -6,13 +6,12 @@
 //
 
 import UIKit
+import CHIPageControl
 
 class OnBoardingViewController: UIPageViewController {
     
     private var viewPages = [UIViewController]()
-    
-    private let pageIndex: Int = 0
-    
+        
     private let viewModel = OnBoardingViewModel()
     
     private let vStack: UIStackView = {
@@ -23,14 +22,13 @@ class OnBoardingViewController: UIPageViewController {
     }()
     
     /// UIPageControl
-    private let pageController: UIPageControl = {
-        let _pageController = UIPageControl(frame: .init(origin: .zero, size: .init(width: 100, height: 50)))
-        //        _pageControl.numberOfPages = 3
-        //        _pageControl.radius = 4
-        _pageController.tintColor = .red
-        //        _pageControl.currentPageTintColor = .green
-        //        _pageControl.padding = 6
-        return _pageController
+    private let pageController: CHIPageControlJaloro = {
+        let _self = CHIPageControlJaloro(frame: .zero)
+        _self.padding = 6
+        _self.radius = 4
+        _self.tintColor = .grayDark
+        _self.currentPageTintColor = .primaryRed
+        return _self
     }()
     
     /// Button get started to skip onboarding
@@ -72,21 +70,22 @@ class OnBoardingViewController: UIPageViewController {
         self.vStack.addArrangedSubview(self.pageController)
         self.vStack.addArrangedSubview(self.buttonGetStarted)
         
-        self.setViewControllers([self.viewPages[pageIndex]], direction: .forward, animated: true)
+        self.pageController.numberOfPages = self.viewPages.count
+        self.setViewControllers([self.viewPages[0]], direction: .forward, animated: true)
     }
     
     private func setupLayouts() {
         
-        self.vStack.spacing = 10.0
+        self.vStack.spacing = 20.0
         self.vStack.translatesAutoresizingMaskIntoConstraints = false
         self.vStack.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
         self.vStack.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
         self.vStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -CGFloat(20).relativeToIphone8Height()).isActive = true
         
-        self.buttonGetStarted.translatesAutoresizingMaskIntoConstraints = false
-        self.buttonGetStarted.leftAnchor.constraint(equalTo: self.vStack.leftAnchor).isActive = true
-        self.buttonGetStarted.rightAnchor.constraint(equalTo: self.vStack.rightAnchor).isActive = true
+        self.buttonGetStarted.setupLayoutConstraint(attributes: [.left, .right], superView: self.vStack)
         self.buttonGetStarted.addTarget(self, action: #selector(getStartedAction(_:)), for: .touchUpInside)
+        
+        self.pageController.setupLayoutConstraint(attributes: [.left, .right], superView: self.vStack)
     }
     
     @objc private func getStartedAction(_ sender: Any) {
@@ -97,24 +96,11 @@ class OnBoardingViewController: UIPageViewController {
 
 extension OnBoardingViewController: UIPageViewControllerDelegate {
     
-//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-//        return 0
-//    }
-//
-//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-//
-//    }
-//
-//    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-//
-//    }
-//
-//    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-//
-//    }
-//
-//    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-//    }
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard let viewControllers = pageViewController.viewControllers else { return }
+        guard let currentIndex = self.viewPages.firstIndex(of: viewControllers[0]) else { return }
+        self.pageController.set(progress: currentIndex, animated: true)
+    }
     
 }
 

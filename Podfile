@@ -15,7 +15,7 @@ pod 'Codextended'
 pod 'NVActivityIndicatorView'
 
 # Custom your UIPageControl
-pod 'CHIPageControl/Aleppo'
+pod 'CHIPageControl/Jaloro'
 
 # Lazily loads and displays images.
 pod 'NukeUI'

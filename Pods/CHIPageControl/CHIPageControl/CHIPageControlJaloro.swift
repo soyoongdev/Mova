@@ -1,5 +1,5 @@
 //
-//  CHIPageControlAleppo.swift
+//  CHIPageControlJaloro.swift
 //  CHIPageControl  ( https://github.com/ChiliLabs/CHIPageControl )
 //
 //  Copyright (c) 2017 Chili ( http://chi.lv )
@@ -25,15 +25,22 @@
 
 import UIKit
 
-open class CHIPageControlAleppo: CHIBasePageControl {
+open class CHIPageControlJaloro: CHIBasePageControl {
 
-    fileprivate var diameter: CGFloat {
-        return radius * 2
+    @IBInspectable open var elementWidth: CGFloat = 20 {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+
+    @IBInspectable open var elementHeight: CGFloat = 6 {
+        didSet {
+            setNeedsLayout()
+        }
     }
 
     fileprivate var inactive = [CHILayer]()
-
-    fileprivate var active: CHILayer = CHILayer()
+    fileprivate var active = CHILayer()
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -51,37 +58,20 @@ open class CHIPageControlAleppo: CHIBasePageControl {
             self.layer.addSublayer(layer)
             return layer
         }
+
         self.layer.addSublayer(active)
 
         setNeedsLayout()
         self.invalidateIntrinsicContentSize()
     }
 
-    override func update(for progress: Double) {
-        guard progress >= 0 && progress <= Double(numberOfPages - 1),
-            let firstFrame = self.inactive.first?.frame,
-            numberOfPages > 1 else { return }
-
-        let normalized = progress * Double(diameter + padding)
-        let distance = abs(round(progress) - progress)
-        let mult = 1 + distance * 2
-
-        var frame = active.frame
-
-        frame.origin.x = CGFloat(normalized) + firstFrame.origin.x
-        frame.size.width = frame.height * CGFloat(mult)
-        frame.size.height = self.diameter
-
-        active.frame = frame
-    }
-
     override open func layoutSubviews() {
         super.layoutSubviews()
         
         let floatCount = CGFloat(inactive.count)
-        let x = (self.bounds.size.width - self.diameter*floatCount - self.padding*(floatCount-1))*0.5
-        let y = (self.bounds.size.height - self.diameter)*0.5
-        var frame = CGRect(x: x, y: y, width: self.diameter, height: self.diameter)
+        let x = (self.bounds.size.width - self.elementWidth*floatCount - self.padding*(floatCount-1))*0.5
+        let y = (self.bounds.size.height - self.elementHeight)*0.5
+        var frame = CGRect(x: x, y: y, width: self.elementWidth, height: self.elementHeight)
 
         active.cornerRadius = self.radius
         active.backgroundColor = (self.currentPageTintColor ?? self.tintColor)?.cgColor
@@ -95,9 +85,26 @@ open class CHIPageControlAleppo: CHIBasePageControl {
             }
             layer.cornerRadius = self.radius
             layer.frame = frame
-            frame.origin.x += self.diameter + self.padding
+            frame.origin.x += self.elementWidth + self.padding
         }
         update(for: progress)
+    }
+
+    override func update(for progress: Double) {
+        guard let min = inactive.first?.frame,
+              let max = inactive.last?.frame,
+              progress >= 0 && progress <= Double(numberOfPages - 1),
+              numberOfPages > 1 else {
+                return
+        }
+
+        let total = Double(numberOfPages - 1)
+        let dist = max.origin.x - min.origin.x
+        let percent = CGFloat(progress / total)
+
+        let offset = dist * percent
+        active.frame.origin.x = min.origin.x + offset
+
     }
 
     override open var intrinsicContentSize: CGSize {
@@ -105,10 +112,10 @@ open class CHIPageControlAleppo: CHIBasePageControl {
     }
 
     override open func sizeThatFits(_ size: CGSize) -> CGSize {
-        return CGSize(width: CGFloat(inactive.count) * self.diameter + CGFloat(inactive.count - 1) * self.padding,
-                      height: self.diameter)
+        return CGSize(width: CGFloat(inactive.count) * self.elementWidth + CGFloat(inactive.count - 1) * self.padding,
+                      height: self.elementHeight)
     }
-    
+
     override open func didTouch(gesture: UITapGestureRecognizer) {
         let point = gesture.location(ofTouch: 0, in: self)
         if let touchIndex = inactive.enumerated().first(where: { $0.element.hitTest(point) != nil })?.offset {
