@@ -14,6 +14,11 @@ extension UIFont {
         return UIFont(name: FontFamily.robotoRegular.rawValue, size: size)
     }
     
+    // Semibold
+    public static func semibold(size: CGFloat) -> UIFont? {
+        return UIFont(name: FontFamily.robotoRegular.rawValue, size: size)
+    }
+    
     // medium
     public static func medium(size: CGFloat) -> UIFont? {
         return UIFont(name: FontFamily.robotoMedium.rawValue, size: size)

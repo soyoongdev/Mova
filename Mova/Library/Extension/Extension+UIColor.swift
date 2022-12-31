@@ -38,10 +38,17 @@ extension UIColor {
 extension [UIColor] {
     
     var toCGColors: [CGColor] {
+        
         var colors = [CGColor]()
-        for color in self {
-            colors.append(color.cgColor)
+        
+        if self.count > 1 {
+            colors = self.map({$0.cgColor})
+        } else {
+            colors.append(contentsOf: self.map({$0.cgColor}))
+            colors.append(contentsOf: self.map({$0.cgColor}))
+//            colors.append(contentsOf: self.toCGColors)
         }
+        
         return colors
     }
     
@@ -61,7 +68,7 @@ extension UIColor {
     }
     
     /// Text color for buttons or titles using a light color (equivalent to default white)
-    static var textColor: UIColor? {
+    static var textColor: UIColor {
         return UIColor(hex: "FFFFFF")
     }
     

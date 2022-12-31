@@ -8,7 +8,7 @@
 import UIKit
 import CHIPageControl
 
-class OnBoardingViewController: UIPageViewController {
+class OnBoardingSecondViewController: UIPageViewController {
     
     private var viewPages = [UIViewController]()
         
@@ -80,7 +80,7 @@ class OnBoardingViewController: UIPageViewController {
         self.vStack.translatesAutoresizingMaskIntoConstraints = false
         self.vStack.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
         self.vStack.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
-        self.vStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -CGFloat(20).relativeToIphone8Height()).isActive = true
+        self.vStack.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         
         self.buttonGetStarted.setupLayoutConstraint(attributes: [.left, .right], superView: self.vStack)
         self.buttonGetStarted.addTarget(self, action: #selector(getStartedAction(_:)), for: .touchUpInside)
@@ -94,7 +94,7 @@ class OnBoardingViewController: UIPageViewController {
     
 }
 
-extension OnBoardingViewController: UIPageViewControllerDelegate {
+extension OnBoardingSecondViewController: UIPageViewControllerDelegate {
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard let viewControllers = pageViewController.viewControllers else { return }
@@ -104,7 +104,7 @@ extension OnBoardingViewController: UIPageViewControllerDelegate {
     
 }
 
-extension OnBoardingViewController: UIPageViewControllerDataSource {
+extension OnBoardingSecondViewController: UIPageViewControllerDataSource {
     
     // Before viewcontroller will display
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -138,7 +138,7 @@ import SwiftUI
 
 struct OnBoardingViewController_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewUIViewController(viewController: OnBoardingViewController())
+        PreviewUIViewController(viewController: OnBoardingSecondViewController())
     }
 }
 

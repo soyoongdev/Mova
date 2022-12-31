@@ -65,7 +65,7 @@
 		B2927CE0295353F900DB1975 /* APICaller+Certification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2927CDF295353F900DB1975 /* APICaller+Certification.swift */; };
 		B2927CE32953545100DB1975 /* CertificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2927CE22953545100DB1975 /* CertificationResponse.swift */; };
 		B29FACEB295A015000517A28 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FACEA295A015000517A28 /* DashboardViewController.swift */; };
-		B29FACEE295A0DED00517A28 /* DashboardFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FACED295A0DED00517A28 /* DashboardFirstView.swift */; };
+		B29FACEE295A0DED00517A28 /* OnBoardingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FACED295A0DED00517A28 /* OnBoardingFirstViewController.swift */; };
 		B2A0FA85294761D200346E2E /* Extension+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0FA84294761D200346E2E /* Extension+CGPoint.swift */; };
 		B2ACB5422943364B002B2E03 /* MasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ACB5412943364B002B2E03 /* MasterButton.swift */; };
 		B2ACB54429433E15002B2E03 /* Extension+CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ACB54329433E15002B2E03 /* Extension+CGSize.swift */; };
@@ -89,12 +89,17 @@
 		B2C0B0A1293CD27A00DB441B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0B0A0293CD27A00DB441B /* Utilities.swift */; };
 		B2C0B0A3293CD2C900DB441B /* Dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0B0A2293CD2C900DB441B /* Dictionaries.swift */; };
 		B2C0B0A5293CD30500DB441B /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0B0A4293CD30500DB441B /* Enums.swift */; };
+		B2C5631B295F475300E9A908 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C5631A295F475300E9A908 /* PrimaryButton.swift */; };
+		B2CAEB1C295E6B720049B371 /* Extension+UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CAEB1B295E6B720049B371 /* Extension+UIScreen.swift */; };
+		B2CAEB20295E9D3D0049B371 /* AuthenticationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CAEB1F295E9D3D0049B371 /* AuthenticationSelectionViewController.swift */; };
+		B2CAEB22295ED9300049B371 /* PrimaryButtonSocial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CAEB21295ED92F0049B371 /* PrimaryButtonSocial.swift */; };
 		B2D2B5142950C39100EC39F5 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2B5132950C39100EC39F5 /* AppService.swift */; };
 		B2D2B51B295163E400EC39F5 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2B51A295163E400EC39F5 /* APICaller.swift */; };
 		B2D2B5202951CDDF00EC39F5 /* Extension+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2B51F2951CDDF00EC39F5 /* Extension+Dictionary.swift */; };
 		B2D2B5242951FEF000EC39F5 /* Extension+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2B5232951FEF000EC39F5 /* Extension+Data.swift */; };
 		B2D2B5262951FF4300EC39F5 /* Extension+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D2B5252951FF4300EC39F5 /* Extension+Codable.swift */; };
-		B2E61E21295C0A59008ACD43 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E20295C0A59008ACD43 /* OnBoardingViewController.swift */; };
+		B2D8E461296046C3003E7EA8 /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D8E460296046C3003E7EA8 /* Extension+UILabel.swift */; };
+		B2E61E21295C0A59008ACD43 /* OnBoardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E20295C0A59008ACD43 /* OnBoardingSecondViewController.swift */; };
 		B2E61E23295C154A008ACD43 /* MovaIntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E22295C154A008ACD43 /* MovaIntroModel.swift */; };
 		B2E61E25295C164A008ACD43 /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */; };
 		B2E61E27295C1D43008ACD43 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E26295C1D43008ACD43 /* Extension+UIImageView.swift */; };
@@ -174,7 +179,7 @@
 		B2927CDF295353F900DB1975 /* APICaller+Certification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Certification.swift"; sourceTree = "<group>"; };
 		B2927CE22953545100DB1975 /* CertificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationResponse.swift; sourceTree = "<group>"; };
 		B29FACEA295A015000517A28 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		B29FACED295A0DED00517A28 /* DashboardFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardFirstView.swift; sourceTree = "<group>"; };
+		B29FACED295A0DED00517A28 /* OnBoardingFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFirstViewController.swift; sourceTree = "<group>"; };
 		B2A0FA84294761D200346E2E /* Extension+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGPoint.swift"; sourceTree = "<group>"; };
 		B2ACB5412943364B002B2E03 /* MasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterButton.swift; sourceTree = "<group>"; };
 		B2ACB54329433E15002B2E03 /* Extension+CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGSize.swift"; sourceTree = "<group>"; };
@@ -200,12 +205,17 @@
 		B2C0B0A0293CD27A00DB441B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B2C0B0A2293CD2C900DB441B /* Dictionaries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionaries.swift; sourceTree = "<group>"; };
 		B2C0B0A4293CD30500DB441B /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		B2C5631A295F475300E9A908 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		B2CAEB1B295E6B720049B371 /* Extension+UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIScreen.swift"; sourceTree = "<group>"; };
+		B2CAEB1F295E9D3D0049B371 /* AuthenticationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSelectionViewController.swift; sourceTree = "<group>"; };
+		B2CAEB21295ED92F0049B371 /* PrimaryButtonSocial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonSocial.swift; sourceTree = "<group>"; };
 		B2D2B5132950C39100EC39F5 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		B2D2B51A295163E400EC39F5 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		B2D2B51F2951CDDF00EC39F5 /* Extension+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Dictionary.swift"; sourceTree = "<group>"; };
 		B2D2B5232951FEF000EC39F5 /* Extension+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Data.swift"; sourceTree = "<group>"; };
 		B2D2B5252951FF4300EC39F5 /* Extension+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Codable.swift"; sourceTree = "<group>"; };
-		B2E61E20295C0A59008ACD43 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		B2D8E460296046C3003E7EA8 /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
+		B2E61E20295C0A59008ACD43 /* OnBoardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSecondViewController.swift; sourceTree = "<group>"; };
 		B2E61E22295C154A008ACD43 /* MovaIntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovaIntroModel.swift; sourceTree = "<group>"; };
 		B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
 		B2E61E26295C1D43008ACD43 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
@@ -249,7 +259,6 @@
 		B214A048295AECDB00F43A0E /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				B29FACED295A0DED00517A28 /* DashboardFirstView.swift */,
 				B214A049295AEEB600F43A0E /* DashboardSecondView.swift */,
 			);
 			path = Dashboard;
@@ -278,6 +287,8 @@
 			children = (
 				B27FF2B22942D45B00371CD1 /* PrimaryButtonSmaller.swift */,
 				B2B3886F29488ADF00DC9175 /* PrimaryButtonMedium.swift */,
+				B2CAEB21295ED92F0049B371 /* PrimaryButtonSocial.swift */,
+				B2C5631A295F475300E9A908 /* PrimaryButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -374,6 +385,7 @@
 		B29FACE9295A002300517A28 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				B2CAEB1F295E9D3D0049B371 /* AuthenticationSelectionViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -417,7 +429,7 @@
 			children = (
 				B29FACE82959DE4600517A28 /* Data */,
 				B2D2B517295162A300EC39F5 /* Network */,
-				B2EC918F2941FE4E0099FD08 /* Management */,
+				B2EC918F2941FE4E0099FD08 /* AppManagement */,
 				B2EC917F2941EE890099FD08 /* Library */,
 				B2E546CF293D974200937BE1 /* Styles */,
 				B2C0B09F293CD26000DB441B /* Utilities */,
@@ -509,6 +521,23 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		B2CAEB1D295E71B80049B371 /* FirstScene */ = {
+			isa = PBXGroup;
+			children = (
+				B29FACED295A0DED00517A28 /* OnBoardingFirstViewController.swift */,
+			);
+			path = FirstScene;
+			sourceTree = "<group>";
+		};
+		B2CAEB1E295E71C40049B371 /* SecondScene */ = {
+			isa = PBXGroup;
+			children = (
+				B2E61E20295C0A59008ACD43 /* OnBoardingSecondViewController.swift */,
+				B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */,
+			);
+			path = SecondScene;
+			sourceTree = "<group>";
+		};
 		B2D2B517295162A300EC39F5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,8 +573,8 @@
 		B2E61E1F295C0A13008ACD43 /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				B2E61E20295C0A59008ACD43 /* OnBoardingViewController.swift */,
-				B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */,
+				B2CAEB1E295E71C40049B371 /* SecondScene */,
+				B2CAEB1D295E71B80049B371 /* FirstScene */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -602,18 +631,20 @@
 				B2D2B5252951FF4300EC39F5 /* Extension+Codable.swift */,
 				B22E3AC12956EF3400C3897E /* Extension+Date.swift */,
 				B2E61E26295C1D43008ACD43 /* Extension+UIImageView.swift */,
+				B2CAEB1B295E6B720049B371 /* Extension+UIScreen.swift */,
+				B2D8E460296046C3003E7EA8 /* Extension+UILabel.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		B2EC918F2941FE4E0099FD08 /* Management */ = {
+		B2EC918F2941FE4E0099FD08 /* AppManagement */ = {
 			isa = PBXGroup;
 			children = (
 				B2EC919329420FF80099FD08 /* AppManager.swift */,
 				B2358770294231DA001C8BB0 /* AppConfig.swift */,
 				B2D2B5132950C39100EC39F5 /* AppService.swift */,
 			);
-			path = Management;
+			path = AppManagement;
 			sourceTree = "<group>";
 		};
 		B2EC919D294227B60099FD08 /* Header */ = {
@@ -782,13 +813,15 @@
 				B2EC919A29421C430099FD08 /* Extension+NSCoding.swift in Sources */,
 				B2927CD12952DD4B00DB1975 /* InternalResponses.swift in Sources */,
 				B2D2B51B295163E400EC39F5 /* APICaller.swift in Sources */,
+				B2CAEB20295E9D3D0049B371 /* AuthenticationSelectionViewController.swift in Sources */,
 				B244B33C2948DD3E00E92915 /* Extension+NSObject.swift in Sources */,
-				B29FACEE295A0DED00517A28 /* DashboardFirstView.swift in Sources */,
+				B29FACEE295A0DED00517A28 /* OnBoardingFirstViewController.swift in Sources */,
 				B2927CBE2952DD4B00DB1975 /* List.swift in Sources */,
 				B2EC918C2941F7740099FD08 /* Extension+CAGradientLayer.swift in Sources */,
 				B2D2B5142950C39100EC39F5 /* AppService.swift in Sources */,
 				B2927CC82952DD4B00DB1975 /* Language.swift in Sources */,
 				B2927CBC2952DD4B00DB1975 /* Company.swift in Sources */,
+				B2D8E461296046C3003E7EA8 /* Extension+UILabel.swift in Sources */,
 				B23EB76A295023A000940D50 /* HomeViewHeader.swift in Sources */,
 				B2927CC52952DD4B00DB1975 /* Genre.swift in Sources */,
 				B2927CBB2952DD4B00DB1975 /* Release.swift in Sources */,
@@ -803,8 +836,9 @@
 				B2ACB54429433E15002B2E03 /* Extension+CGSize.swift in Sources */,
 				B2927CCC2952DD4B00DB1975 /* Gender.swift in Sources */,
 				B2D2B5202951CDDF00EC39F5 /* Extension+Dictionary.swift in Sources */,
-				B2E61E21295C0A59008ACD43 /* OnBoardingViewController.swift in Sources */,
+				B2E61E21295C0A59008ACD43 /* OnBoardingSecondViewController.swift in Sources */,
 				B235877329424611001C8BB0 /* BaseViewController.swift in Sources */,
+				B2CAEB1C295E6B720049B371 /* Extension+UIScreen.swift in Sources */,
 				B2E62AC92944FC3000FC7BE9 /* Extension+UIButton.swift in Sources */,
 				B2EC91882941F4F90099FD08 /* Extension+UIColor.swift in Sources */,
 				B2C0B09E293CCDF000DB441B /* ProfileViewController.swift in Sources */,
@@ -832,6 +866,7 @@
 				B29FACEB295A015000517A28 /* DashboardViewController.swift in Sources */,
 				B2D2B5262951FF4300EC39F5 /* Extension+Codable.swift in Sources */,
 				B2927CC22952DD4B00DB1975 /* Title.swift in Sources */,
+				B2CAEB22295ED9300049B371 /* PrimaryButtonSocial.swift in Sources */,
 				B2927CC32952DD4B00DB1975 /* Movie.swift in Sources */,
 				B2EC91822941EEBA0099FD08 /* Extension+String.swift in Sources */,
 				B2EC919429420FF80099FD08 /* AppManager.swift in Sources */,
@@ -847,6 +882,7 @@
 				B2E61E27295C1D43008ACD43 /* Extension+UIImageView.swift in Sources */,
 				B2ACB5422943364B002B2E03 /* MasterButton.swift in Sources */,
 				B2C0B0A5293CD30500DB441B /* Enums.swift in Sources */,
+				B2C5631B295F475300E9A908 /* PrimaryButton.swift in Sources */,
 				B2B8DEDA295766D1009ECBF2 /* AuthenticationResponse.swift in Sources */,
 				B2EC918E2941F8B40099FD08 /* Extension+UIView.swift in Sources */,
 			);

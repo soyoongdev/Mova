@@ -8,8 +8,8 @@
 import UIKit
 import NVActivityIndicatorView
 
-class DashboardFirstView: UIView {
-    
+class OnBoardingFirstViewController: UIViewController {
+        
     private var logoImage: UIImageView = {
         let imageView = UIImageView()
         imageView.frame = .init(origin: .zero, size: .init(relative: 124, relative: 124))
@@ -24,27 +24,26 @@ class DashboardFirstView: UIView {
         indicator.color = UIColor.primaryRed!
         return indicator
     }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.setupViews()
     }
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.setupViews()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         self.setupLayouts()
     }
     
     private func setupViews() {
-        self.backgroundColor = .primaryBackground
-        
-        self.addSubview(self.logoImage)
-        self.addSubview(self.loadingIndicator)
+        self.navigationController?.isNavigationBarHidden = true
+        self.view.backgroundColor = .primaryBackground
+        self.view.addSubview(self.logoImage)
+        self.view.addSubview(self.loadingIndicator)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.navigationController?.pushViewController(OnBoardingSecondViewController(), animated: true)
+            self.loadingIndicator.stopAnimating()
+        }
     }
     
     private func setupLayouts() {
@@ -52,15 +51,15 @@ class DashboardFirstView: UIView {
         self.logoImage.translatesAutoresizingMaskIntoConstraints = false
         self.logoImage.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 3).isActive = true
         self.logoImage.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 3).isActive = true
-        self.logoImage.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        self.logoImage.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        self.logoImage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.logoImage.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
         // Progress indicator
         self.loadingIndicator.startAnimating()
         self.loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         self.loadingIndicator.topAnchor.constraint(equalTo: self.logoImage.bottomAnchor).isActive = true
-        self.loadingIndicator.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.loadingIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        self.loadingIndicator.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        self.loadingIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
     
 }
@@ -69,7 +68,7 @@ import SwiftUI
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewUIView(view: DashboardFirstView())
+        PreviewUIViewController(viewController: OnBoardingFirstViewController())
     }
 }
 

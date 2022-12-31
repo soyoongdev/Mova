@@ -16,4 +16,14 @@ extension CAGradientLayer {
         return gradientLayer
     }
     
+    
+    func toColor() -> UIColor {
+        UIGraphicsBeginImageContext(self.bounds.size)
+        //create UIImage by rendering gradient layer.
+        self.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        //get gradient UIcolor from gradient UIImage
+        return UIColor(patternImage: image!)
+    }
 }

@@ -107,7 +107,7 @@ import SwiftUI
 struct OnBoardingPageView_Previews: PreviewProvider {
     static var previews: some View {
 //        PreviewUIViewController(viewController: OnBoardingPageViewController(model: MovaIntroModel(id: 0, imageUrl: "https://wallpapers.com/images/file/sage-naruto-cell-phone-art-gbjepana241apniy-gbjepana241apniy.jpg", title: "Welcome to Mova", subTitle: "The best movie streaming app of the century to make your days great!")))
-        PreviewUIViewController(viewController: OnBoardingViewController())
+        PreviewUIViewController(viewController: OnBoardingSecondViewController())
     }
 }
 

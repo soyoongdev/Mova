@@ -12,6 +12,7 @@ class MasterButton: UIButton {
     enum BackgroundType {
         case fill
         case outline
+        case fillAndOutline
     }
         
     override init(frame: CGRect) {
