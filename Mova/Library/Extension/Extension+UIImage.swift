@@ -111,7 +111,7 @@ extension UIImage {
         return UIImage(data: imageData)!
     }
     
-    func tint(_ color:UIColor) -> UIImage {
+    func tintColor(_ color: UIColor) -> UIImage {
         
         UIGraphicsBeginImageContext(self.size)
         let context = UIGraphicsGetCurrentContext()
@@ -127,6 +127,31 @@ extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage!
+    }
+    
+    func tintColor(_ colors: [UIColor], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale);
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return UIImage()
+        }
+        context.translateBy(x: 0, y: self.size.height)
+        context.scaleBy(x: 1, y: -1)
+        
+        context.setBlendMode(.normal)
+        let rect = CGRect.init(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        
+        // Create gradient
+        let _colors = colors.map { $0.cgColor } as CFArray
+        let space = CGColorSpaceCreateDeviceRGB()
+        let gradient = CGGradient(colorsSpace: space, colors: _colors, locations: nil)
+        
+        // Apply gradient
+        context.clip(to: rect, mask: self.cgImage!)
+        context.drawLinearGradient(gradient!, start: startPoint!.rawValue, end: endPoint!.rawValue, options: .drawsAfterEndLocation)
+        let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return gradientImage!
     }
     
     func isPNG() -> Bool {

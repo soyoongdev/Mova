@@ -58,7 +58,7 @@ extension [UIColor] {
 extension UIColor {
     
     /// Unified background color for dark interface
-    static var primaryBackground: UIColor? {
+    static var primaryBackground: UIColor {
         return UIColor(hex: "181A20")
     }
     

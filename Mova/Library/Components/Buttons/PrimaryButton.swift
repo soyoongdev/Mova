@@ -7,95 +7,123 @@
 
 import UIKit
 
-protocol PrimaryButtonDelegate: AnyObject {
+class PrimaryButton: UIButton {
+        
+    private var backgroundNormal: CALayer? = nil
     
-    func setupViews()
+    private var backgroundSelected: CALayer? = nil
     
-}
+    private var backgroundGradientNormal: CAGradientLayer? = nil
+    
+    private var backgroundGradientSelected: CAGradientLayer? = nil
+    
+    func setTitle(text: String, color: UIColor? = .primaryBackground, for state: ButtonState) {
+        self.setTitle(text, for: state == .normal ? .normal : .highlighted)
+        self.setTitleColor(color!, for: state == .normal ? .normal : .highlighted)
+        self.titleLabel?.numberOfLines = 1
+        self.bringSubviewToFront(self.titleLabel!)
+        self.makeInsetsProgress()
+    }
+    
+    func setTitle(text: String, colors: [UIColor]? = [.primaryBackground], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, for state: ButtonState) {
+        self.setTitle(text, for: state == .normal ? .normal : .highlighted)
+        
+        if state == .normal {
+            let bounds: CGRect = self.titleLabel!.getFrame()
+            let gradient = self.getGradientLayer(colors: colors!, startPoint: startPoint!, endPoint: endPoint!, bounds: bounds)
+            self.setTitleColor(bounds.isEmpty ? .primaryBackground : gradient.toColor(), for: .normal)
+        } else {
+            let bounds: CGRect = self.titleLabel!.getFrame()
+            let gradient = self.getGradientLayer(colors: colors!, startPoint: startPoint!, endPoint: endPoint!, bounds: bounds)
+            self.setTitleColor(bounds.isEmpty ? .primaryBackground : gradient.toColor(), for: .highlighted)
+        }
+        
+        self.titleLabel?.numberOfLines = 1
+        self.bringSubviewToFront(self.titleLabel!)
+        self.makeInsetsProgress()
+    }
+    
+    func setIcon(_ image: UIImage?, color: UIColor? = .primaryBackground, size: CGFloat? = nil, for state: ButtonState) {
+        var getImage = image?.resize(with: size ?? 24.0)
+        getImage = getImage?.tintColor(color!)
+        self.setImage(getImage, for: state == .normal ? .normal : .highlighted)
+        self.bringSubviewToFront(self.imageView!)
+        self.makeInsetsProgress()
+    }
+    
+//    func setIcon(_ image: UIImage?, colors: [UIColor]? = [.primaryBackground], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, size: CGFloat? = CGFloat(24), for state: ButtonState) {
+//        var getImage = image?.resize(with: size!)
+//        getImage = getImage?.tintColor(colors!, startPoint: startPoint, endPoint: endPoint)
+//        self.setImage(getImage, for: state == .normal ? .normal : .highlighted)
+//        self.bringSubviewToFront(self.imageView!)
+//        self.makeInsetsProgress()
+//    }
+    
+    func setBackgroundGradient(colors: [UIColor], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, cornerRadius: CGFloat? = 14.0, for state: ButtonState) {
+        
+        if state == .normal {
+            self.backgroundGradientNormal = CAGradientLayer()
+            self.backgroundGradientNormal?.frame = self.bounds
+            self.backgroundGradientNormal?.colors = colors.toCGColors
+            self.backgroundGradientNormal?.startPoint = startPoint!.rawValue
+            self.backgroundGradientNormal?.endPoint = endPoint!.rawValue
+            self.layer.insertSublayer(self.backgroundGradientNormal!, at: 0)
+        } else {
+            self.backgroundGradientSelected = CAGradientLayer()
+            self.backgroundGradientSelected?.frame = self.bounds
+            self.backgroundGradientSelected?.colors = colors.toCGColors
+            self.backgroundGradientSelected?.startPoint = startPoint!.rawValue
+            self.backgroundGradientSelected?.endPoint = endPoint!.rawValue
+            self.backgroundGradientSelected?.isHidden = (self.backgroundGradientNormal == nil)
+            self.layer.insertSublayer(self.backgroundGradientSelected!, at: 0)
+        }
 
-class PrimaryButton: UIView {
-    
-    private var myButton: UIButton?
-    
-    private lazy var backgroundNormal: CAShapeLayer = CAShapeLayer()
-    
-    private lazy var backgroundSelected: CAShapeLayer = CAShapeLayer()
-        
-    weak var delegate: PrimaryButtonDelegate?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setupViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.setupViews()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.makeSubviewConstraintLayouts()
-    }
-    
-    private func setupViews() {
-        self.makeSubview()
-        self.delegate?.setupViews()
-    }
-    
-    func setTitle(_ title: String, color: UIColor? = .textColor, for state: ButtonState) {
-        self.myButton?.setTitle(title, for: .normal)
-        self.myButton?.setTitleColor(color!, for: .normal)
-    }
-    
-    func setTitle(_ title: String, colors: [UIColor]? = [.textColor], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, for state: ButtonState) {
-        
-        self.myButton?.titleLabel?.text = title
-        
-        let bounds: CGRect = (self.myButton?.titleLabel?.getFrame())!
-        let gradient = self.getGradientLayer(colors: colors!, startPoint: startPoint!, endPoint: endPoint!, bounds: bounds)
-        
-        self.myButton?.setTitle(title, for: .normal)
-        self.myButton?.setTitleColor(gradient.toColor(), for: .normal)
-    }
-    
-    func setTitleFont(_ font: UIFont, for state: ButtonState) {
-        self.myButton?.titleLabel?.font = font
-    }
-    
-    func setBackgroundGradient(colors: [UIColor], startPoint: DirectionPoint? = .top, endPoint: DirectionPoint? = .bottom, for state: ButtonState) {
+        self.layer.cornerRadius = cornerRadius!
+        self.layer.masksToBounds = true
         
     }
     
     func setBackgroundColor(color: UIColor, cornerRadius: CGFloat? = 14.0, for state: ButtonState) {
-//        self.backgroundNormal.frame = self.myButton!.bounds
-//        self.backgroundNormal.fillColor = color.cgColor
-        self.myButton?.setBackgroundColor(color, for: .normal)
-        self.myButton?.layer.cornerRadius = cornerRadius!
-        self.myButton?.layer.masksToBounds = true
-    }
-    
-    func setBordered(width: CGFloat? = 6, color: UIColor, cornerRadius: CGFloat? = 14.0) {
-        self.myButton?.layer.borderWidth = width!
-        self.myButton?.layer.borderColor = color.cgColor
-        self.myButton?.layer.cornerRadius = cornerRadius!
-    }
-    
-    func setBordered(width: CGFloat? = 6, colors: [UIColor], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, cornerRadius: CGFloat? = 14.0) {
         
-        let gradient = self.getGradientLayer(colors: colors, startPoint: startPoint!, endPoint: endPoint!, bounds: self.myButton!.bounds)
+        if state == .normal {
+            self.backgroundNormal = CALayer()
+            self.backgroundNormal?.frame = self.bounds
+            self.backgroundNormal?.backgroundColor = color.cgColor
+            self.layer.insertSublayer(self.backgroundNormal!, at: 0)
+        } else {
+            self.backgroundSelected = CALayer()
+            self.backgroundSelected?.frame = self.bounds
+            self.backgroundSelected?.backgroundColor = color.cgColor
+            self.backgroundSelected?.isHidden = (self.backgroundNormal == nil)
+            self.layer.insertSublayer(self.backgroundSelected!, at: 0)
+        }
+
+        self.layer.cornerRadius = cornerRadius!
+        self.layer.masksToBounds = true
+        
+    }
+    
+    func setBordered(color: UIColor, width: CGFloat? = 6, cornerRadius: CGFloat? = 14.0) {
+        self.layer.borderWidth = width!
+        self.layer.borderColor = color.cgColor
+        self.layer.cornerRadius = cornerRadius!
+    }
+    
+    func setBordered(colors: [UIColor], width: CGFloat? = 6, startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, cornerRadius: CGFloat? = 14.0) {
+        
+        let gradient = self.getGradientLayer(colors: colors, startPoint: startPoint!, endPoint: endPoint!, bounds: self.bounds)
 
         let shape = CAShapeLayer()
         shape.lineWidth = width! * 2
-        shape.path = UIBezierPath(roundedRect: self.myButton!.bounds, cornerRadius: cornerRadius!).cgPath
+        shape.path = UIBezierPath(roundedRect: self.bounds, cornerRadius: cornerRadius!).cgPath
         shape.strokeColor = UIColor.black.cgColor
         shape.fillColor = UIColor.clear.cgColor
         
         gradient.mask = shape
 
-        self.myButton?.layer.insertSublayer(gradient, at: 0)
-        self.myButton?.layer.cornerRadius = cornerRadius!
-        self.myButton?.clipsToBounds = true
+        self.layer.insertSublayer(gradient, at: 0)
+        self.layer.cornerRadius = cornerRadius!
+        self.clipsToBounds = true
     }
     
     func makeShadow(color: UIColor? = .primaryBackground, radius: CGFloat? = 6, opacity: Float? = 1, offset: CGSize? = CGSize(width: 6.0, height: 6.0), path: CGPath? = nil) {
@@ -107,21 +135,6 @@ class PrimaryButton: UIView {
         if let _path = path {
             self.layer.shadowPath = _path
         }
-        
-        self.makeSubview()
-    }
-    
-    private func makeSubview() {
-        self.myButton = UIButton(frame: self.bounds)
-        self.addSubview(self.myButton!)
-    }
-    
-    private func makeSubviewConstraintLayouts() {
-        self.myButton?.translatesAutoresizingMaskIntoConstraints = false
-        self.myButton?.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        self.myButton?.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        self.myButton?.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.myButton?.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     private func getGradientLayer(colors: [UIColor], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, bounds: CGRect) -> CAGradientLayer {
@@ -133,6 +146,17 @@ class PrimaryButton: UIView {
         
         return gradient
     }
+    
+    private func makeInsetsProgress() {
+        
+        let insets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        let padding: CGFloat = 10
+        
+        if (self.imageView?.image != nil) && (self.titleLabel?.text?.isEmpty != nil) {
+            self.setInsets(forContentPadding: insets, imageTitlePadding: padding)
+        }
+    }
 }
 
 extension PrimaryButton {
@@ -142,14 +166,43 @@ extension PrimaryButton {
         case selected
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        UIView.animate(withDuration: 0.2) {
+            self.backgroundNormal?.isHidden = (self.backgroundSelected == nil) ? false : true
+            self.backgroundSelected?.isHidden = false
+            self.backgroundGradientNormal?.isHidden = (self.backgroundGradientSelected == nil) ? false : true
+            self.backgroundGradientSelected?.isHidden = false
+            self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            self.alpha = 0.8
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        UIView.animate(withDuration: 0.2) {
+            self.backgroundNormal?.isHidden = false
+            self.backgroundSelected?.isHidden = (self.backgroundNormal == nil) ? true : false
+            self.backgroundGradientNormal?.isHidden = false
+            self.backgroundGradientSelected?.isHidden = (self.backgroundGradientNormal == nil) ? true : false
+            self.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.alpha = 1
+        }
+    }
+    
 }
 
 class PrimaryButtonExample: UIView {
     
     private let primaryButton: PrimaryButton = {
         let button = PrimaryButton(frame: CGRect(origin: CGPoint(x: 100, y: 100), size: CGSize(width: 200, height: 100)))
-        button.setTitle("My Button", color: .red, for: .normal)
-        button.setBackgroundColor(color: .black, for: .normal)
+        button.setTitle(text: "Button", for: .normal)
+        button.setTitle(text: "Button selected", for: .selected)
+        button.setBackgroundGradient(colors: [.red, .blue], for: .normal)
+        button.setBackgroundGradient(colors: [.yellow, .black], for: .selected)
+        button.setIcon(UIImage(named: "home"), for: .normal)
+//        button.setIcon(UIImage(named: "home-fill"), colors: [.red, .green, .blue], for: .selected)
+        
         
         return button
     }()
