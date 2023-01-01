@@ -7,8 +7,12 @@
 
 import UIKit
 
+protocol PrimaryButtonDelegate: AnyObject {
+    func setupViews()
+}
+
 class PrimaryButton: UIButton {
-        
+            
     private var backgroundNormal: CALayer? = nil
     
     private var backgroundSelected: CALayer? = nil
@@ -17,38 +21,60 @@ class PrimaryButton: UIButton {
     
     private var backgroundGradientSelected: CAGradientLayer? = nil
     
-    func setTitle(text: String, color: UIColor? = .primaryBackground, for state: ButtonState) {
-        self.setTitle(text, for: state == .normal ? .normal : .highlighted)
-        self.setTitleColor(color!, for: state == .normal ? .normal : .highlighted)
-        self.titleLabel?.numberOfLines = 1
-        self.bringSubviewToFront(self.titleLabel!)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setupViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.setupViews()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setupViews()
+    }
+    
+    func setupViews() {
+        self.contentMode = .scaleAspectFit
         self.makeInsetsProgress()
     }
     
-    func setTitle(text: String, colors: [UIColor]? = [.primaryBackground], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, for state: ButtonState) {
+    func setTitle(text: String, color: UIColor? = nil, for state: ButtonState) {
+        self.setTitle(text, for: state == .normal ? .normal : .highlighted)
+        self.setTitleColor(color ?? .primaryBackground, for: state == .normal ? .normal : .highlighted)
+        self.titleLabel?.numberOfLines = 1
+        self.titleLabel?.lineBreakMode = .byWordWrapping
+        self.titleLabel?.textAlignment = .center
+        self.bringSubviewToFront(self.titleLabel!)
+    }
+    
+    func setTitle(text: String, colors: [UIColor]? = nil, startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, for state: ButtonState) {
+        
         self.setTitle(text, for: state == .normal ? .normal : .highlighted)
         
-        if state == .normal {
-            let bounds: CGRect = self.titleLabel!.getFrame()
-            let gradient = self.getGradientLayer(colors: colors!, startPoint: startPoint!, endPoint: endPoint!, bounds: bounds)
-            self.setTitleColor(bounds.isEmpty ? .primaryBackground : gradient.toColor(), for: .normal)
-        } else {
-            let bounds: CGRect = self.titleLabel!.getFrame()
-            let gradient = self.getGradientLayer(colors: colors!, startPoint: startPoint!, endPoint: endPoint!, bounds: bounds)
-            self.setTitleColor(bounds.isEmpty ? .primaryBackground : gradient.toColor(), for: .highlighted)
+        if let _colors = colors {
+            if state == .normal {
+                let bounds: CGRect = self.titleLabel!.getFrame()
+                let gradient = self.getGradientLayer(colors: _colors, startPoint: startPoint!, endPoint: endPoint!, bounds: bounds)
+                self.setTitleColor(bounds.isEmpty ? .primaryBackground : gradient.toColor(), for: .normal)
+            } else {
+                let bounds: CGRect = self.titleLabel!.getFrame()
+                let gradient = self.getGradientLayer(colors: _colors, startPoint: startPoint!, endPoint: endPoint!, bounds: bounds)
+                self.setTitleColor(bounds.isEmpty ? .primaryBackground : gradient.toColor(), for: .highlighted)
+            }
         }
         
+        self.titleLabel?.textAlignment = .center
         self.titleLabel?.numberOfLines = 1
         self.bringSubviewToFront(self.titleLabel!)
-        self.makeInsetsProgress()
     }
     
-    func setIcon(_ image: UIImage?, color: UIColor? = .primaryBackground, size: CGFloat? = nil, for state: ButtonState) {
+    func setIcon(_ image: UIImage?, color: UIColor? = nil, size: CGFloat? = nil, for state: ButtonState) {
         var getImage = image?.resize(with: size ?? 24.0)
-        getImage = getImage?.tintColor(color!)
         self.setImage(getImage, for: state == .normal ? .normal : .highlighted)
         self.bringSubviewToFront(self.imageView!)
-        self.makeInsetsProgress()
     }
     
 //    func setIcon(_ image: UIImage?, colors: [UIColor]? = [.primaryBackground], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, size: CGFloat? = CGFloat(24), for state: ButtonState) {
@@ -149,13 +175,14 @@ class PrimaryButton: UIButton {
     
     private func makeInsetsProgress() {
         
-        let insets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        
+        let insets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         let padding: CGFloat = 10
         
-        if (self.imageView?.image != nil) && (self.titleLabel?.text?.isEmpty != nil) {
-            self.setInsets(forContentPadding: insets, imageTitlePadding: padding)
-        }
+        self.setPadding(padding: 10)
+        
+//        if (self.imageView?.image != nil) && (self.titleLabel?.text?.isEmpty != nil) {
+//            self.setInsets(forContentPadding: insets, imageTitlePadding: padding)
+//        }
     }
 }
 
@@ -201,8 +228,6 @@ class PrimaryButtonExample: UIView {
         button.setBackgroundGradient(colors: [.red, .blue], for: .normal)
         button.setBackgroundGradient(colors: [.yellow, .black], for: .selected)
         button.setIcon(UIImage(named: "home"), for: .normal)
-//        button.setIcon(UIImage(named: "home-fill"), colors: [.red, .green, .blue], for: .selected)
-        
         
         return button
     }()

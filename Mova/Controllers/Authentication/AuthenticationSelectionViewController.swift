@@ -9,10 +9,19 @@ import UIKit
 
 class AuthenticationSelectionViewController: UIViewController {
     
-    private let vStack: UIStackView = {
+    private let vStackContainer: UIStackView = {
         let _self = UIStackView()
         _self.axis = .vertical
         _self.alignment = .center
+        _self.spacing = 20
+        return _self
+    }()
+    
+    private let vStackButtonSocial: UIStackView = {
+        let _self = UIStackView()
+        _self.axis = .vertical
+        _self.alignment = .center
+        _self.spacing = 14
         return _self
     }()
     
@@ -33,6 +42,14 @@ class AuthenticationSelectionViewController: UIViewController {
         _self.text = "Let's you in"
         return _self
     }()
+    
+    private let facebookButton: PrimaryButtonSocial = {
+        let button = PrimaryButtonSocial(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.size.width, height: 55)))
+        button.setTitle(text: "Continue with Facebook", color: .textColor, for: .normal)
+        button.setIcon(UIImage(named: "facebook-circle"), for: .normal)
+        
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,19 +65,25 @@ class AuthenticationSelectionViewController: UIViewController {
     private func setupViews() {
         self.view.backgroundColor = .primaryBackground
         
-        self.view.addSubview(self.vStack)
+        self.view.addSubview(self.vStackContainer)
         
-        self.vStack.addArrangedSubview(self.imageView)
-        self.vStack.addArrangedSubview(self.titleLabel)
+        self.vStackContainer.addArrangedSubview(self.imageView)
+        self.vStackContainer.addArrangedSubview(self.titleLabel)
+        self.vStackContainer.addArrangedSubview(self.vStackButtonSocial)
+        
+        self.vStackButtonSocial.addArrangedSubview(self.facebookButton)
     }
     
     private func setupLayouts() {
-        self.vStack.translatesAutoresizingMaskIntoConstraints = false
-        self.vStack.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        self.vStack.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        self.vStack.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.vStack.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        self.vStack.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        self.vStackContainer.translatesAutoresizingMaskIntoConstraints = false
+        self.vStackContainer.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
+        self.vStackContainer.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
+        self.vStackContainer.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.vStackContainer.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        
+        self.facebookButton.translatesAutoresizingMaskIntoConstraints = false
+        self.facebookButton.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
+        self.facebookButton.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
     }
 
 }

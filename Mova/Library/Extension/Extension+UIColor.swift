@@ -62,6 +62,11 @@ extension UIColor {
         return UIColor(hex: "181A20")
     }
     
+    /// Unified background color for dark interface
+    static var primaryBackgroundLight: UIColor {
+        return UIColor(hex: "1F212A")
+    }
+    
     /// Main color of the app
     static var primaryRed: UIColor? {
         return UIColor(hex: "D91120")
@@ -83,7 +88,7 @@ extension UIColor {
     }
     
     /// Dark gray
-    static var grayDark: UIColor? {
+    static var grayDark: UIColor {
         return UIColor(hex: "35383F")
     }
     

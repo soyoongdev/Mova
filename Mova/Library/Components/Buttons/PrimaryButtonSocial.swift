@@ -7,29 +7,23 @@
 
 import UIKit
 
-class PrimaryButtonSocial: UIButton {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+class PrimaryButtonSocial: PrimaryButton {
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    private func setupViews() {
-        self.backgroundColor = .primaryBackground
-        self.layer.borderWidth = 1
+    override func setupViews() {
+        super.setupViews()
+        self.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
+        self.titleLabel?.font = .semiBold(size: .small)
+//        self.titleLabel?.font = .bold(size: .small)
     }
 
 }
-
 
 import SwiftUI
 
 struct PrimaryButtonSocial_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewUIView(view: PrimaryButtonSocial())
+//        PreviewUIView(view: PrimaryButtonSocial())
+        PreviewUIViewController(viewController: AuthenticationSelectionViewController())
     }
 }
 

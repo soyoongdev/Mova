@@ -23,6 +23,27 @@ extension UIButton {
             right: -imageTitlePadding
         )
     }
+    
+    func setPadding(padding: CGFloat) {
+        self.titleEdgeInsets = UIEdgeInsets(
+            top: 0,
+            left: padding / 2,
+            bottom: 0,
+            right: -padding / 2
+        )
+        self.imageEdgeInsets = UIEdgeInsets(
+            top: 0,
+            left: -padding / 2,
+            bottom: 0,
+            right: padding / 2
+        )
+        self.contentEdgeInsets = UIEdgeInsets(
+            top: padding,
+            left: padding*2,
+            bottom: padding,
+            right: padding*2
+        )
+    }
 
     func setBackgroundColor(_ backgroundColor: UIColor, for state: UIControl.State) {
         self.setBackgroundImage(.pixel(ofColor: backgroundColor), for: state)
@@ -32,5 +53,13 @@ extension UIButton {
         case small
         case medium
         case bigger
+    }
+}
+
+import SwiftUI
+
+struct AuthenticationSelectionViewController2_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewUIViewController(viewController: AuthenticationSelectionViewController())
     }
 }
