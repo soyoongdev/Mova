@@ -92,6 +92,10 @@ extension UIColor {
         return UIColor(hex: "35383F")
     }
     
+    static var grayOutline: UIColor {
+        return UIColor(hex: "292C32")
+    }
+    
     /// Light gray
     static var grayLight: UIColor? {
         return UIColor(hex: "B4B5B7")

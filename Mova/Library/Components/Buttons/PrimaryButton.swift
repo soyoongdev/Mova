@@ -12,6 +12,10 @@ protocol PrimaryButtonDelegate: AnyObject {
 }
 
 class PrimaryButton: UIButton {
+    
+    private lazy var isImageExist: Bool = false
+    
+    private lazy var isTitleExist: Bool = false
             
     private var backgroundNormal: CALayer? = nil
     
@@ -38,10 +42,10 @@ class PrimaryButton: UIButton {
     
     func setupViews() {
         self.contentMode = .scaleAspectFit
-        self.makeInsetsProgress()
     }
     
     func setTitle(text: String, color: UIColor? = nil, for state: ButtonState) {
+        self.isTitleExist = true
         self.setTitle(text, for: state == .normal ? .normal : .highlighted)
         self.setTitleColor(color ?? .primaryBackground, for: state == .normal ? .normal : .highlighted)
         self.titleLabel?.numberOfLines = 1
@@ -51,7 +55,7 @@ class PrimaryButton: UIButton {
     }
     
     func setTitle(text: String, colors: [UIColor]? = nil, startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, for state: ButtonState) {
-        
+        self.isTitleExist = true
         self.setTitle(text, for: state == .normal ? .normal : .highlighted)
         
         if let _colors = colors {
@@ -69,21 +73,21 @@ class PrimaryButton: UIButton {
         self.titleLabel?.textAlignment = .center
         self.titleLabel?.numberOfLines = 1
         self.bringSubviewToFront(self.titleLabel!)
+        self.makeInsetsProgress()
     }
     
     func setIcon(_ image: UIImage?, color: UIColor? = nil, size: CGFloat? = nil, for state: ButtonState) {
+        self.isImageExist = true
         var getImage = image?.resize(with: size ?? 24.0)
+        
+        if color != nil {
+            getImage = getImage?.tintColor(color!)
+        }
+        
         self.setImage(getImage, for: state == .normal ? .normal : .highlighted)
         self.bringSubviewToFront(self.imageView!)
+        self.makeInsetsProgress()
     }
-    
-//    func setIcon(_ image: UIImage?, colors: [UIColor]? = [.primaryBackground], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, size: CGFloat? = CGFloat(24), for state: ButtonState) {
-//        var getImage = image?.resize(with: size!)
-//        getImage = getImage?.tintColor(colors!, startPoint: startPoint, endPoint: endPoint)
-//        self.setImage(getImage, for: state == .normal ? .normal : .highlighted)
-//        self.bringSubviewToFront(self.imageView!)
-//        self.makeInsetsProgress()
-//    }
     
     func setBackgroundGradient(colors: [UIColor], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, cornerRadius: CGFloat? = 14.0, for state: ButtonState) {
         
@@ -176,13 +180,10 @@ class PrimaryButton: UIButton {
     private func makeInsetsProgress() {
         
         let insets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        let padding: CGFloat = 10
         
-        self.setPadding(padding: 10)
-        
-//        if (self.imageView?.image != nil) && (self.titleLabel?.text?.isEmpty != nil) {
-//            self.setInsets(forContentPadding: insets, imageTitlePadding: padding)
-//        }
+        if self.isTitleExist && self.isImageExist {
+            self.setPadding(10)
+        }
     }
 }
 
@@ -219,45 +220,12 @@ extension PrimaryButton {
     
 }
 
-class PrimaryButtonExample: UIView {
-    
-    private let primaryButton: PrimaryButton = {
-        let button = PrimaryButton(frame: CGRect(origin: CGPoint(x: 100, y: 100), size: CGSize(width: 200, height: 100)))
-        button.setTitle(text: "Button", for: .normal)
-        button.setTitle(text: "Button selected", for: .selected)
-        button.setBackgroundGradient(colors: [.red, .blue], for: .normal)
-        button.setBackgroundGradient(colors: [.yellow, .black], for: .selected)
-        button.setIcon(UIImage(named: "home"), for: .normal)
-        
-        return button
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setupViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.setupViews()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-    }
-    
-    func setupViews() {
-        self.addSubview(self.primaryButton)
-    }
-    
-}
-
 
 import SwiftUI
 
 struct PrimaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewUIView(view: PrimaryButtonExample())
+        PreviewUIViewController(viewController: AuthenticationSelectionViewController())
     }
 }
 

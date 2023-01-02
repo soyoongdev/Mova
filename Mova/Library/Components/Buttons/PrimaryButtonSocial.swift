@@ -12,8 +12,11 @@ class PrimaryButtonSocial: PrimaryButton {
     override func setupViews() {
         super.setupViews()
         self.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
+        self.setBordered(color: .grayOutline, width: 1)
         self.titleLabel?.font = .semiBold(size: .small)
-//        self.titleLabel?.font = .bold(size: .small)
+        self.tintColor = .textColor
+//        let space: CGFloat = 16.0
+//        self.contentEdgeInsets = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
     }
 
 }

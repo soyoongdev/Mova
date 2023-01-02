@@ -44,7 +44,7 @@ class AuthenticationSelectionViewController: UIViewController {
     }()
     
     private let facebookButton: PrimaryButtonSocial = {
-        let button = PrimaryButtonSocial(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.size.width, height: 55)))
+        let button = PrimaryButtonSocial(frame: CGRect(x: 0, y: 0, width: UIScreen.size.width - 40, height: 55))
         button.setTitle(text: "Continue with Facebook", color: .textColor, for: .normal)
         button.setIcon(UIImage(named: "facebook-circle"), for: .normal)
         
@@ -81,9 +81,13 @@ class AuthenticationSelectionViewController: UIViewController {
         self.vStackContainer.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         self.vStackContainer.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
+        self.vStackButtonSocial.translatesAutoresizingMaskIntoConstraints = false
+        self.vStackButtonSocial.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
+        self.vStackButtonSocial.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
+        
         self.facebookButton.translatesAutoresizingMaskIntoConstraints = false
-        self.facebookButton.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
-        self.facebookButton.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
+        self.facebookButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
+        self.facebookButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
     }
 
 }

@@ -24,27 +24,27 @@ extension UIButton {
         )
     }
     
-    func setPadding(padding: CGFloat) {
+    func setPadding(_ padding: CGFloat) {
         self.titleEdgeInsets = UIEdgeInsets(
             top: 0,
-            left: padding / 2,
+            left: padding/2,
             bottom: 0,
-            right: -padding / 2
+            right: -padding/2
         )
         self.imageEdgeInsets = UIEdgeInsets(
             top: 0,
-            left: -padding / 2,
+            left: -padding/2,
             bottom: 0,
-            right: padding / 2
+            right: padding/2
         )
         self.contentEdgeInsets = UIEdgeInsets(
-            top: padding,
-            left: padding*2,
-            bottom: padding,
-            right: padding*2
+            top: 0,
+            left: padding/2,
+            bottom: 0,
+            right: padding/2
         )
     }
-
+    
     func setBackgroundColor(_ backgroundColor: UIColor, for state: UIControl.State) {
         self.setBackgroundImage(.pixel(ofColor: backgroundColor), for: state)
     }
