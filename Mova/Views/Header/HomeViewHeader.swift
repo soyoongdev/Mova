@@ -16,19 +16,17 @@ class HomeViewHeader: UIView {
         return header
     }()
     
-    private let buttonPlay: PrimaryButtonSmaller = {
-        let button = PrimaryButtonSmaller()
-        button.setBackground(color: .red, for: .normal)
-        button.setTitle(title: "Play")
-        button.setImageIcon(image: UIImage(named: "play-fill"), for: .normal)
+    private let buttonPlay: PrimaryButton = {
+        let button = PrimaryButton()
+        button.setTitle(text: "Play", for: .normal)
+        button.setIcon(UIImage(named: "play-fill"), for: .normal)
         return button
     }()
     
-    private let buttonList: PrimaryButtonSmaller = {
-        let button = PrimaryButtonSmaller()
-        button.setTitle(title: "My List")
-        button.setImageIcon(image: UIImage(named: "add"), for: .normal)
-        button.setBackgroundType(type: .outline)
+    private let buttonList: PrimaryButton = {
+        let button = PrimaryButton()
+        button.setTitle(text: "My List", for: .normal)
+        button.setIcon(UIImage(named: "add"), for: .normal)
         return button
     }()
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PrimaryButtonSocial: PrimaryButton {
+class PrimaryButtonSocial: MasterButton {
     
     override func setupViews() {
         super.setupViews()
@@ -15,8 +15,6 @@ class PrimaryButtonSocial: PrimaryButton {
         self.setBordered(color: .grayOutline, width: 1)
         self.titleLabel?.font = .semiBold(size: .small)
         self.tintColor = .textColor
-//        let space: CGFloat = 16.0
-//        self.contentEdgeInsets = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
     }
 
 }

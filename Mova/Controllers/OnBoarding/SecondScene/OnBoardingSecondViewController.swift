@@ -32,10 +32,9 @@ class OnBoardingSecondViewController: UIPageViewController {
     }()
     
     /// Button get started to skip onboarding
-    private let buttonGetStarted: PrimaryButtonMedium = {
-        let button = PrimaryButtonMedium()
-        button.setTitle(title: "Get Started")
-        button.setBackground(color: .primaryRed, for: .normal)
+    private let buttonGetStarted: PrimaryButton = {
+        let button = PrimaryButton(frame: CGRect(origin: .zero, size: CGSize(relative: 350, relative: 52)))
+        button.setTitle(text: "Get Started", for: .normal)
         return button
     }()
         
@@ -89,7 +88,9 @@ class OnBoardingSecondViewController: UIPageViewController {
     }
     
     @objc private func getStartedAction(_ sender: Any) {
-        print("\(self.viewPages.count)")
+        UIView.animate(withDuration: 0.2) {
+            self.navigationController?.pushViewController(AuthenticationSelectionViewController(), animated: true)
+        }
     }
     
 }

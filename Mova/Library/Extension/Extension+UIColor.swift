@@ -68,7 +68,7 @@ extension UIColor {
     }
     
     /// Main color of the app
-    static var primaryRed: UIColor? {
+    static var primaryRed: UIColor {
         return UIColor(hex: "D91120")
     }
     

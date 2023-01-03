@@ -21,7 +21,7 @@ class OnBoardingFirstViewController: UIViewController {
         let frame: CGRect = .init(origin: .zero, size: .init(relative: 55, relative: 55))
         let indicator = NVActivityIndicatorView(frame: frame)
         indicator.type = .ballSpinFadeLoader
-        indicator.color = UIColor.primaryRed!
+        indicator.color = UIColor.primaryRed
         return indicator
     }()
     
