@@ -116,3 +116,13 @@ extension CGFloat {
         return 42.0
     }
 }
+
+// Button primary size
+extension CGFloat {
+    
+    /// 54.0
+    static var primaryButtonSize: CGSize {
+        return CGSize(width: UIScreen.size.width, height: 54.0)
+    }
+    
+}

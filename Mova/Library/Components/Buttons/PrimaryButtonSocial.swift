@@ -18,13 +18,3 @@ class PrimaryButtonSocial: MasterButton {
     }
 
 }
-
-import SwiftUI
-
-struct PrimaryButtonSocial_Previews: PreviewProvider {
-    static var previews: some View {
-//        PreviewUIView(view: PrimaryButtonSocial())
-        PreviewUIViewController(viewController: AuthenticationSelectionViewController())
-    }
-}
-

@@ -44,7 +44,7 @@ class AuthenticationSelectionViewController: UIViewController {
     }()
     
     private let facebookButton: PrimaryButtonSocial = {
-        let button = PrimaryButtonSocial(frame: CGRect(x: 0, y: 0, width: UIScreen.size.width - 40, height: 55))
+        let button = PrimaryButtonSocial()
         button.setTitle(text: "Continue with Facebook", color: .textColor, for: .normal)
         button.setIcon(UIImage(named: "facebook_circle-icon"), for: .normal)
         
@@ -52,7 +52,7 @@ class AuthenticationSelectionViewController: UIViewController {
     }()
     
     private let googleButton: PrimaryButtonSocial = {
-        let button = PrimaryButtonSocial(frame: CGRect(x: 0, y: 0, width: UIScreen.size.width - 40, height: 55))
+        let button = PrimaryButtonSocial()
         button.setTitle(text: "Continue with Google", color: .textColor, for: .normal)
         button.setIcon(UIImage(named: "google-icon"), for: .normal)
         
@@ -60,7 +60,7 @@ class AuthenticationSelectionViewController: UIViewController {
     }()
     
     private let appleButton: PrimaryButtonSocial = {
-        let button = PrimaryButtonSocial(frame: CGRect(x: 0, y: 0, width: UIScreen.size.width - 40, height: 55))
+        let button = PrimaryButtonSocial()
         button.setTitle(text: "Continue with Apple", color: .textColor, for: .normal)
         button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
         
