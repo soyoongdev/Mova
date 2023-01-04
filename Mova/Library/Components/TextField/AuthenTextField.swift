@@ -14,8 +14,10 @@ class AuthenTextField: MasterTextField, UITextFieldDelegate {
         self.delegate = self
         self.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
         self.setBackgroundColor(color: .primaryRed, for: .selected)
-        self.contentPaddingHorizontal = 20
-        self.inputPaddingHorizontal = 10
+        self.contentPaddingHorizontal = 10
+        self.inputPaddingHorizontal = 5
+        self.textColor = .textColor
+        self.font = .semiBold(size: .small)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

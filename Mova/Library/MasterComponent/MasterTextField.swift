@@ -62,38 +62,59 @@ class MasterTextField: UITextField {
         
     }
     
-    func setIconLeft(_ image: UIImage?, color: UIColor? = nil, size: CGFloat? = 16.0, for state: TextFieldState, action: (() -> Void)?) {
-        self.leftViewAction = action
-        
+    func setIconLeft(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, for state: TextFieldState? = .normal) {
         var getImage = image?.resize(with: size!)
-
         if color != nil {
             getImage = getImage?.tintColor(color!)
         }
+        let imageView = UIImageView()
+        imageView.image = getImage
+        imageView.contentMode = .scaleAspectFit
         
-        let button = UIButton()
-        button.imageView?.image = getImage
-        button.imageView?.contentMode = .scaleAspectFit
-        button.addTarget(self, action: #selector(blockActionLeft), for: .touchUpInside)
+        let button = MasterButton()
+        button.addSubview(imageView)
+        button.addTarget(self, action: #selector(self.blockActionLeft), for: .touchUpInside)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: size!).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: size!).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
         
         self.leftView = button
         self.leftViewMode = .always
     }
     
-    func setIconRight(_ image: UIImage?, color: UIColor? = nil, size: CGFloat? = 16.0, for state: TextFieldState) {
+    func setIconRight(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, for state: TextFieldState? = .normal) {
+        
         var getImage = image?.resize(with: size!)
-
         if color != nil {
             getImage = getImage?.tintColor(color!)
         }
+        let imageView = UIImageView()
+        imageView.image = getImage
+        imageView.contentMode = .scaleAspectFit
         
-        let button = UIButton()
-        button.imageView?.image = getImage
-        button.imageView?.contentMode = .scaleAspectFit
-        button.addTarget(self, action: #selector(blockActionRight), for: .touchUpInside)
+        let button = MasterButton()
+        button.addSubview(imageView)
+        button.addTarget(self, action: #selector(self.blockActionRight), for: .touchUpInside)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: size!).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: size!).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
         
         self.rightView = button
         self.rightViewMode = .always
+    }
+    
+    func setIconLeftAction(_ action: @escaping () -> Void) {
+        self.leftViewAction = action
+    }
+    
+    func setIconRightAction(_ action: @escaping () -> Void) {
+        self.rightViewAction = action
     }
     
     func setPlaceholder(_ string: String? = "", color: UIColor? = .placeholder, textSize: CGFloat? = 14.0, font: UIFont? = nil) {

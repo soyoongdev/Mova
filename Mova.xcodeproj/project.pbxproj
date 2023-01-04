@@ -77,6 +77,7 @@
 		B2A0FA85294761D200346E2E /* Extension+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0FA84294761D200346E2E /* Extension+CGPoint.swift */; };
 		B2ACB5422943364B002B2E03 /* MasterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ACB5412943364B002B2E03 /* MasterButton.swift */; };
 		B2ACB54429433E15002B2E03 /* Extension+CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ACB54329433E15002B2E03 /* Extension+CGSize.swift */; };
+		B2ADBD782965C2DB001CA83C /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2ADBD772965C2DB001CA83C /* CheckBox.swift */; };
 		B2B298BF293FB1970050FEF3 /* FeedImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B298BE293FB1970050FEF3 /* FeedImageCollectionViewCell.swift */; };
 		B2B5420A295081F30056351D /* Extension+UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B54209295081F30056351D /* Extension+UIEdgeInsets.swift */; };
 		B2B5420D2950A1CD0056351D /* Extension+UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5420C2950A1CD0056351D /* Extension+UIStackView.swift */; };
@@ -115,7 +116,7 @@
 		B2EB97FC295D5E9D000A3838 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EB97FB295D5E9D000A3838 /* OnBoardingViewModel.swift */; };
 		B2EC91822941EEBA0099FD08 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91812941EEBA0099FD08 /* Extension+String.swift */; };
 		B2EC91842941F02A0099FD08 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91832941F02A0099FD08 /* Extension+UIImage.swift */; };
-		B2EC91862941F3E90099FD08 /* Extension+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91852941F3E90099FD08 /* Extension+TextField.swift */; };
+		B2EC91862941F3E90099FD08 /* Extension+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91852941F3E90099FD08 /* Extension+UITextField.swift */; };
 		B2EC91882941F4F90099FD08 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91872941F4F90099FD08 /* Extension+UIColor.swift */; };
 		B2EC918A2941F6FE0099FD08 /* Extension+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91892941F6FE0099FD08 /* Extension+CGFloat.swift */; };
 		B2EC918C2941F7740099FD08 /* Extension+CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC918B2941F7740099FD08 /* Extension+CAGradientLayer.swift */; };
@@ -198,6 +199,7 @@
 		B2A0FA84294761D200346E2E /* Extension+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGPoint.swift"; sourceTree = "<group>"; };
 		B2ACB5412943364B002B2E03 /* MasterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterButton.swift; sourceTree = "<group>"; };
 		B2ACB54329433E15002B2E03 /* Extension+CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGSize.swift"; sourceTree = "<group>"; };
+		B2ADBD772965C2DB001CA83C /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		B2B298BE293FB1970050FEF3 /* FeedImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		B2B54209295081F30056351D /* Extension+UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIEdgeInsets.swift"; sourceTree = "<group>"; };
 		B2B5420C2950A1CD0056351D /* Extension+UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIStackView.swift"; sourceTree = "<group>"; };
@@ -238,7 +240,7 @@
 		B2EB97FB295D5E9D000A3838 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		B2EC91812941EEBA0099FD08 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		B2EC91832941F02A0099FD08 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
-		B2EC91852941F3E90099FD08 /* Extension+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+TextField.swift"; sourceTree = "<group>"; };
+		B2EC91852941F3E90099FD08 /* Extension+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextField.swift"; sourceTree = "<group>"; };
 		B2EC91872941F4F90099FD08 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		B2EC91892941F6FE0099FD08 /* Extension+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGFloat.swift"; sourceTree = "<group>"; };
 		B2EC918B2941F7740099FD08 /* Extension+CAGradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CAGradientLayer.swift"; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 			children = (
 				B2CAEB21295ED92F0049B371 /* PrimaryButtonSocial.swift */,
 				B2C5631A295F475300E9A908 /* PrimaryButton.swift */,
+				B2ADBD772965C2DB001CA83C /* CheckBox.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -647,7 +650,7 @@
 			children = (
 				B2EC91812941EEBA0099FD08 /* Extension+String.swift */,
 				B2EC91832941F02A0099FD08 /* Extension+UIImage.swift */,
-				B2EC91852941F3E90099FD08 /* Extension+TextField.swift */,
+				B2EC91852941F3E90099FD08 /* Extension+UITextField.swift */,
 				B2EC91872941F4F90099FD08 /* Extension+UIColor.swift */,
 				B2EC91892941F6FE0099FD08 /* Extension+CGFloat.swift */,
 				B2EC918B2941F7740099FD08 /* Extension+CAGradientLayer.swift */,
@@ -845,6 +848,7 @@
 				B2EC91842941F02A0099FD08 /* Extension+UIImage.swift in Sources */,
 				B2C0B09C293CCDE100DB441B /* DownloadViewController.swift in Sources */,
 				B2927CBD2952DD4B00DB1975 /* Translation.swift in Sources */,
+				B2ADBD782965C2DB001CA83C /* CheckBox.swift in Sources */,
 				B22E3AC02956E0B800C3897E /* ResultWrapper.swift in Sources */,
 				B2927CCD2952DD4B00DB1975 /* Video.swift in Sources */,
 				B2927CC92952DD4B00DB1975 /* Review.swift in Sources */,
@@ -884,7 +888,7 @@
 				B2EC91882941F4F90099FD08 /* Extension+UIColor.swift in Sources */,
 				B2C0B09E293CCDF000DB441B /* ProfileViewController.swift in Sources */,
 				B220628D296569D500B65928 /* AuthenTextField.swift in Sources */,
-				B2EC91862941F3E90099FD08 /* Extension+TextField.swift in Sources */,
+				B2EC91862941F3E90099FD08 /* Extension+UITextField.swift in Sources */,
 				B2927CC02952DD4B00DB1975 /* Keyword.swift in Sources */,
 				B2927CC62952DD4B00DB1975 /* ReleaseType.swift in Sources */,
 				B22E3ABE2956D10000C3897E /* APICaller+Changes.swift in Sources */,

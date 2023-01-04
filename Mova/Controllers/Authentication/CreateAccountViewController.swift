@@ -8,7 +8,7 @@
 import UIKit
 
 class CreateAccountViewController: UIViewController {
-
+    
     private let containerView = UIView()
     
     private let vStackContainer: UIStackView = {
@@ -36,33 +36,36 @@ class CreateAccountViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let _self = UILabel()
-        _self.font = .bold(size: .extra38)
+        _self.font = .bold(size: .large26)
         _self.textColor = .textColor
         _self.numberOfLines = 1
         _self.text = "Create Your Account"
         return _self
     }()
     
-    private let facebookButton: PrimaryButtonSocial = {
-        let button = PrimaryButtonSocial(frame: CGRect(x: 0, y: 0, width: UIScreen.size.width - 40, height: 55))
-        button.setTitle(text: "Continue with Facebook", color: .textColor, for: .normal)
-        button.setIcon(UIImage(named: "facebook_circle-icon"), for: .normal)
+    private let textFieldEmail: AuthenTextField = {
+        let tf = AuthenTextField()
+        tf.setIconLeft(UIImage(named: "envelope-fill"), color: .placeholder, for: .normal)
+        tf.setIconRight(UIImage(named: "cross-small"), color: .placeholder, for: .normal)
+        tf.rightViewMode = .whileEditing
+        tf.setPlaceholder("Email")
         
-        return button
+        return tf
     }()
     
-    private let googleButton: PrimaryButtonSocial = {
-        let button = PrimaryButtonSocial(frame: CGRect(x: 0, y: 0, width: UIScreen.size.width - 40, height: 55))
-        button.setTitle(text: "Continue with Google", color: .textColor, for: .normal)
-        button.setIcon(UIImage(named: "google-icon"), for: .normal)
+    private let textFieldPassword: AuthenTextField = {
+        let tf = AuthenTextField()
+        tf.setIconLeft(UIImage(named: "lock-fill"), color: .placeholder, for: .normal)
+        tf.setIconRight(UIImage(named: "eye-fill"), color: .placeholder, for: .normal)
+        tf.rightViewMode = .whileEditing
+        tf.setPlaceholder("Password")
+        tf.isSecureTextEntry = true
         
-        return button
+        return tf
     }()
     
-    private let appleButton: PrimaryButtonSocial = {
-        let button = PrimaryButtonSocial(frame: CGRect(x: 0, y: 0, width: UIScreen.size.width - 40, height: 55))
-        button.setTitle(text: "Continue with Apple", color: .textColor, for: .normal)
-        button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
+    private let checkBoxButton: CheckBox = {
+        let button = CheckBox()
         
         return button
     }()
@@ -103,7 +106,7 @@ class CreateAccountViewController: UIViewController {
         button.setTitleColor(.primaryRed, for: .normal)
         return button
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViews()
@@ -112,10 +115,34 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.setupLayouts()
+        self.setupSubViewLayouts()
     }
     
     private func setupViews() {
+        self.setupSubViews()
+        
+        self.textFieldEmail.setIconRightAction(self.rightMailAction)
+        self.textFieldPassword.setIconRightAction(self.rightPasswordAction)
+        
+    }
+    
+    private func rightMailAction() {
+        self.textFieldEmail.text = ""
+    }
+    
+    private func rightPasswordAction() {
+        self.textFieldPassword.setIconRight(UIImage(named: self.textFieldPassword.isSecureTextEntry ? "eye" : "eye-fill"), color: .placeholder)
+        self.textFieldPassword.isSecureTextEntry.toggle()
+    }
+    
+    
+    
+}
+
+// Setup layouts
+extension CreateAccountViewController {
+    
+    private func setupSubViews() {
         self.view.addSubview(self.containerView)
         self.containerView.backgroundColor = .primaryBackground
         self.containerView.addSubview(self.vStackContainer)
@@ -127,35 +154,30 @@ class CreateAccountViewController: UIViewController {
         self.vStackContainer.insertArrangedSubview(self.buttonSignIn, at: 4)
         self.vStackContainer.insertArrangedSubview(self.hStackFooter, at: 5)
         
-        self.vStackButtonSocial.insertArrangedSubview(self.facebookButton, at: 0)
-        self.vStackButtonSocial.insertArrangedSubview(self.googleButton, at: 1)
-        self.vStackButtonSocial.insertArrangedSubview(self.appleButton, at: 2)
+        self.vStackButtonSocial.insertArrangedSubview(self.textFieldEmail, at: 0)
+        self.vStackButtonSocial.insertArrangedSubview(self.textFieldPassword, at: 1)
+        self.vStackButtonSocial.insertArrangedSubview(self.checkBoxButton, at: 2)
         
         self.hStackFooter.insertArrangedSubview(self.titleLabelFooter, at: 0)
         self.hStackFooter.insertArrangedSubview(self.buttonSignUp, at: 1)
-        
     }
     
-    private func setupLayouts() {
+    private func setupSubViewLayouts() {
         self.containerView.setupLayoutConstraint(self.view)
         
         self.vStackContainer.translatesAutoresizingMaskIntoConstraints = false
         self.vStackContainer.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 20).isActive = true
         self.vStackContainer.bottomAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         self.vStackContainer.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -20).isActive = true
-        self.vStackContainer.spacing = 30
+        self.vStackContainer.spacing = 35
         
-        self.facebookButton.translatesAutoresizingMaskIntoConstraints = false
-        self.facebookButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
-        self.facebookButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
-
-        self.googleButton.translatesAutoresizingMaskIntoConstraints = false
-        self.googleButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
-        self.googleButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        self.textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
+        self.textFieldEmail.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
+        self.textFieldEmail.heightAnchor.constraint(equalToConstant: 55).isActive = true
         
-        self.appleButton.translatesAutoresizingMaskIntoConstraints = false
-        self.appleButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
-        self.appleButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        self.textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
+        self.textFieldPassword.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
+        self.textFieldPassword.heightAnchor.constraint(equalToConstant: 55).isActive = true
         
         self.vStackButtonSocial.translatesAutoresizingMaskIntoConstraints = false
         self.vStackButtonSocial.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
@@ -174,9 +196,9 @@ class CreateAccountViewController: UIViewController {
         self.hStackFooter.spacing = 10
         
         
+        
     }
-
-
+    
 }
 
 import SwiftUI

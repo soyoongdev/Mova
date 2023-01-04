@@ -143,7 +143,7 @@ class AuthenticationSelectionViewController: UIViewController {
         self.vStackContainer.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 20).isActive = true
         self.vStackContainer.bottomAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         self.vStackContainer.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -20).isActive = true
-        self.vStackContainer.spacing = 30
+        self.vStackContainer.spacing = 35
         
         self.facebookButton.translatesAutoresizingMaskIntoConstraints = false
         self.facebookButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
