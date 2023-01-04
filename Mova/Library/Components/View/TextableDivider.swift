@@ -13,14 +13,14 @@ class TextableDivider: UIView {
     
     public var dividerView: UIView?
     
-    public var titleLabel: UILabel = {
-        let title = UILabel()
+    public var titleLabel: MasterLabel = {
+        let title = MasterLabel()
         title.font = .semiBold(size: .small)
         title.textColor = .textColor
         title.numberOfLines = 1
         title.textAlignment = .center
-        let size: CGFloat = 16
-        title.padding = UIEdgeInsets(top: size, left: size, bottom: size, right: size)
+        let size: CGFloat = 20
+        title.setPadding(UIEdgeInsets(top: 0, left: size, bottom: 0, right: size))
         title.backgroundColor = .primaryBackground
         return title
     }()

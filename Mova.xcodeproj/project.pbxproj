@@ -13,6 +13,7 @@
 		B207D09129570BCB001B3C89 /* APICaller+Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207D09029570BCB001B3C89 /* APICaller+Collections.swift */; };
 		B207D0932957264A001B3C89 /* APICaller+Companies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207D0922957264A001B3C89 /* APICaller+Companies.swift */; };
 		B214A04A295AEEB600F43A0E /* DashboardSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214A049295AEEB600F43A0E /* DashboardSecondView.swift */; };
+		B220628D296569D500B65928 /* AuthenTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220628C296569D500B65928 /* AuthenTextField.swift */; };
 		B22E3ABE2956D10000C3897E /* APICaller+Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E3ABD2956D10000C3897E /* APICaller+Changes.swift */; };
 		B22E3AC02956E0B800C3897E /* ResultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E3ABF2956E0B800C3897E /* ResultWrapper.swift */; };
 		B22E3AC22956EF3400C3897E /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E3AC12956EF3400C3897E /* Extension+Date.swift */; };
@@ -38,6 +39,9 @@
 		B26448762962E07E0049580F /* TextableDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26448752962E07E0049580F /* TextableDivider.swift */; };
 		B27FF2B62942D50300371CD1 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B52942D50300371CD1 /* MasterView.swift */; };
 		B27FF2BA2942D6C000371CD1 /* PreviewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B92942D6C000371CD1 /* PreviewUI.swift */; };
+		B288DCEA296437B400E33417 /* MasterLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B288DCE9296437B400E33417 /* MasterLabel.swift */; };
+		B288DCEC29643EEE00E33417 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B288DCEB29643EEE00E33417 /* CreateAccountViewController.swift */; };
+		B288DCEE2964401200E33417 /* MasterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B288DCED2964401200E33417 /* MasterTextField.swift */; };
 		B28F0281294978700011B191 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F0280294978700011B191 /* Extension+UIFont.swift */; };
 		B2927C9F2952DB9000DB1975 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2927C9E2952DB9000DB1975 /* Client.swift */; };
 		B2927CA12952DCCE00DB1975 /* APICaller+Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2927CA02952DCCE00DB1975 /* APICaller+Authentication.swift */; };
@@ -130,6 +134,7 @@
 		B207D09029570BCB001B3C89 /* APICaller+Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Collections.swift"; sourceTree = "<group>"; };
 		B207D0922957264A001B3C89 /* APICaller+Companies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Companies.swift"; sourceTree = "<group>"; };
 		B214A049295AEEB600F43A0E /* DashboardSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSecondView.swift; sourceTree = "<group>"; };
+		B220628C296569D500B65928 /* AuthenTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenTextField.swift; sourceTree = "<group>"; };
 		B22E3ABD2956D10000C3897E /* APICaller+Changes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Changes.swift"; sourceTree = "<group>"; };
 		B22E3ABF2956E0B800C3897E /* ResultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWrapper.swift; sourceTree = "<group>"; };
 		B22E3AC12956EF3400C3897E /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
@@ -155,6 +160,9 @@
 		B26448752962E07E0049580F /* TextableDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextableDivider.swift; sourceTree = "<group>"; };
 		B27FF2B52942D50300371CD1 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		B27FF2B92942D6C000371CD1 /* PreviewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewUI.swift; sourceTree = "<group>"; };
+		B288DCE9296437B400E33417 /* MasterLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterLabel.swift; sourceTree = "<group>"; };
+		B288DCEB29643EEE00E33417 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		B288DCED2964401200E33417 /* MasterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTextField.swift; sourceTree = "<group>"; };
 		B28F0280294978700011B191 /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
 		B2927C9E2952DB9000DB1975 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		B2927CA02952DCCE00DB1975 /* APICaller+Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Authentication.swift"; sourceTree = "<group>"; };
@@ -270,6 +278,14 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
+		B220628B2965698800B65928 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				B220628C296569D500B65928 /* AuthenTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
 		B23EB766295011F400940D50 /* Header */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +305,7 @@
 		B27FF2B02942D2B900371CD1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B220628B2965698800B65928 /* TextField */,
 				B26448742962E05B0049580F /* View */,
 				B29FACE62959DDC600517A28 /* TableView */,
 				B23EB766295011F400940D50 /* Header */,
@@ -306,13 +323,15 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
-		B27FF2B42942D4D700371CD1 /* Master */ = {
+		B27FF2B42942D4D700371CD1 /* MasterComponent */ = {
 			isa = PBXGroup;
 			children = (
 				B27FF2B52942D50300371CD1 /* MasterView.swift */,
 				B2ACB5412943364B002B2E03 /* MasterButton.swift */,
+				B288DCE9296437B400E33417 /* MasterLabel.swift */,
+				B288DCED2964401200E33417 /* MasterTextField.swift */,
 			);
-			path = Master;
+			path = MasterComponent;
 			sourceTree = "<group>";
 		};
 		B27FF2BB2942DD7E00371CD1 /* Fonts */ = {
@@ -401,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				B2CAEB1F295E9D3D0049B371 /* AuthenticationSelectionViewController.swift */,
+				B288DCEB29643EEE00E33417 /* CreateAccountViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -614,7 +634,7 @@
 			isa = PBXGroup;
 			children = (
 				B2E62AC52944E7B700FC7BE9 /* Delegate */,
-				B27FF2B42942D4D700371CD1 /* Master */,
+				B27FF2B42942D4D700371CD1 /* MasterComponent */,
 				B27FF2B02942D2B900371CD1 /* Components */,
 				B2EC91802941EE9A0099FD08 /* Extension */,
 				B27FF2B92942D6C000371CD1 /* PreviewUI.swift */,
@@ -815,6 +835,7 @@
 				B2E61E23295C154A008ACD43 /* MovaIntroModel.swift in Sources */,
 				B2A0FA85294761D200346E2E /* Extension+CGPoint.swift in Sources */,
 				B2927CC12952DD4B00DB1975 /* CrewMember.swift in Sources */,
+				B288DCEA296437B400E33417 /* MasterLabel.swift in Sources */,
 				B27FF2B62942D50300371CD1 /* MasterView.swift in Sources */,
 				B2C0B0A3293CD2C900DB441B /* Dictionaries.swift in Sources */,
 				B2B8DECB29575958009ECBF2 /* APICaller+Configuration.swift in Sources */,
@@ -836,7 +857,9 @@
 				B29FACEE295A0DED00517A28 /* OnBoardingFirstViewController.swift in Sources */,
 				B2927CBE2952DD4B00DB1975 /* List.swift in Sources */,
 				B2EC918C2941F7740099FD08 /* Extension+CAGradientLayer.swift in Sources */,
+				B288DCEC29643EEE00E33417 /* CreateAccountViewController.swift in Sources */,
 				B2D2B5142950C39100EC39F5 /* AppService.swift in Sources */,
+				B288DCEE2964401200E33417 /* MasterTextField.swift in Sources */,
 				B2927CC82952DD4B00DB1975 /* Language.swift in Sources */,
 				B2927CBC2952DD4B00DB1975 /* Company.swift in Sources */,
 				B2D8E461296046C3003E7EA8 /* Extension+UILabel.swift in Sources */,
@@ -860,6 +883,7 @@
 				B2E62AC92944FC3000FC7BE9 /* Extension+UIButton.swift in Sources */,
 				B2EC91882941F4F90099FD08 /* Extension+UIColor.swift in Sources */,
 				B2C0B09E293CCDF000DB441B /* ProfileViewController.swift in Sources */,
+				B220628D296569D500B65928 /* AuthenTextField.swift in Sources */,
 				B2EC91862941F3E90099FD08 /* Extension+TextField.swift in Sources */,
 				B2927CC02952DD4B00DB1975 /* Keyword.swift in Sources */,
 				B2927CC62952DD4B00DB1975 /* ReleaseType.swift in Sources */,

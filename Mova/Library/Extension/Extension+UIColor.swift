@@ -82,9 +82,9 @@ extension UIColor {
         return ColorState(active: .white.withAlphaComponent(0.8), deactive: .white)
     }()
     
-    /// Placeholder color for text field is brighter
-    static var textPlaceholderLight: UIColor? {
-        return UIColor(hex: "9C9C9F")
+    /// Placeholder color for normal state
+    static var placeholder: UIColor {
+        return UIColor(hex: "9F9FA2")
     }
     
     /// Dark gray
@@ -97,7 +97,7 @@ extension UIColor {
     }
     
     /// Light gray
-    static var grayLight: UIColor? {
+    static var grayLight: UIColor {
         return UIColor(hex: "B4B5B7")
     }
     
