@@ -64,11 +64,7 @@ class CreateAccountViewController: UIViewController {
         return tf
     }()
     
-    private let checkBoxButton: CheckBox = {
-        let button = CheckBox()
-        
-        return button
-    }()
+    private let checkBoxButton: CheckBox = CheckBox()
     
     private let titleDivider: TextableDivider = {
         let _self = TextableDivider()
@@ -123,6 +119,7 @@ class CreateAccountViewController: UIViewController {
         
         self.textFieldEmail.setIconRightAction(self.rightMailAction)
         self.textFieldPassword.setIconRightAction(self.rightPasswordAction)
+        self.checkBoxButton.blockAction(self.checkBoxAction)
         
     }
     
@@ -135,7 +132,9 @@ class CreateAccountViewController: UIViewController {
         self.textFieldPassword.isSecureTextEntry.toggle()
     }
     
-    
+    private func checkBoxAction(_ state: Bool) {
+        print(">>>: \(state)")
+    }
     
 }
 
@@ -195,8 +194,7 @@ extension CreateAccountViewController {
         
         self.hStackFooter.spacing = 10
         
-        
-        
+        self.checkBoxButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
 }

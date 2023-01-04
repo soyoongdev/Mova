@@ -11,9 +11,10 @@ class CheckBox: MasterButton {
     
     var isChecked: Bool = false
     
-    private var blockAction: ((Bool) -> Void)?
+    private var makeAction: ((Bool) -> Void)?
     
     private let widthBox: CGFloat = 22.0
+    
     private let heightBox: CGFloat = 22.0
     
     private lazy var checkImageView: UIImageView = {
@@ -30,27 +31,32 @@ class CheckBox: MasterButton {
     
     override func setupViews() {
         super.setupViews()
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.widthAnchor.constraint(equalToConstant: self.widthBox).isActive = true
-        self.heightAnchor.constraint(equalToConstant: self.heightBox).isActive = true
         self.setBordered(color: .primaryRed, width: 2.5, cornerRadius: 6.0)
-        self.addTarget(self, action: #selector(self.checkBoxAction), for: .touchUpInside)
         self.addSubview(self.checkImageView)
         self.bringSubviewToFront(self.checkImageView)
-        self.checkImageView.isHidden = true
+        self.checkImageView.isHidden = !self.isChecked
+        self.addTarget(self, action: #selector(self.checkBoxAction), for: .touchUpInside)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        self.translatesAutoresizingMaskIntoConstraints = false
         self.checkImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.widthAnchor.constraint(equalToConstant: self.widthBox).isActive = true
+        self.heightAnchor.constraint(equalToConstant: self.heightBox).isActive = true
         self.checkImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.checkImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
+    
+    func blockAction(_ action: @escaping (Bool) -> Void) {
+        self.makeAction = action
+    }
 
-    @objc func checkBoxAction() {
+    @objc private func checkBoxAction() {
         self.isChecked.toggle()
         self.checkImageView.isHidden = !self.isChecked
         self.backgroundColor = self.checkImageView.isHidden ? .clear : .primaryRed
+        self.makeAction?(self.isChecked)
     }
 }
 

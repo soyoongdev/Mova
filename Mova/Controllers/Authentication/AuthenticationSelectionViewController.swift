@@ -116,6 +116,24 @@ class AuthenticationSelectionViewController: UIViewController {
     }
     
     private func setupViews() {
+        self.setupSubviews()
+        
+        // Make action for sign in button
+        self.buttonSignIn.addTarget(self, action: #selector(self.signInBtnAction), for: .touchUpInside)
+    }
+    
+    @objc private func signInBtnAction() {
+        UIView.animate(withDuration: 0.2) {
+            self.navigationController?.pushViewController(CreateAccountViewController(), animated: true)
+        }
+    }
+
+}
+
+// Setup layouts
+extension AuthenticationSelectionViewController {
+    
+    private func setupSubviews() {
         self.view.addSubview(self.containerView)
         self.containerView.backgroundColor = .primaryBackground
         self.containerView.addSubview(self.vStackContainer)
@@ -133,7 +151,6 @@ class AuthenticationSelectionViewController: UIViewController {
         
         self.hStackFooter.insertArrangedSubview(self.titleLabelFooter, at: 0)
         self.hStackFooter.insertArrangedSubview(self.buttonSignUp, at: 1)
-        
     }
     
     private func setupLayouts() {
@@ -172,10 +189,8 @@ class AuthenticationSelectionViewController: UIViewController {
         self.buttonSignIn.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
         
         self.hStackFooter.spacing = 10
-        
-        
     }
-
+    
 }
 
 
