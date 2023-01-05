@@ -102,7 +102,7 @@ extension UIColor {
     }
     
     static var primaryRedTextFieldSelected: UIColor {
-        return UIColor(hex: "710911")
+        return UIColor(hex: "27191F")
     }
     
 }

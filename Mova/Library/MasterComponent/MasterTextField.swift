@@ -66,7 +66,7 @@ class MasterTextField: UITextField {
         self.delegate = self
     }
     
-    func setIconLeft(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, viewMode mode: UITextField.ViewMode? = .never) {
+    func setIconLeft(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, viewMode mode: UITextField.ViewMode? = .always) {
         var getImage = image?.resize(with: size!)
         if color != nil {
             getImage = getImage?.tintColor(color!)
@@ -89,7 +89,7 @@ class MasterTextField: UITextField {
         self.leftViewMode = mode!
     }
     
-    func setIconRight(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, viewMode mode: UITextField.ViewMode? = .never) {
+    func setIconRight(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, viewMode mode: UITextField.ViewMode? = .always) {
         var getImage = image?.resize(with: size!)
         if color != nil {
             getImage = getImage?.tintColor(color!)

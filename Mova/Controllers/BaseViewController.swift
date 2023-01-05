@@ -31,6 +31,7 @@ public class BaseViewController: UIViewController {
     /// At the time of animation to display the view, if you want to customize something, this function will help you do it.
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.hiddenNavigationBar()
     }
     
     /// 3
@@ -65,4 +66,7 @@ extension BaseViewController {
         }
     }
     
+    func hiddenNavigationBar() {
+        self.navigationController?.isNavigationBarHidden = true
+    }
 }

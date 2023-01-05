@@ -7,9 +7,15 @@
 
 import UIKit
 
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: BaseViewController {
     
     private let containerView = UIView()
+    
+    private let headerNavBar: HeaderNavigationBar = {
+        let header = HeaderNavigationBar()
+        header.titleLabel.text = "Choose Your Interest"
+        return header
+    }()
     
     private let vStackContainer: UIStackView = {
         let _self = UIStackView()
@@ -26,11 +32,9 @@ class CreateAccountViewController: UIViewController {
     }()
     
     private let imageView: UIImageView = {
-        let size = UIScreen.size.width/3
-        let _self = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
+        let _self = UIImageView()
         _self.image = UIImage(named: "logo-mova")
         _self.contentMode = .scaleAspectFit
-        
         return _self
     }()
     
@@ -49,18 +53,16 @@ class CreateAccountViewController: UIViewController {
         tf.setIconRight(UIImage(named: "cross-small"), color: .placeholder, viewMode: .whileEditing)
         tf.setPlaceholder("Email")
         tf.keyboardType = .emailAddress
-        
         return tf
     }()
     
     private let textFieldPassword: AuthenTextField = {
         let tf = AuthenTextField()
         tf.setIconLeft(UIImage(named: "lock-fill"), color: .placeholder, viewMode: .always)
-        tf.setIconRight(UIImage(named: "eye-fill"), color: .placeholder, viewMode: .whileEditing)
+        tf.setIconRight(UIImage(named: "eye-fill"), color: .placeholder, viewMode: .always)
         tf.setPlaceholder("Password")
         tf.isSecureTextEntry = true
         tf.keyboardType = .default
-        
         return tf
     }()
     
@@ -165,7 +167,7 @@ class CreateAccountViewController: UIViewController {
         self.textFieldEmail.setIconRightAction(self.rightMailAction)
         self.textFieldPassword.setIconRightAction(self.rightPasswordAction)
         self.checkBoxButton.blockAction(self.checkBoxAction)
-        
+        self.headerNavBar.backAction(self.headerBackButton)
     }
     
     private func rightMailAction() {
@@ -173,12 +175,16 @@ class CreateAccountViewController: UIViewController {
     }
     
     private func rightPasswordAction() {
-        self.textFieldPassword.setIconRight(UIImage(named: self.textFieldPassword.isSecureTextEntry ? "eye" : "eye-fill"), color: .placeholder)
         self.textFieldPassword.isSecureTextEntry.toggle()
+        self.textFieldPassword.setIconRight(UIImage(named: self.textFieldPassword.isSecureTextEntry ? "eye" : "eye-fill"), color: .placeholder, viewMode: .always)
     }
     
     private func checkBoxAction(_ state: Bool) {
         print(">>>: \(state)")
+    }
+    
+    private func headerBackButton() {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
@@ -190,6 +196,7 @@ extension CreateAccountViewController {
         self.view.addSubview(self.containerView)
         self.containerView.backgroundColor = .primaryBackground
         self.containerView.addSubview(self.vStackContainer)
+        self.containerView.addSubview(self.headerNavBar)
         
         // Container
         self.vStackContainer.insertArrangedSubview(self.imageView, at: 0)
@@ -222,6 +229,11 @@ extension CreateAccountViewController {
     private func setupSubViewLayouts() {
         self.containerView.setupLayoutConstraint(self.view)
         
+        self.headerNavBar.translatesAutoresizingMaskIntoConstraints = false
+        self.headerNavBar.topAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.topAnchor).isActive = true
+        self.headerNavBar.leftAnchor.constraint(equalTo: self.containerView.leftAnchor).isActive = true
+        self.headerNavBar.rightAnchor.constraint(equalTo: self.containerView.rightAnchor).isActive = true
+        
         self.vStackContainer.translatesAutoresizingMaskIntoConstraints = false
         self.vStackContainer.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 20).isActive = true
         self.vStackContainer.bottomAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
@@ -233,6 +245,10 @@ extension CreateAccountViewController {
         self.vStackTextField.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
         self.vStackTextField.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
         self.vStackTextField.spacing = 20
+        
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView.widthAnchor.constraint(equalToConstant: UIScreen.size.width/5).isActive = true
+        self.imageView.heightAnchor.constraint(equalToConstant: UIScreen.size.width/5).isActive = true
         
         self.textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
         self.textFieldEmail.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true

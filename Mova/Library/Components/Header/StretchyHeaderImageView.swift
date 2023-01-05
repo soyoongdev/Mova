@@ -45,7 +45,7 @@ class StretchyHeaderImageView: MasterView {
         super.layoutSubviews()
     }
     
-    private func setupViews() {
+    override func setupViews() {
         self.addSubview(self.containerView)
         self.containerView.addSubview(self.imageView)
         self.setupImageLayouts()

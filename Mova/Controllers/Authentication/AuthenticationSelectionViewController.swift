@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthenticationSelectionViewController: UIViewController {
+class AuthenticationSelectionViewController: BaseViewController {
     
     private let containerView = UIView()
     
@@ -26,8 +26,7 @@ class AuthenticationSelectionViewController: UIViewController {
     }()
     
     private let imageView: UIImageView = {
-        let size = UIScreen.size.width/3
-        let _self = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
+        let _self = UIImageView()
         _self.image = UIImage(named: "logo-mova")
         _self.contentMode = .scaleAspectFit
         
@@ -161,6 +160,10 @@ extension AuthenticationSelectionViewController {
         self.vStackContainer.bottomAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         self.vStackContainer.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -20).isActive = true
         self.vStackContainer.spacing = 35
+        
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView.widthAnchor.constraint(equalToConstant: UIScreen.size.width/3).isActive = true
+        self.imageView.heightAnchor.constraint(equalToConstant: UIScreen.size.width/3).isActive = true
         
         self.facebookButton.translatesAutoresizingMaskIntoConstraints = false
         self.facebookButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
