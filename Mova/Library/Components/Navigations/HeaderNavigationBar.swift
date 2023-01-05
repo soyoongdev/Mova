@@ -9,8 +9,8 @@ import UIKit
 
 class HeaderNavigationBar: MasterView {
     
-    private var backBlockAction: (() -> Void)?
-    
+    private var leftBlock: (() -> Void)?
+        
     private let backButton: MasterButton = {
         let button = MasterButton()
         var uiimage = UIImage(named: "back-left")
@@ -38,9 +38,6 @@ class HeaderNavigationBar: MasterView {
         self.insertSubview(self.backButton, at: 0)
         self.insertSubview(self.titleLabel, at: 1)
         self.insertSubview(self.rightViewContainer, at: 2)
-        
-        
-        self.backButton.addTarget(self, action: #selector(self.leftBackAction), for: .touchUpInside)
     }
     
     override func setupLayoutSubviews() {
@@ -63,6 +60,8 @@ class HeaderNavigationBar: MasterView {
         self.rightViewContainer.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         self.rightViewContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
+        self.backButton.addTarget(self, action: #selector(self.leftBlockAction), for: .touchUpInside)
+        
         if let rightView = self.rightView {
             self.rightViewContainer.addSubview(rightView)
             self.rightViewContainer.bringSubviewToFront(rightView)
@@ -70,14 +69,13 @@ class HeaderNavigationBar: MasterView {
         
     }
     
-    func backAction(_ action: @escaping () -> Void) {
-        self.backBlockAction = action
+    func leftAction(_ action: @escaping () -> Void) {
+        self.leftBlock = action
     }
     
-    @objc private func leftBackAction() {
-        self.backBlockAction?()
+    @objc private func leftBlockAction() {
+        self.leftBlock?()
     }
-    
 
 }
 

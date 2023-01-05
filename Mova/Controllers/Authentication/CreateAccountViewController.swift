@@ -14,6 +14,16 @@ class CreateAccountViewController: BaseViewController {
     private let headerNavBar: HeaderNavigationBar = {
         let header = HeaderNavigationBar()
         header.titleLabel.text = "Choose Your Interest"
+         
+        let button = MasterButton()
+        button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        header.rightView = button
+        
         return header
     }()
     
@@ -35,6 +45,7 @@ class CreateAccountViewController: BaseViewController {
         let _self = UIImageView()
         _self.image = UIImage(named: "logo-mova")
         _self.contentMode = .scaleAspectFit
+        
         return _self
     }()
     
@@ -53,6 +64,7 @@ class CreateAccountViewController: BaseViewController {
         tf.setIconRight(UIImage(named: "cross-small"), color: .placeholder, viewMode: .whileEditing)
         tf.setPlaceholder("Email")
         tf.keyboardType = .emailAddress
+        
         return tf
     }()
     
@@ -63,6 +75,7 @@ class CreateAccountViewController: BaseViewController {
         tf.setPlaceholder("Password")
         tf.isSecureTextEntry = true
         tf.keyboardType = .default
+        
         return tf
     }()
     
@@ -167,7 +180,7 @@ class CreateAccountViewController: BaseViewController {
         self.textFieldEmail.setIconRightAction(self.rightMailAction)
         self.textFieldPassword.setIconRightAction(self.rightPasswordAction)
         self.checkBoxButton.blockAction(self.checkBoxAction)
-        self.headerNavBar.backAction(self.headerBackButton)
+        self.headerNavBar.leftAction(self.headerBackButton)
     }
     
     private func rightMailAction() {
