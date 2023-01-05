@@ -13,6 +13,8 @@ class AuthenTextField: MasterTextField {
         super.setupViews()
         self.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
         self.setBackgroundColor(color: .primaryRedTextFieldSelected, for: .highlighted)
+        self.setBordered(color: .clear, for: .normal)
+        self.setBordered(color: .primaryRed, width: 1, for: .highlighted)
         self.contentPaddingHorizontal = 10
         self.inputPaddingHorizontal = 5
         self.textColor = .textColor

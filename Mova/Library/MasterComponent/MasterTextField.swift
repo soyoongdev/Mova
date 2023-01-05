@@ -14,6 +14,10 @@ class MasterTextField: UITextField {
     
     private lazy var backgroundSelected: UIColor? = .clear
     
+    private lazy var layerNormal: CALayer? = nil
+    
+    private lazy var layerSelected: CALayer? = nil
+    
     private var leftViewAction: (() -> Void)?
     
     private var rightViewAction: (() -> Void)?
@@ -136,10 +140,25 @@ class MasterTextField: UITextField {
         self.layer.cornerRadius = cornerRadius!
     }
     
-    func setBordered(color: UIColor, width: CGFloat? = 6, cornerRadius: CGFloat? = 14.0) {
-        self.layer.borderWidth = width!
-        self.layer.borderColor = color.cgColor
-        self.layer.cornerRadius = cornerRadius!
+    func setBordered(color: UIColor, width: CGFloat? = 6, cornerRadius: CGFloat? = 14.0, for state: UIControl.State) {
+        let layer = CALayer()
+        layer.borderWidth = width!
+        layer.borderColor = color.cgColor
+        layer.cornerRadius = cornerRadius!
+        
+        if state == .normal {
+            self.layerNormal = layer
+            self.makeBordered(layer)
+        } else {
+            self.layerSelected = layer
+        }
+        
+    }
+    
+    private func makeBordered(_ layer: CALayer) {
+        self.layer.borderColor = layer.borderColor!
+        self.layer.borderWidth = layer.borderWidth
+        self.layer.cornerRadius = layer.cornerRadius
     }
     
     @objc private func blockActionLeft() {
@@ -155,10 +174,20 @@ extension MasterTextField: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.backgroundColor = self.backgroundSelected
+        if self.layerSelected != nil {
+            self.makeBordered(self.layerSelected!)
+        } else {
+            self.makeBordered(self.layerNormal!)
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.backgroundColor = self.backgroundNormal
+        if self.layerNormal != nil {
+            self.makeBordered(self.layerNormal!)
+        } else {
+            self.makeBordered(self.layerSelected!)
+        }
     }
     
 }
