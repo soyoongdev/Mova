@@ -177,7 +177,7 @@ extension AuthenticationSelectionViewController {
         self.vStackButtonSocial.translatesAutoresizingMaskIntoConstraints = false
         self.vStackButtonSocial.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
         self.vStackButtonSocial.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
-        self.vStackButtonSocial.spacing = 10
+        self.vStackButtonSocial.spacing = 20
         
         
         self.titleDivider.translatesAutoresizingMaskIntoConstraints = false

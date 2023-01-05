@@ -12,10 +12,6 @@ class MasterButton: UIButton {
     private lazy var isImageExist: Bool = false
     
     private lazy var isTitleExist: Bool = false
-            
-    private var backgroundNormal: CALayer? = nil
-    
-    private var backgroundSelected: CALayer? = nil
     
     private var backgroundGradientNormal: CAGradientLayer? = nil
     
@@ -38,9 +34,10 @@ class MasterButton: UIButton {
     
     func setupViews() {
         self.contentMode = .scaleAspectFit
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setTitle(text: String, color: UIColor? = nil, for state: ButtonState) {
+    func setTitle(text: String, color: UIColor? = nil, for state: UIControl.State) {
         self.isTitleExist = true
         self.setTitle(text, for: state == .normal ? .normal : .highlighted)
         if let _color = color {
@@ -52,7 +49,7 @@ class MasterButton: UIButton {
         self.bringSubviewToFront(self.titleLabel!)
     }
     
-    func setTitle(text: String, colors: [UIColor]? = nil, startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, for state: ButtonState) {
+    func setTitle(text: String, colors: [UIColor]? = nil, startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, for state: UIControl.State) {
         self.isTitleExist = true
         
         if let _colors = colors {
@@ -73,7 +70,7 @@ class MasterButton: UIButton {
         self.makeInsetsProgress()
     }
     
-    func setIcon(_ image: UIImage?, color: UIColor? = nil, size: CGFloat? = nil, for state: ButtonState) {
+    func setIcon(_ image: UIImage?, color: UIColor? = nil, size: CGFloat? = nil, for state: UIControl.State) {
         self.isImageExist = true
         var getImage = image?.resize(with: size ?? 24.0)
         
@@ -86,7 +83,7 @@ class MasterButton: UIButton {
         self.makeInsetsProgress()
     }
     
-    func setBackgroundGradient(colors: [UIColor], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, cornerRadius: CGFloat? = 14.0, for state: ButtonState) {
+    func setBackgroundGradient(colors: [UIColor], startPoint: DirectionPoint? = .left, endPoint: DirectionPoint? = .right, cornerRadius: CGFloat? = 14.0, for state: UIControl.State) {
         
         if state == .normal {
             self.backgroundGradientNormal = CAGradientLayer()
@@ -110,21 +107,8 @@ class MasterButton: UIButton {
         
     }
     
-    func setBackgroundColor(color: UIColor, cornerRadius: CGFloat? = 14.0, for state: ButtonState) {
-        
-        if state == .normal {
-            self.backgroundNormal = CALayer()
-            self.backgroundNormal?.frame = self.bounds
-            self.backgroundNormal?.backgroundColor = color.cgColor
-            self.layer.insertSublayer(self.backgroundNormal!, at: 0)
-        } else {
-            self.backgroundSelected = CALayer()
-            self.backgroundSelected?.frame = self.bounds
-            self.backgroundSelected?.backgroundColor = color.cgColor
-            self.backgroundSelected?.isHidden = (self.backgroundNormal == nil)
-            self.layer.insertSublayer(self.backgroundSelected!, at: 0)
-        }
-
+    func setBackgroundColor(color: UIColor, cornerRadius: CGFloat? = 14.0, for state: UIControl.State) {
+        self.setBackgroundColor(color, for: state)
         self.layer.cornerRadius = cornerRadius!
         self.layer.masksToBounds = true
         
@@ -188,16 +172,9 @@ class MasterButton: UIButton {
 // Extension override
 extension MasterButton {
     
-    enum ButtonState {
-        case normal
-        case selected
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         UIView.animate(withDuration: 0.2) {
-            self.backgroundNormal?.isHidden = (self.backgroundSelected == nil) ? false : true
-            self.backgroundSelected?.isHidden = false
             self.backgroundGradientNormal?.isHidden = (self.backgroundGradientSelected == nil) ? false : true
             self.backgroundGradientSelected?.isHidden = false
             self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
@@ -208,8 +185,6 @@ extension MasterButton {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         UIView.animate(withDuration: 0.2) {
-            self.backgroundNormal?.isHidden = false
-            self.backgroundSelected?.isHidden = (self.backgroundNormal == nil) ? true : false
             self.backgroundGradientNormal?.isHidden = false
             self.backgroundGradientSelected?.isHidden = (self.backgroundGradientNormal == nil) ? true : false
             self.transform = CGAffineTransform(scaleX: 1, y: 1)

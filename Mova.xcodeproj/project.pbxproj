@@ -111,7 +111,6 @@
 		B2E61E23295C154A008ACD43 /* MovaIntroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E22295C154A008ACD43 /* MovaIntroModel.swift */; };
 		B2E61E25295C164A008ACD43 /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */; };
 		B2E61E27295C1D43008ACD43 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E26295C1D43008ACD43 /* Extension+UIImageView.swift */; };
-		B2E62AC72944E7C200FC7BE9 /* MasterButtonDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E62AC62944E7C200FC7BE9 /* MasterButtonDelegate.swift */; };
 		B2E62AC92944FC3000FC7BE9 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E62AC82944FC3000FC7BE9 /* Extension+UIButton.swift */; };
 		B2EB97FC295D5E9D000A3838 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EB97FB295D5E9D000A3838 /* OnBoardingViewModel.swift */; };
 		B2EC91822941EEBA0099FD08 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91812941EEBA0099FD08 /* Extension+String.swift */; };
@@ -235,7 +234,6 @@
 		B2E61E22295C154A008ACD43 /* MovaIntroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovaIntroModel.swift; sourceTree = "<group>"; };
 		B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
 		B2E61E26295C1D43008ACD43 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
-		B2E62AC62944E7C200FC7BE9 /* MasterButtonDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterButtonDelegate.swift; sourceTree = "<group>"; };
 		B2E62AC82944FC3000FC7BE9 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		B2EB97FB295D5E9D000A3838 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		B2EC91812941EEBA0099FD08 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
@@ -620,7 +618,6 @@
 		B2E62AC52944E7B700FC7BE9 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				B2E62AC62944E7C200FC7BE9 /* MasterButtonDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -875,7 +872,6 @@
 				B2EC919829421A7C0099FD08 /* Extension+UIViewController.swift in Sources */,
 				B2C0B07E293CC72800DB441B /* AppDelegate.swift in Sources */,
 				B2927CDE2953479300DB1975 /* StatusResponse.swift in Sources */,
-				B2E62AC72944E7C200FC7BE9 /* MasterButtonDelegate.swift in Sources */,
 				B2927CCF2952DD4B00DB1975 /* Credits.swift in Sources */,
 				B2927CCB2952DD4B00DB1975 /* ExternalIDType.swift in Sources */,
 				B2ACB54429433E15002B2E03 /* Extension+CGSize.swift in Sources */,

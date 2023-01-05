@@ -18,3 +18,12 @@ class PrimaryButtonSocial: MasterButton {
     }
 
 }
+
+class PrimaryButtonSocialSmaller: MasterButton {
+    
+    override func setupViews() {
+        super.setupViews()
+        self.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
+        self.setBordered(color: .grayOutline, width: 1, cornerRadius: 16)
+    }
+}
