@@ -7,25 +7,16 @@
 
 import UIKit
 
-class AuthenTextField: MasterTextField, UITextFieldDelegate {
+class AuthenTextField: MasterTextField {
     
     override func setupViews() {
         super.setupViews()
-        self.delegate = self
         self.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
-        self.setBackgroundColor(color: .primaryRed, for: .selected)
+        self.setBackgroundColor(color: .primaryRedTextFieldSelected, for: .highlighted)
         self.contentPaddingHorizontal = 10
         self.inputPaddingHorizontal = 5
         self.textColor = .textColor
         self.font = .semiBold(size: .small)
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
     }
 
 }

@@ -10,9 +10,9 @@ import Foundation
 
 class MasterTextField: UITextField {
     
-    var backgroundNormal: UIColor? = .clear
+    private lazy var backgroundNormal: UIColor? = .clear
     
-    var backgroundSelected: UIColor? = .clear
+    private lazy var backgroundSelected: UIColor? = .clear
     
     private var leftViewAction: (() -> Void)?
     
@@ -59,10 +59,10 @@ class MasterTextField: UITextField {
     }
     
     func setupViews() {
-        
+        self.delegate = self
     }
     
-    func setIconLeft(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, for state: TextFieldState? = .normal) {
+    func setIconLeft(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, viewMode mode: UITextField.ViewMode? = .never) {
         var getImage = image?.resize(with: size!)
         if color != nil {
             getImage = getImage?.tintColor(color!)
@@ -82,11 +82,10 @@ class MasterTextField: UITextField {
         imageView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
         
         self.leftView = button
-        self.leftViewMode = .always
+        self.leftViewMode = mode!
     }
     
-    func setIconRight(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, for state: TextFieldState? = .normal) {
-        
+    func setIconRight(_ image: UIImage? = nil, color: UIColor? = nil, size: CGFloat? = 16.0, viewMode mode: UITextField.ViewMode? = .never) {
         var getImage = image?.resize(with: size!)
         if color != nil {
             getImage = getImage?.tintColor(color!)
@@ -106,7 +105,7 @@ class MasterTextField: UITextField {
         imageView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
         
         self.rightView = button
-        self.rightViewMode = .always
+        self.rightViewMode = mode!
     }
     
     func setIconLeftAction(_ action: @escaping () -> Void) {
@@ -127,8 +126,7 @@ class MasterTextField: UITextField {
         )
     }
     
-    func setBackgroundColor(color: UIColor, cornerRadius: CGFloat? = 12.0, for state: TextFieldState) {
-        
+    func setBackgroundColor(color: UIColor, cornerRadius: CGFloat? = 12.0, for state: UIControl.State) {
         if state == .normal {
             self.backgroundNormal = color
             self.backgroundColor = color
@@ -153,11 +151,14 @@ class MasterTextField: UITextField {
     }
 }
 
-extension MasterTextField {
+extension MasterTextField: UITextFieldDelegate {
     
-    enum TextFieldState {
-        case normal
-        case selected
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.backgroundColor = self.backgroundSelected
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.backgroundColor = self.backgroundNormal
     }
     
 }

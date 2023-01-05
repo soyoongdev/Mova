@@ -45,9 +45,8 @@ class CreateAccountViewController: UIViewController {
     
     private let textFieldEmail: AuthenTextField = {
         let tf = AuthenTextField()
-        tf.setIconLeft(UIImage(named: "envelope-fill"), color: .placeholder, for: .normal)
-        tf.setIconRight(UIImage(named: "cross-small"), color: .placeholder, for: .normal)
-        tf.rightViewMode = .whileEditing
+        tf.setIconLeft(UIImage(named: "envelope-fill"), color: .placeholder, viewMode: .always)
+        tf.setIconRight(UIImage(named: "cross-small"), color: .placeholder, viewMode: .whileEditing)
         tf.setPlaceholder("Email")
         tf.keyboardType = .emailAddress
         
@@ -56,9 +55,8 @@ class CreateAccountViewController: UIViewController {
     
     private let textFieldPassword: AuthenTextField = {
         let tf = AuthenTextField()
-        tf.setIconLeft(UIImage(named: "lock-fill"), color: .placeholder, for: .normal)
-        tf.setIconRight(UIImage(named: "eye-fill"), color: .placeholder, for: .normal)
-        tf.rightViewMode = .whileEditing
+        tf.setIconLeft(UIImage(named: "lock-fill"), color: .placeholder, viewMode: .always)
+        tf.setIconRight(UIImage(named: "eye-fill"), color: .placeholder, viewMode: .whileEditing)
         tf.setPlaceholder("Password")
         tf.isSecureTextEntry = true
         tf.keyboardType = .default
