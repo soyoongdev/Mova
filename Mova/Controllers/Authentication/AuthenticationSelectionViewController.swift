@@ -11,35 +11,28 @@ class AuthenticationSelectionViewController: MasterViewController {
     
     private let containerView = UIView()
     
-    private let vStackContainer: UIStackView = {
-        let _self = UIStackView()
-        _self.axis = .vertical
-        _self.alignment = .center
-        return _self
-    }()
-    
     private let vStackButtonSocial: UIStackView = {
-        let _self = UIStackView()
-        _self.axis = .vertical
-        _self.alignment = .center
-        return _self
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .center
+        return stack
     }()
     
     private let imageView: UIImageView = {
-        let _self = UIImageView()
-        _self.image = UIImage(named: "logo-mova")
-        _self.contentMode = .scaleAspectFit
-        
-        return _self
+        let img = UIImageView()
+        img.image = UIImage(named: "logo-mova")
+        img.contentMode = .scaleAspectFit
+        return img
     }()
     
     private let titleLabel: UILabel = {
-        let _self = UILabel()
-        _self.font = .bold(size: .extra42)
-        _self.textColor = .textColor
-        _self.numberOfLines = 1
-        _self.text = "Let's you in"
-        return _self
+        let title = UILabel()
+        title.font = .bold(size: .extra42)
+        title.textColor = .textColor
+        title.numberOfLines = 1
+        title.text = "Let's you in"
+        title.textAlignment = .center
+        return title
     }()
     
     private let facebookButton: PrimaryButtonSocial = {
@@ -67,23 +60,23 @@ class AuthenticationSelectionViewController: MasterViewController {
     }()
     
     private let titleDivider: TextableDivider = {
-        let _self = TextableDivider()
-        _self.titleLabel.text = "or"
-        return _self
+        let title = TextableDivider()
+        title.titleLabel.text = "or"
+        return title
     }()
     
     /// Button get started to skip onboarding
     private let buttonSignIn: PrimaryButton = {
-        let button = PrimaryButton(frame: CGRect(origin: .zero, size: CGSize(relative: 350, relative: 52)))
+        let button = PrimaryButton()
         button.setTitle(text: "Sign in with password", for: .normal)
         return button
     }()
     
     private let hStackFooter: UIStackView = {
-        let _self = UIStackView()
-        _self.axis = .horizontal
-        _self.alignment = .center
-        return _self
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.alignment = .center
+        return stack
     }()
     
     private let titleLabelFooter: UILabel = {
@@ -135,14 +128,12 @@ extension AuthenticationSelectionViewController {
     private func setupSubviews() {
         self.view.addSubview(self.containerView)
         self.containerView.backgroundColor = .primaryBackground
-        self.containerView.addSubview(self.vStackContainer)
-        
-        self.vStackContainer.insertArrangedSubview(self.imageView, at: 0)
-        self.vStackContainer.insertArrangedSubview(self.titleLabel, at: 1)
-        self.vStackContainer.insertArrangedSubview(self.vStackButtonSocial, at: 2)
-        self.vStackContainer.insertArrangedSubview(self.titleDivider, at: 3)
-        self.vStackContainer.insertArrangedSubview(self.buttonSignIn, at: 4)
-        self.vStackContainer.insertArrangedSubview(self.hStackFooter, at: 5)
+        self.containerView.insertSubview(self.imageView, at: 0)
+        self.containerView.insertSubview(self.titleLabel, at: 1)
+        self.containerView.insertSubview(self.vStackButtonSocial, at: 2)
+        self.containerView.insertSubview(self.titleDivider, at: 3)
+        self.containerView.insertSubview(self.buttonSignIn, at: 4)
+        self.containerView.insertSubview(self.hStackFooter, at: 5)
         
         self.vStackButtonSocial.insertArrangedSubview(self.facebookButton, at: 0)
         self.vStackButtonSocial.insertArrangedSubview(self.googleButton, at: 1)
@@ -155,43 +146,86 @@ extension AuthenticationSelectionViewController {
     private func setupLayouts() {
         self.containerView.fillSuperview()
         
-        self.vStackContainer.translatesAutoresizingMaskIntoConstraints = false
-        self.vStackContainer.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 20).isActive = true
-        self.vStackContainer.bottomAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        self.vStackContainer.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -20).isActive = true
-        self.vStackContainer.spacing = 35
+        self.imageView.centerXSuperview(self.containerView)
+        self.imageView.anchor(
+            top: nil,
+            leading: nil,
+            bottom: nil,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0),
+            size: CGSize(width: 120, height: 120)
+        )
         
-        self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView.widthAnchor.constraint(equalToConstant: UIScreen.size.width/3).isActive = true
-        self.imageView.heightAnchor.constraint(equalToConstant: UIScreen.size.width/3).isActive = true
+        self.titleLabel.anchor(
+            top: self.imageView.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
+            trailing: self.containerView.trailingAnchor,
+            padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: -20),
+            size: CGSize(width: 0, height: 55)
+        )
         
-        self.facebookButton.translatesAutoresizingMaskIntoConstraints = false
-        self.facebookButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
-        self.facebookButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
-
-        self.googleButton.translatesAutoresizingMaskIntoConstraints = false
-        self.googleButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
-        self.googleButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        self.vStackButtonSocial.anchor(
+            top: self.titleLabel.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
+            trailing: self.containerView.trailingAnchor,
+            padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: -20)
+        )
+        self.vStackButtonSocial.spacing = 10
         
-        self.appleButton.translatesAutoresizingMaskIntoConstraints = false
-        self.appleButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
-        self.appleButton.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        self.facebookButton.anchor(
+            top: nil,
+            leading: self.vStackButtonSocial.leadingAnchor,
+            bottom: nil,
+            trailing: self.vStackButtonSocial.trailingAnchor,
+            size: CGSize(width: 0, height: 55)
+        )
         
-        self.vStackButtonSocial.translatesAutoresizingMaskIntoConstraints = false
-        self.vStackButtonSocial.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
-        self.vStackButtonSocial.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
-        self.vStackButtonSocial.spacing = 20
+        self.googleButton.anchor(
+            top: nil,
+            leading: self.vStackButtonSocial.leadingAnchor,
+            bottom: nil,
+            trailing: self.vStackButtonSocial.trailingAnchor,
+            size: CGSize(width: 0, height: 55)
+        )
         
+        self.appleButton.anchor(
+            top: nil,
+            leading: self.vStackButtonSocial.leadingAnchor,
+            bottom: nil,
+            trailing: self.vStackButtonSocial.trailingAnchor,
+            size: CGSize(width: 0, height: 55)
+        )
         
-        self.titleDivider.translatesAutoresizingMaskIntoConstraints = false
-        self.titleDivider.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
-        self.titleDivider.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
+        self.titleDivider.anchor(
+            top: self.vStackButtonSocial.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
+            trailing: self.containerView.trailingAnchor,
+            padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: -20)
+        )
         
-        self.buttonSignIn.translatesAutoresizingMaskIntoConstraints = false
-        self.buttonSignIn.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
-        self.buttonSignIn.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
+        self.buttonSignIn.anchor(
+            top: self.titleDivider.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
+            trailing: self.containerView.trailingAnchor,
+            padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: -20),
+            size: CGSize(width: 0, height: 55)
+        )
         
+        self.hStackFooter.anchor(
+            top: self.buttonSignIn.bottomAnchor,
+            leading: nil,
+            bottom: self.containerView.safeAreaLayoutGuide.bottomAnchor,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20),
+            size: CGSize(width: 0, height: 55)
+        )
+        self.hStackFooter.centerXSuperview(self.containerView)
         self.hStackFooter.spacing = 10
+        
     }
     
 }

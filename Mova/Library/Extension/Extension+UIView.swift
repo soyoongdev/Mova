@@ -31,6 +31,7 @@ extension UIView {
 extension UIView {
     
     func fillSuperview(_ view: UIView? = nil) {
+        self.translatesAutoresizingMaskIntoConstraints = false
         if let _view = view {
             self.anchor(top: _view.topAnchor, leading: _view.leadingAnchor, bottom: _view.bottomAnchor, trailing: _view.trailingAnchor)
         } else {
@@ -44,7 +45,7 @@ extension UIView {
         self.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
     
-    func centerAnchorSuperview(_ view: UIView? = nil) {
+    func centerAllSuperview(_ view: UIView? = nil) {
         self.translatesAutoresizingMaskIntoConstraints = false
         if let _view = view {
             self.centerXAnchor.constraint(equalTo: _view.centerXAnchor).isActive = true
@@ -55,7 +56,7 @@ extension UIView {
         }
     }
     
-    func centerXAnchorSuperview(_ view: UIView? = nil) {
+    func centerXSuperview(_ view: UIView? = nil) {
         self.translatesAutoresizingMaskIntoConstraints = false
         if let _view = view {
             self.centerXAnchor.constraint(equalTo: _view.centerXAnchor).isActive = true
@@ -64,7 +65,7 @@ extension UIView {
         }
     }
     
-    func centerYAnchorSuperview(_ view: UIView? = nil) {
+    func centerYSuperview(_ view: UIView? = nil) {
         self.translatesAutoresizingMaskIntoConstraints = false
         if let _view = view {
             self.centerYAnchor.constraint(equalTo: _view.centerYAnchor).isActive = true
@@ -73,26 +74,18 @@ extension UIView {
         }
     }
     
-    func anchorCenterSuperview(_ view: UIView? = nil) {
+    func anchorSize(size: CGSize) {
         self.translatesAutoresizingMaskIntoConstraints = false
-        if let _view = view {
-            self.centerXAnchor.constraint(equalTo: _view.centerXAnchor).isActive = true
-            self.centerYAnchor.constraint(equalTo: _view.centerYAnchor).isActive = true
-        } else {
-            self.centerXAnchor.constraint(equalTo: self.superview!.centerXAnchor).isActive = true
-            self.centerYAnchor.constraint(equalTo: self.superview!.centerYAnchor).isActive = true
+        if size.width != 0 {
+            self.widthAnchor.constraint(equalToConstant: size.width).isActive = true
         }
-    }
-    
-    func anchorSize(with size: CGSize) {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.widthAnchor.constraint(equalToConstant: size.width).isActive = true
-        self.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        if size.height != 0 {
+            self.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        }
     }
     
     func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         self.translatesAutoresizingMaskIntoConstraints = false
-        
         if let top = top {
             self.topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
         }
@@ -102,11 +95,11 @@ extension UIView {
         }
         
         if let bottom = bottom {
-            self.bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
+            self.bottomAnchor.constraint(equalTo: bottom, constant: padding.bottom).isActive = true
         }
         
         if let trailing = trailing {
-            self.trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
+            self.trailingAnchor.constraint(equalTo: trailing, constant: padding.right).isActive = true
         }
         
         if size.width != 0 {
