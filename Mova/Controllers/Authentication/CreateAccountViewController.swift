@@ -11,6 +11,12 @@ class CreateAccountViewController: MasterViewController {
     
     private let containerView = UIView()
     
+    private let vStackHeaderIntro: UIStackView = {
+        let title = UIStackView()
+        title.axis = .vertical
+        title.alignment = .center
+        return title
+    }()
     private let headerNavBar: HeaderNavigationBar = {
         let header = HeaderNavigationBar()
         header.titleLabel.text = "Choose Your Interest"
@@ -35,8 +41,7 @@ class CreateAccountViewController: MasterViewController {
     }()
     
     private let imageView: UIImageView = {
-        let title = UIImageView()
-        title.image = UIImage(named: "logo-mova")
+        let title = UIImageView(image: UIImage(named: "logo-mova"))
         title.contentMode = .scaleAspectFit
         return title
     }()
@@ -246,13 +251,9 @@ extension CreateAccountViewController {
             trailing: self.view.trailingAnchor
         )
         
-        self.imageView.anchor(
-            top: nil,
-            leading: nil,
-            bottom: self.titleLabel.topAnchor,
-            trailing: nil,
-            size: CGSize(width: UIScreen.size.width/5, height: UIScreen.size.width/5)
-        )
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 1/4).isActive = true
+        self.imageView.heightAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 1/4).isActive = true
         self.imageView.centerXSuperview(self.containerView)
         
         self.titleLabel.anchor(
@@ -260,15 +261,15 @@ extension CreateAccountViewController {
             leading: nil,
             bottom: self.vStackTextField.topAnchor,
             trailing: nil,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            padding: UIEdgeInsets(top: 30, left: 0, bottom: -20, right: 0)
         )
         self.titleLabel.centerXSuperview(self.containerView)
         
         // Stack TextField
         self.vStackTextField.anchor(
-            top: self.titleLabel.bottomAnchor,
+            top: nil,
             leading: self.containerView.leadingAnchor,
-            bottom: self.hStackCheckBox.topAnchor,
+            bottom: nil,
             trailing: self.containerView.trailingAnchor,
             padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         )
@@ -315,7 +316,7 @@ extension CreateAccountViewController {
         self.buttonSignUp.centerXSuperview(self.vStackTextField)
         
         self.titleDivider.anchor(
-            top: self.buttonSignUp.bottomAnchor,
+            top: nil,
             leading: self.containerView.leadingAnchor,
             bottom: self.hStackButtonSocial.topAnchor,
             trailing: self.containerView.trailingAnchor,
@@ -329,8 +330,7 @@ extension CreateAccountViewController {
             leading: nil,
             bottom: self.hStackFooter.topAnchor,
             trailing: nil,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
-            size: CGSize(width: 0, height: 55)
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: -20, right: 0)
         )
         self.hStackButtonSocial.centerXSuperview(self.containerView)
         self.hStackButtonSocial.spacing = 10
@@ -346,8 +346,7 @@ extension CreateAccountViewController {
             leading: nil,
             bottom: self.containerView.safeAreaLayoutGuide.bottomAnchor,
             trailing: nil,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
-            size: CGSize(width: 0, height: 55)
+            padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         )
         self.hStackFooter.centerXSuperview(self.containerView)
         self.hStackFooter.spacing = 10

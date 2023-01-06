@@ -67,12 +67,3 @@ class TextableDivider: UIView {
     }
 
 }
-
-import SwiftUI
-
-struct TextableDivider_Previews: PreviewProvider {
-    static var previews: some View {
-        PreviewUIViewController(viewController: AuthenticationSelectionViewController())
-    }
-}
-
