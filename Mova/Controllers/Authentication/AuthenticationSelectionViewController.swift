@@ -11,6 +11,13 @@ class AuthenticationSelectionViewController: MasterViewController {
     
     private let containerView = UIView()
     
+    private let headerNavBar: HeaderNavigationBar = {
+        let header = HeaderNavigationBar()
+        header.titleLabel.text = "Choose Your Interest"
+        
+        return header
+    }()
+    
     private let vStackButtonSocial: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -126,8 +133,10 @@ class AuthenticationSelectionViewController: MasterViewController {
 extension AuthenticationSelectionViewController {
     
     private func setupSubviews() {
-        self.view.addSubview(self.containerView)
-        self.containerView.backgroundColor = .primaryBackground
+        self.view.backgroundColor = .primaryBackground
+        self.view.insertSubview(self.containerView, at: 0)
+        self.view.insertSubview(self.headerNavBar, at: 1)
+        
         self.containerView.insertSubview(self.imageView, at: 0)
         self.containerView.insertSubview(self.titleLabel, at: 1)
         self.containerView.insertSubview(self.vStackButtonSocial, at: 2)
@@ -144,33 +153,41 @@ extension AuthenticationSelectionViewController {
     }
     
     private func setupLayouts() {
-        self.containerView.fillSuperview()
-        
-        self.imageView.centerXSuperview(self.containerView)
-        self.imageView.anchor(
-            top: nil,
-            leading: nil,
-            bottom: nil,
-            trailing: nil,
-            padding: UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0),
-            size: CGSize(width: 120, height: 120)
+        self.containerView.anchor(
+            top: self.view.topAnchor,
+            leading: self.view.leadingAnchor,
+            bottom: self.view.bottomAnchor,
+            trailing: self.view.trailingAnchor,
+            padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20)
         )
+        
+        self.headerNavBar.anchor(
+            top: self.view.safeAreaLayoutGuide.topAnchor,
+            leading: self.view.leadingAnchor,
+            bottom: nil,
+            trailing: self.view.trailingAnchor
+        )
+        
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 1/3).isActive = true
+        self.imageView.heightAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 1/3).isActive = true
+        self.imageView.centerXSuperview(self.containerView)
         
         self.titleLabel.anchor(
             top: self.imageView.bottomAnchor,
-            leading: self.containerView.leadingAnchor,
-            bottom: nil,
-            trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: -20),
-            size: CGSize(width: 0, height: 55)
+            leading: nil,
+            bottom: self.vStackButtonSocial.topAnchor,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 30, left: 0, bottom: -20, right: 0)
         )
+        self.titleLabel.centerXSuperview(self.containerView)
         
         self.vStackButtonSocial.anchor(
-            top: self.titleLabel.bottomAnchor,
+            top: nil,
             leading: self.containerView.leadingAnchor,
             bottom: nil,
             trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: -20)
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         )
         self.vStackButtonSocial.spacing = 10
         
@@ -203,7 +220,7 @@ extension AuthenticationSelectionViewController {
             leading: self.containerView.leadingAnchor,
             bottom: nil,
             trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: -20)
+            padding: UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         )
         
         self.buttonSignIn.anchor(
@@ -211,7 +228,7 @@ extension AuthenticationSelectionViewController {
             leading: self.containerView.leadingAnchor,
             bottom: nil,
             trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 30, left: 20, bottom: 0, right: -20),
+            padding: UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
         )
         
@@ -220,7 +237,7 @@ extension AuthenticationSelectionViewController {
             leading: nil,
             bottom: self.containerView.safeAreaLayoutGuide.bottomAnchor,
             trailing: nil,
-            padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20),
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
         )
         self.hStackFooter.centerXSuperview(self.containerView)
