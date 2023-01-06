@@ -9,7 +9,7 @@ import UIKit
 
 class TextableDivider: UIView {
     
-    private let container = UIView()
+    private let containerView = UIView()
     
     public var dividerView: UIView?
     
@@ -37,37 +37,33 @@ class TextableDivider: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.setupLayouts()
+        self.setupSubviewLayouts()
     }
 
     func setupViews() {
-        self.addSubview(self.container)
+        self.addSubview(self.containerView)
         
         self.dividerView = UIView()
         self.dividerView?.backgroundColor = .primaryBackgroundLight
         
-        self.container.insertSubview(self.dividerView!, at: 0)
-        self.container.insertSubview(self.titleLabel, at: 1)
+        self.containerView.insertSubview(self.dividerView!, at: 0)
+        self.containerView.insertSubview(self.titleLabel, at: 1)
         
     }
     
-    func setupLayouts() {
-        self.container.translatesAutoresizingMaskIntoConstraints = false
-        self.container.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        self.container.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        self.container.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.container.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.container.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    func setupSubviewLayouts() {
+        self.containerView.fillSuperview()
         
-        self.dividerView?.translatesAutoresizingMaskIntoConstraints = false
-        self.dividerView?.leftAnchor.constraint(equalTo: self.container.leftAnchor).isActive = true
-        self.dividerView?.rightAnchor.constraint(equalTo: self.container.rightAnchor).isActive = true
-        self.dividerView?.heightAnchor.constraint(equalToConstant: 2).isActive = true
-        self.dividerView?.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        self.dividerView?.anchor(
+            top: nil,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
+            trailing: self.containerView.trailingAnchor,
+            size: CGSize(width: 0, height: 2.0)
+        )
+        self.dividerView?.centerYSuperview(self.containerView)
         
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.centerXAnchor.constraint(equalTo: self.container.centerXAnchor).isActive = true
-        self.titleLabel.centerYAnchor.constraint(equalTo: self.container.centerYAnchor).isActive = true
+        self.titleLabel.centerAllSuperview(self.containerView)
     }
 
 }

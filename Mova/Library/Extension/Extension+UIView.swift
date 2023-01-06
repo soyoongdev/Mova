@@ -32,6 +32,7 @@ extension UIView {
     
     func fillSuperview(_ view: UIView? = nil) {
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         if let _view = view {
             self.anchor(top: _view.topAnchor, leading: _view.leadingAnchor, bottom: _view.bottomAnchor, trailing: _view.trailingAnchor)
         } else {
@@ -41,12 +42,14 @@ extension UIView {
     
     func anchorSize(to view: UIView) {
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         self.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         self.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
     
     func centerAllSuperview(_ view: UIView? = nil) {
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         if let _view = view {
             self.centerXAnchor.constraint(equalTo: _view.centerXAnchor).isActive = true
             self.centerYAnchor.constraint(equalTo: _view.centerYAnchor).isActive = true
@@ -58,6 +61,7 @@ extension UIView {
     
     func centerXSuperview(_ view: UIView? = nil) {
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         if let _view = view {
             self.centerXAnchor.constraint(equalTo: _view.centerXAnchor).isActive = true
         } else {
@@ -67,6 +71,7 @@ extension UIView {
     
     func centerYSuperview(_ view: UIView? = nil) {
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         if let _view = view {
             self.centerYAnchor.constraint(equalTo: _view.centerYAnchor).isActive = true
         } else {
@@ -76,6 +81,7 @@ extension UIView {
     
     func anchorSize(size: CGSize) {
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         if size.width != 0 {
             self.widthAnchor.constraint(equalToConstant: size.width).isActive = true
         }
@@ -86,6 +92,7 @@ extension UIView {
     
     func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) {
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         if let top = top {
             self.topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
         }

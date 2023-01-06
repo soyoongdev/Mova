@@ -15,47 +15,40 @@ class CreateAccountViewController: MasterViewController {
         let header = HeaderNavigationBar()
         header.titleLabel.text = "Choose Your Interest"
          
-        let button = MasterButton()
-        button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        
-        header.rightView = button
+//        let button = MasterButton()
+//        button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
+//
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+//        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+//
+//        header.rightView = button
         
         return header
     }()
     
-    private let vStackContainer: UIStackView = {
-        let _self = UIStackView()
-        _self.axis = .vertical
-        _self.alignment = .center
-        return _self
-    }()
-    
     private let vStackTextField: UIStackView = {
-        let _self = UIStackView()
-        _self.axis = .vertical
-        _self.alignment = .center
-        return _self
+        let title = UIStackView()
+        title.axis = .vertical
+        title.alignment = .center
+        return title
     }()
     
     private let imageView: UIImageView = {
-        let _self = UIImageView()
-        _self.image = UIImage(named: "logo-mova")
-        _self.contentMode = .scaleAspectFit
-        
-        return _self
+        let title = UIImageView()
+        title.image = UIImage(named: "logo-mova")
+        title.contentMode = .scaleAspectFit
+        return title
     }()
     
     private let titleLabel: UILabel = {
-        let _self = UILabel()
-        _self.font = .bold(size: .large26)
-        _self.textColor = .textColor
-        _self.numberOfLines = 1
-        _self.text = "Create Your Account"
-        return _self
+        let title = UILabel()
+        title.font = .bold(size: .large26)
+        title.textColor = .textColor
+        title.numberOfLines = 1
+        title.text = "Create Your Account"
+        title.textAlignment = .center
+        return title
     }()
     
     private let textFieldEmail: AuthenTextField = {
@@ -206,24 +199,22 @@ class CreateAccountViewController: MasterViewController {
 extension CreateAccountViewController {
     
     private func setupSubViews() {
-        self.view.addSubview(self.containerView)
-        self.containerView.backgroundColor = .primaryBackground
-        self.containerView.addSubview(self.vStackContainer)
-        self.containerView.addSubview(self.headerNavBar)
+        self.view.backgroundColor = .primaryBackground
+        self.view.insertSubview(self.containerView, at: 0)
+        self.view.insertSubview(self.headerNavBar, at: 1)
         
-        // Container
-        self.vStackContainer.insertArrangedSubview(self.imageView, at: 0)
-        self.vStackContainer.insertArrangedSubview(self.titleLabel, at: 1)
-        self.vStackContainer.insertArrangedSubview(self.vStackTextField, at: 2)
-        self.vStackContainer.insertArrangedSubview(self.buttonSignUp, at: 3)
-        self.vStackContainer.insertArrangedSubview(self.titleDivider, at: 4)
-        self.vStackContainer.insertArrangedSubview(self.hStackButtonSocial, at: 5)
-        self.vStackContainer.insertArrangedSubview(self.hStackFooter, at: 6)
+        self.containerView.insertSubview(self.imageView, at: 0)
+        self.containerView.insertSubview(self.titleLabel, at: 1)
+        self.containerView.insertSubview(self.vStackTextField, at: 2)
+        self.containerView.insertSubview(self.hStackCheckBox, at: 3)
+        self.containerView.insertSubview(self.buttonSignUp, at: 4)
+        self.containerView.insertSubview(self.titleDivider, at: 5)
+        self.containerView.insertSubview(self.hStackButtonSocial, at: 6)
+        self.containerView.insertSubview(self.hStackFooter, at: 7)
         
         // Vertical Stack TextField
         self.vStackTextField.insertArrangedSubview(self.textFieldEmail, at: 0)
         self.vStackTextField.insertArrangedSubview(self.textFieldPassword, at: 1)
-        self.vStackTextField.insertArrangedSubview(self.hStackCheckBox, at: 2)
         
         // Horizontal Stack checkbox
         self.hStackCheckBox.insertArrangedSubview(self.checkBoxButton, at: 0)
@@ -240,64 +231,126 @@ extension CreateAccountViewController {
     }
     
     private func setupSubViewLayouts() {
-        self.containerView.fillSuperview()
+        self.containerView.anchor(
+            top: self.view.topAnchor,
+            leading: self.view.leadingAnchor,
+            bottom: self.view.bottomAnchor,
+            trailing: self.view.trailingAnchor,
+            padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20)
+        )
         
-        self.headerNavBar.translatesAutoresizingMaskIntoConstraints = false
-        self.headerNavBar.topAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.topAnchor).isActive = true
-        self.headerNavBar.leftAnchor.constraint(equalTo: self.containerView.leftAnchor).isActive = true
-        self.headerNavBar.rightAnchor.constraint(equalTo: self.containerView.rightAnchor).isActive = true
+        self.headerNavBar.anchor(
+            top: self.view.safeAreaLayoutGuide.topAnchor,
+            leading: self.view.leadingAnchor,
+            bottom: nil,
+            trailing: self.view.trailingAnchor
+        )
         
-        self.vStackContainer.translatesAutoresizingMaskIntoConstraints = false
-        self.vStackContainer.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 20).isActive = true
-        self.vStackContainer.bottomAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        self.vStackContainer.rightAnchor.constraint(equalTo: self.containerView.rightAnchor, constant: -20).isActive = true
-        self.vStackContainer.spacing = 35
+        self.imageView.anchor(
+            top: nil,
+            leading: nil,
+            bottom: self.titleLabel.topAnchor,
+            trailing: nil,
+            size: CGSize(width: UIScreen.size.width/5, height: UIScreen.size.width/5)
+        )
+        self.imageView.centerXSuperview(self.containerView)
+        
+        self.titleLabel.anchor(
+            top: self.imageView.bottomAnchor,
+            leading: nil,
+            bottom: self.vStackTextField.topAnchor,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        )
+        self.titleLabel.centerXSuperview(self.containerView)
         
         // Stack TextField
-        self.vStackTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.vStackTextField.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
-        self.vStackTextField.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
-        self.vStackTextField.spacing = 20
+        self.vStackTextField.anchor(
+            top: self.titleLabel.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: self.hStackCheckBox.topAnchor,
+            trailing: self.containerView.trailingAnchor,
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        )
+        self.vStackTextField.spacing = 10
         
-        self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView.widthAnchor.constraint(equalToConstant: UIScreen.size.width/5).isActive = true
-        self.imageView.heightAnchor.constraint(equalToConstant: UIScreen.size.width/5).isActive = true
+        self.textFieldEmail.anchor(
+            top: nil,
+            leading: self.vStackTextField.leadingAnchor,
+            bottom: nil,
+            trailing: self.vStackTextField.trailingAnchor,
+            size: CGSize(width: 0, height: 55)
+        )
+        self.textFieldEmail.centerXSuperview(self.vStackTextField)
         
-        self.textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
-        self.textFieldEmail.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
-        self.textFieldEmail.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        
-        self.textFieldPassword.translatesAutoresizingMaskIntoConstraints = false
-        self.textFieldPassword.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -40).isActive = true
-        self.textFieldPassword.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        self.textFieldPassword.anchor(
+            top: nil,
+            leading: self.vStackTextField.leadingAnchor,
+            bottom: nil,
+            trailing: self.vStackTextField.trailingAnchor,
+            size: CGSize(width: 0, height: 55)
+        )
+        self.textFieldPassword.centerXSuperview(self.vStackTextField)
         
         // Checkbox
-        self.hStackCheckBox.translatesAutoresizingMaskIntoConstraints = false
+        self.hStackCheckBox.anchor(
+            top: self.vStackTextField.bottomAnchor,
+            leading: nil,
+            bottom: self.buttonSignUp.topAnchor,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            size: CGSize(width: 0, height: 55)
+        )
+        self.hStackCheckBox.centerXSuperview(self.containerView)
         self.hStackCheckBox.spacing = 10
         
-        self.titleDivider.translatesAutoresizingMaskIntoConstraints = false
-        self.titleDivider.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
-        self.titleDivider.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
+        self.buttonSignUp.anchor(
+            top: self.hStackCheckBox.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: self.titleDivider.topAnchor,
+            trailing: self.containerView.trailingAnchor,
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            size: CGSize(width: 0, height: 55)
+        )
+        self.buttonSignUp.centerXSuperview(self.vStackTextField)
         
-        self.buttonSignUp.translatesAutoresizingMaskIntoConstraints = false
-        self.buttonSignUp.leftAnchor.constraint(equalTo: self.vStackContainer.leftAnchor).isActive = true
-        self.buttonSignUp.rightAnchor.constraint(equalTo: self.vStackContainer.rightAnchor).isActive = true
+        self.titleDivider.anchor(
+            top: self.buttonSignUp.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: self.hStackButtonSocial.topAnchor,
+            trailing: self.containerView.trailingAnchor,
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            size: CGSize(width: 0, height: 55)
+        )
+        self.titleDivider.centerXSuperview(self.vStackTextField)
         
-        self.hStackFooter.spacing = 10
-        
-        self.buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
-        self.buttonFacebook.widthAnchor.constraint(equalToConstant: 82).isActive = true
-        self.buttonFacebook.heightAnchor.constraint(equalToConstant: 56).isActive = true
-        
-        self.buttonGoogle.translatesAutoresizingMaskIntoConstraints = false
-        self.buttonGoogle.widthAnchor.constraint(equalToConstant: 82).isActive = true
-        self.buttonGoogle.heightAnchor.constraint(equalToConstant: 56).isActive = true
-        
-        self.buttonApple.translatesAutoresizingMaskIntoConstraints = false
-        self.buttonApple.widthAnchor.constraint(equalToConstant: 82).isActive = true
-        self.buttonApple.heightAnchor.constraint(equalToConstant: 56).isActive = true
-        
+        self.hStackButtonSocial.anchor(
+            top: self.titleDivider.bottomAnchor,
+            leading: nil,
+            bottom: self.hStackFooter.topAnchor,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            size: CGSize(width: 0, height: 55)
+        )
+        self.hStackButtonSocial.centerXSuperview(self.containerView)
         self.hStackButtonSocial.spacing = 10
+        
+        self.buttonFacebook.anchorSize(size: CGSize(width: 82, height: 55))
+        
+        self.buttonGoogle.anchorSize(size: CGSize(width: 82, height: 55))
+        
+        self.buttonApple.anchorSize(size: CGSize(width: 82, height: 55))
+        
+        self.hStackFooter.anchor(
+            top: self.hStackButtonSocial.bottomAnchor,
+            leading: nil,
+            bottom: self.containerView.safeAreaLayoutGuide.bottomAnchor,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            size: CGSize(width: 0, height: 55)
+        )
+        self.hStackFooter.centerXSuperview(self.containerView)
+        self.hStackFooter.spacing = 10
     }
     
 }
