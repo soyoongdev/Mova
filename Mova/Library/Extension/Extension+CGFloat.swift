@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 extension CGFloat {
     
@@ -16,6 +17,25 @@ extension CGFloat {
 }
 
 extension CGFloat {
+    
+    var relativeSize: CGFloat {
+        // target size (iPhone 8)
+        let targetWidth = CGFloat(375.0)
+        let targetHeight = CGFloat(667.0)
+        let squareTarget = CGFloat(targetWidth * targetWidth) + CGFloat(targetHeight * targetHeight)
+        let targetSize = CGFloat(sqrt(squareTarget))
+        // Current size
+        let currentWidth = UIScreen.main.bounds.width
+        let currentHeight = UIScreen.main.bounds.height
+        let squareCurrent = CGFloat(currentWidth * currentWidth) + CGFloat(currentHeight * currentHeight)
+        let currentSize = CGFloat(sqrt(squareCurrent))
+        
+//        let dimenSize: CGFloat = targetSize / currentSize
+        
+        let dimenSize: CGFloat = currentSize / targetSize
+        
+        return CGFloat(self * dimenSize)
+    }
     
     func relativeToIphone8Width() -> CGFloat {
         return CGFloat(self * (UIScreen.main.bounds.width / 375))

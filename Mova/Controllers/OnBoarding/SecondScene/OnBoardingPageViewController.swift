@@ -87,10 +87,10 @@ class OnBoardingPageViewController: UIViewController {
     
     private func setupLayouts() {
         // Setup anchor containerView
-        self.containerView.setupLayoutConstraint(self.view)
+        self.containerView.fillSuperview()
         
         // Setup anchor imageView
-        self.imageView.setupLayoutConstraint(self.containerView)
+        self.imageView.fillSuperview(self.containerView)
         
         // Setup anchor vStack
         self.vStack.spacing = 20

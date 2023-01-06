@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 
-class HomeViewController: BaseViewController {
+class HomeViewController: MasterViewController {
     
     // MARK: - Variables
     
@@ -48,7 +48,7 @@ class HomeViewController: BaseViewController {
     }
     
     private func setupLayouts() {
-        self.homeFeedTableView.setupLayoutConstraint(superView: self)
+        self.homeFeedTableView.fillSuperview()
     }
     
     @objc private func reloadData() {

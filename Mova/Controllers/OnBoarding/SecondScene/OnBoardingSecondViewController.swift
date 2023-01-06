@@ -81,10 +81,10 @@ class OnBoardingSecondViewController: UIPageViewController {
         self.vStack.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
         self.vStack.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         
-        self.buttonGetStarted.setupLayoutConstraint(attributes: [.left, .right], superView: self.vStack)
+        self.buttonGetStarted.anchor(top: nil, leading: self.vStack.leadingAnchor, bottom: nil, trailing: self.vStack.trailingAnchor)
         self.buttonGetStarted.addTarget(self, action: #selector(getStartedAction(_:)), for: .touchUpInside)
         
-        self.pageController.setupLayoutConstraint(attributes: [.left, .right], superView: self.vStack)
+        self.pageController.anchor(top: nil, leading: self.vStack.leadingAnchor, bottom: nil, trailing: self.vStack.trailingAnchor)
     }
     
     @objc private func getStartedAction(_ sender: Any) {

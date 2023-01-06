@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateAccountViewController: BaseViewController {
+class CreateAccountViewController: MasterViewController {
     
     private let containerView = UIView()
     
@@ -240,7 +240,7 @@ extension CreateAccountViewController {
     }
     
     private func setupSubViewLayouts() {
-        self.containerView.setupLayoutConstraint(self.view)
+        self.containerView.fillSuperview()
         
         self.headerNavBar.translatesAutoresizingMaskIntoConstraints = false
         self.headerNavBar.topAnchor.constraint(equalTo: self.containerView.safeAreaLayoutGuide.topAnchor).isActive = true

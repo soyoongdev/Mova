@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthenticationSelectionViewController: BaseViewController {
+class AuthenticationSelectionViewController: MasterViewController {
     
     private let containerView = UIView()
     
@@ -153,7 +153,7 @@ extension AuthenticationSelectionViewController {
     }
     
     private func setupLayouts() {
-        self.containerView.setupLayoutConstraint(self.view)
+        self.containerView.fillSuperview()
         
         self.vStackContainer.translatesAutoresizingMaskIntoConstraints = false
         self.vStackContainer.leftAnchor.constraint(equalTo: self.containerView.leftAnchor, constant: 20).isActive = true

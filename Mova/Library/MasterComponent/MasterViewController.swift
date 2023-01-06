@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class BaseViewController: UIViewController {
+public class MasterViewController: UIViewController {
     
     // MARK: - Life cycle
     
@@ -55,7 +55,7 @@ public class BaseViewController: UIViewController {
 }
 
 
-extension BaseViewController {
+extension MasterViewController {
     
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
