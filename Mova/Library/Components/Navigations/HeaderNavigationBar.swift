@@ -38,35 +38,48 @@ class HeaderNavigationBar: MasterView {
         self.insertSubview(self.backButton, at: 0)
         self.insertSubview(self.titleLabel, at: 1)
         self.insertSubview(self.rightViewContainer, at: 2)
+        self.anchorSize(size: CGSize(width: 0, height: 52))
+        
+        self.backButton.addTarget(self, action: #selector(self.leftBlockAction), for: .touchUpInside)
+        
     }
     
     override func setupLayoutSubviews() {
         super.setupLayoutSubviews()
-        self.backButton.translatesAutoresizingMaskIntoConstraints = false
-        self.backButton.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.backButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        self.backButton.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
-        self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.titleLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.titleLabel.leftAnchor.constraint(equalTo: self.backButton.rightAnchor, constant: 20).isActive = true
-        self.titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        self.titleLabel.rightAnchor.constraint(equalTo: self.rightViewContainer.leftAnchor).isActive = true
+        self.backButton.anchor(
+            top: nil,
+            leading: self.leadingAnchor,
+            bottom: nil,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0),
+            size: CGSize(width: 30, height: 30)
+        )
+        self.backButton.centerYSuperview()
         
-        self.rightViewContainer.translatesAutoresizingMaskIntoConstraints = false
-        self.rightViewContainer.widthAnchor.constraint(equalToConstant: 28.0).isActive = true
-        self.rightViewContainer.heightAnchor.constraint(equalToConstant: 28.0).isActive = true
-        self.rightViewContainer.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.rightViewContainer.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
-        self.rightViewContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.titleLabel.anchor(
+            top: nil,
+            leading: self.backButton.trailingAnchor,
+            bottom: nil,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
+        )
+        self.titleLabel.centerYSuperview()
         
-        self.backButton.addTarget(self, action: #selector(self.leftBlockAction), for: .touchUpInside)
+        self.rightViewContainer.anchor(
+            top: nil,
+            leading: self.titleLabel.trailingAnchor,
+            bottom: nil,
+            trailing: self.trailingAnchor,
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -20),
+            size: CGSize(width: 30, height: 30)
+        )
+        self.rightViewContainer.centerYSuperview()
         
         if let rightView = self.rightView {
             self.rightViewContainer.addSubview(rightView)
             self.rightViewContainer.bringSubviewToFront(rightView)
         }
-        
     }
     
     func leftAction(_ action: @escaping () -> Void) {

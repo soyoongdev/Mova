@@ -21,14 +21,14 @@ class CreateAccountViewController: MasterViewController {
         let header = HeaderNavigationBar()
         header.titleLabel.text = "Choose Your Interest"
          
-//        let button = MasterButton()
-//        button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
-//
-//        button.translatesAutoresizingMaskIntoConstraints = false
-//        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
-//        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
-//
-//        header.rightView = button
+        let button = MasterButton()
+        button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
+
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 24).isActive = true
+
+        header.rightView = button
         
         return header
     }()
