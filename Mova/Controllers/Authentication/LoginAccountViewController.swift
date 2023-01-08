@@ -1,13 +1,13 @@
 //
-//  CreateAccountViewController.swift
+//  LoginAccountViewController.swift
 //  Mova
 //
-//  Created by HauNguyen on 03/01/2566 BE.
+//  Created by HauNguyen on 07/01/2566 BE.
 //
 
 import UIKit
 
-class CreateAccountViewController: MasterViewController {
+class LoginAccountViewController: MasterViewController {
     
     private let containerView = UIView()
     
@@ -37,7 +37,7 @@ class CreateAccountViewController: MasterViewController {
         title.font = .bold(size: .large26)
         title.textColor = .textColor
         title.numberOfLines = 1
-        title.text = "Create Your Account"
+        title.text = "Login to Your Account"
         title.textAlignment = .center
         return title
     }()
@@ -93,7 +93,15 @@ class CreateAccountViewController: MasterViewController {
     /// Button get started to skip onboarding
     private let buttonSignUp: PrimaryButton = {
         let button = PrimaryButton()
-        button.setTitle(text: "Sign up", for: .normal)
+        button.setTitle(text: "Sign in", for: .normal)
+        return button
+    }()
+    
+    private let buttonForgotPassword: MasterButton = {
+        let button = MasterButton()
+        button.setTitle(text: "Forgot the password?", for: .normal)
+        button.titleLabel?.font = .semiBold(size: .small)
+        button.setTitleColor(.primaryRed, for: .normal)
         return button
     }()
     
@@ -109,13 +117,13 @@ class CreateAccountViewController: MasterViewController {
         _self.font = .semiBold(size: .small)
         _self.textColor = .textColor
         _self.numberOfLines = 1
-        _self.text = "Already have an account?"
+        _self.text = "Don't have an account?"
         return _self
     }()
     
     private let buttonSignIn: MasterButton = {
         let button = MasterButton()
-        button.setTitle(text: "Sign in", for: .normal)
+        button.setTitle(text: "Sign up", for: .normal)
         button.titleLabel?.font = .semiBold(size: .small)
         button.setTitleColor(.primaryRed, for: .normal)
         return button
@@ -163,9 +171,9 @@ class CreateAccountViewController: MasterViewController {
         self.view.insertSubview(self.containerView, at: 0)
         self.view.insertSubview(self.headerNavBar, at: 1)
         
-        let views = [imageView, titleLabel, vStackTextField, hStackCheckBox, buttonSignUp, titleDivider, hStackButtonSocial, hStackFooter]
+        let views = [imageView, titleLabel, vStackTextField, hStackCheckBox, buttonSignUp, buttonForgotPassword, titleDivider, hStackButtonSocial, hStackFooter]
         views.forEach { view in
-            self.containerView.insertSubview(view, at: views.firstIndex(of: view)!)
+            self.containerView.insertSubview(view, at: self.index(ofAccessibilityElement: view))
         }
         
         // Vertical Stack TextField
@@ -189,19 +197,6 @@ class CreateAccountViewController: MasterViewController {
         self.textFieldPassword.setIconRightAction(self.rightPasswordAction)
         self.checkBoxButton.blockAction(self.checkBoxAction)
         self.headerNavBar.leftAction(self.headerBackButton)
-        
-        self.buttonSignUp.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
-        
-        self.buttonSignIn.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
-        
-        self.checkBoxButton.addTarget(self, action: #selector(rememberAction), for: .touchUpInside)
-        
-        self.buttonFacebook.addTarget(self, action: #selector(facebookAction), for: .touchUpInside)
-        
-        self.buttonGoogle.addTarget(self, action: #selector(googleAction), for: .touchUpInside)
-        
-        self.buttonApple.addTarget(self, action: #selector(appleAction), for: .touchUpInside)
-        
     }
     
     private func rightMailAction() {
@@ -221,34 +216,10 @@ class CreateAccountViewController: MasterViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc private func signUpAction() {
-        print("Sign up")
-    }
-    
-    @objc private func signInAction() {
-        print("Sign in")
-    }
-    
-    @objc private func rememberAction() {
-        print("Remember")
-    }
-    
-    @objc private func facebookAction() {
-        print("facebookAction")
-    }
-    
-    @objc private func googleAction() {
-        print("googleAction")
-    }
-    
-    @objc private func appleAction() {
-        print("applekAction")
-    }
-    
 }
 
 // Setup layouts
-extension CreateAccountViewController {
+extension LoginAccountViewController {
     
     private func setupSubViewLayouts() {
         self.containerView.anchor(
@@ -323,12 +294,22 @@ extension CreateAccountViewController {
         self.buttonSignUp.anchor(
             top: self.hStackCheckBox.bottomAnchor,
             leading: self.containerView.leadingAnchor,
-            bottom: self.titleDivider.topAnchor,
+            bottom: self.buttonForgotPassword.topAnchor,
             trailing: self.containerView.trailingAnchor,
             padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
         )
         self.buttonSignUp.centerXSuperview(self.vStackTextField)
+        
+        self.buttonForgotPassword.anchor(
+            top: self.buttonSignUp.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: self.titleDivider.topAnchor,
+            trailing: self.containerView.trailingAnchor,
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            size: CGSize(width: 0, height: 55)
+        )
+        self.buttonForgotPassword.centerXSuperview(self.vStackTextField)
         
         self.titleDivider.anchor(
             top: nil,
@@ -371,8 +352,8 @@ extension CreateAccountViewController {
 
 import SwiftUI
 
-struct CreateAccountViewController_Previews: PreviewProvider {
+struct LoginAccountViewController_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewUIViewController(viewController: CreateAccountViewController())
+        PreviewUIViewController(viewController: LoginAccountViewController())
     }
 }

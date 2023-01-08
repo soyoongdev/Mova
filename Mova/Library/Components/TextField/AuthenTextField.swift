@@ -20,5 +20,14 @@ class AuthenTextField: MasterTextField {
         self.textColor = .textColor
         self.font = .semiBold(size: .small)
     }
+    
+    override func textFieldDidBeginEditing(_ textField: UITextField) {
+        super.textFieldDidBeginEditing(textField)
+        
+    }
+    
+    override func textFieldDidEndEditing(_ textField: UITextField) {
+        super.textFieldDidEndEditing(textField)
+    }
 
 }

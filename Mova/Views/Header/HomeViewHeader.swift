@@ -8,100 +8,102 @@
 import UIKit
 import SwiftUI
 
-class HomeViewHeader: UIView {
+class HomeViewHeader: MasterView {
+    
+    private let containerView = UIView()
 
-    public var stretchyHeader: StretchyHeaderImageView = {
-        let header = StretchyHeaderImageView()
-        header.imageView.image = UIImage(named: "doctor_strange2")
+    public var stretchyHeader: StretchyTableHeaderView = {
+        let header = StretchyTableHeaderView()
+        //header.imageView.image = UIImage(named: "doctor_strange2")
         return header
     }()
     
     private let buttonPlay: PrimaryButton = {
         let button = PrimaryButton()
         button.setTitle(text: "Play", for: .normal)
-        button.setIcon(UIImage(named: "play-fill"), for: .normal)
+        button.setIcon(UIImage(named: "play-fill"), color: .white, size: 14, for: .normal)
         return button
     }()
     
     private let buttonList: PrimaryButton = {
         let button = PrimaryButton()
         button.setTitle(text: "My List", for: .normal)
-        button.setIcon(UIImage(named: "add"), for: .normal)
+        button.setIcon(UIImage(named: "add"), color: .white, size: 14, for: .normal)
         return button
     }()
     
-    private let largeTitle: UILabel = {
-        let title = UILabel()
-        
+    private let largeTitle: MasterLabel = {
+        let title = MasterLabel()
         title.text = "Dr.Strange 2"
-        title.font = .bold(size: .extra34)
+        title.font = .bold(size: .large26)
         title.textColor = .textColor
-        
         return title
     }()
     
-    private let subTitle: UILabel = {
-        let title = UILabel()
-        
+    private let subTitle: MasterLabel = {
+        let title = MasterLabel()
         title.text = "Action, Superhero, Science Fiction."
         title.font = .medium(size: .small)
-        title.textColor = .white.withAlphaComponent(0.8)
-        
+        title.textColor = .white
         return title
     }()
     
-    private let hStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        return stack
-    }()
-    
-    private let vStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        return stack
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setupViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.setupViews()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.setupLayouts()
-    }
-    
-    private func setupViews() {
+    override func setupViews() {
+        super.setupViews()
         self.addSubview(self.stretchyHeader)
+        self.addSubview(self.containerView)
         
-        self.addSubview(self.vStack)
-        self.addSubview(self.hStack)
-        
-        self.hStack.addArrangedSubview(self.buttonPlay)
-        self.hStack.addArrangedSubview(self.buttonList)
-        
-        self.vStack.addArrangedSubview(self.largeTitle)
-        self.vStack.addArrangedSubview(self.subTitle)
-        self.vStack.addArrangedSubview(self.hStack)
-        
-        self.setupLayouts()
+        let views = [self.largeTitle, subTitle, buttonPlay, buttonList]
+        views.forEach { view in
+            self.containerView.insertSubview(view, at: views.firstIndex(of: view)!)
+        }
     }
     
-    private func setupLayouts() {
+    override func setupLayoutSubviews() {
+        super.setupLayoutSubviews()
         self.stretchyHeader.fillSuperview()
         
-        self.vStack.translatesAutoresizingMaskIntoConstraints = false
-        self.vStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
-        self.vStack.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        self.vStack.spacing = 10
-        self.vStack.setCustomSpacing(12, after: self.largeTitle)
-        self.hStack.spacing = 10
+        self.containerView.anchor(
+            top: nil,
+            leading: self.leadingAnchor,
+            bottom: self.bottomAnchor,
+            trailing: nil,
+            padding: UIEdgeInsets(top: 0, left: 20, bottom: -20, right: 0)
+        )
+        
+        self.largeTitle.anchor(
+            top: self.containerView.topAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
+            trailing: nil,
+            size: CGSize(width: 0, height: 24)
+        )
+        
+        self.subTitle.anchor(
+            top: self.largeTitle.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
+            trailing: nil,
+            size: CGSize(width: 0, height: 24)
+        )
+        
+        self.buttonPlay.anchor(
+            top: self.subTitle.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
+            trailing: nil,
+            size: CGSize(width: 78, height: 30)
+        )
+        self.buttonPlay.layer.cornerRadius = self.buttonPlay.bounds.size.height/2
+        
+        self.buttonList.anchor(
+            top: self.subTitle.bottomAnchor,
+            leading: self.buttonPlay.trailingAnchor,
+            bottom: nil,
+            trailing: nil,
+            size: CGSize(width: 95, height: 30)
+        )
+        self.buttonList.layer.cornerRadius = self.buttonList.bounds.size.height/2
     }
 
 }

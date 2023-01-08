@@ -11,12 +11,7 @@ class AuthenticationSelectionViewController: MasterViewController {
     
     private let containerView = UIView()
     
-    private let headerNavBar: HeaderNavigationBar = {
-        let header = HeaderNavigationBar()
-        header.titleLabel.text = "Choose Your Interest"
-        
-        return header
-    }()
+    private let headerNavBar: HeaderNavigationBar = HeaderNavigationBar()
     
     private let vStackButtonSocial: UIStackView = {
         let stack = UIStackView()
@@ -42,7 +37,7 @@ class AuthenticationSelectionViewController: MasterViewController {
         return title
     }()
     
-    private let facebookButton: PrimaryButtonSocial = {
+    private let buttonFacebook: PrimaryButtonSocial = {
         let button = PrimaryButtonSocial()
         button.setTitle(text: "Continue with Facebook", color: .textColor, for: .normal)
         button.setIcon(UIImage(named: "facebook_circle-icon"), for: .normal)
@@ -50,7 +45,7 @@ class AuthenticationSelectionViewController: MasterViewController {
         return button
     }()
     
-    private let googleButton: PrimaryButtonSocial = {
+    private let buttonGoogle: PrimaryButtonSocial = {
         let button = PrimaryButtonSocial()
         button.setTitle(text: "Continue with Google", color: .textColor, for: .normal)
         button.setIcon(UIImage(named: "google-icon"), for: .normal)
@@ -58,7 +53,7 @@ class AuthenticationSelectionViewController: MasterViewController {
         return button
     }()
     
-    private let appleButton: PrimaryButtonSocial = {
+    private let buttonApple: PrimaryButtonSocial = {
         let button = PrimaryButtonSocial()
         button.setTitle(text: "Continue with Apple", color: .textColor, for: .normal)
         button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
@@ -115,42 +110,64 @@ class AuthenticationSelectionViewController: MasterViewController {
     }
     
     private func setupViews() {
-        self.setupSubviews()
-        
-        // Make action for sign in button
-        self.buttonSignIn.addTarget(self, action: #selector(self.signInBtnAction), for: .touchUpInside)
-    }
-    
-    @objc private func signInBtnAction() {
-        UIView.animate(withDuration: 0.2) {
-            self.navigationController?.pushViewController(CreateAccountViewController(), animated: true)
-        }
-    }
-
-}
-
-// Setup layouts
-extension AuthenticationSelectionViewController {
-    
-    private func setupSubviews() {
         self.view.backgroundColor = .primaryBackground
         self.view.insertSubview(self.containerView, at: 0)
         self.view.insertSubview(self.headerNavBar, at: 1)
         
-        self.containerView.insertSubview(self.imageView, at: 0)
-        self.containerView.insertSubview(self.titleLabel, at: 1)
-        self.containerView.insertSubview(self.vStackButtonSocial, at: 2)
-        self.containerView.insertSubview(self.titleDivider, at: 3)
-        self.containerView.insertSubview(self.buttonSignIn, at: 4)
-        self.containerView.insertSubview(self.hStackFooter, at: 5)
+        let views = [imageView, titleLabel, vStackButtonSocial, titleDivider, buttonSignIn, hStackFooter]
+        views.forEach { view in
+            self.containerView.insertSubview(view, at: views.firstIndex(of: view)!)
+        }
         
-        self.vStackButtonSocial.insertArrangedSubview(self.facebookButton, at: 0)
-        self.vStackButtonSocial.insertArrangedSubview(self.googleButton, at: 1)
-        self.vStackButtonSocial.insertArrangedSubview(self.appleButton, at: 2)
+        self.vStackButtonSocial.insertArrangedSubview(self.buttonFacebook, at: 0)
+        self.vStackButtonSocial.insertArrangedSubview(self.buttonGoogle, at: 1)
+        self.vStackButtonSocial.insertArrangedSubview(self.buttonApple, at: 2)
         
         self.hStackFooter.insertArrangedSubview(self.titleLabelFooter, at: 0)
         self.hStackFooter.insertArrangedSubview(self.buttonSignUp, at: 1)
+        
+        self.headerNavBar.leftAction(self.backButtonAction)
+        
+        // Make action for sign in button
+        self.buttonSignIn.addTarget(self, action: #selector(self.signiniAction), for: .touchUpInside)
+        
+        self.buttonSignUp.addTarget(self, action: #selector(self.signupAction), for: .touchUpInside)
+        
+        self.buttonFacebook.addTarget(self, action: #selector(self.facebookAction), for: .touchUpInside)
+        
+        self.buttonGoogle.addTarget(self, action: #selector(self.googleAction), for: .touchUpInside)
+        
+        self.buttonApple.addTarget(self, action: #selector(self.appleAction), for: .touchUpInside)
+        
     }
+    
+    @objc private func backButtonAction() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func signiniAction() {
+        self.navigationController?.pushViewController(LoginAccountViewController(), animated: true)
+    }
+    
+    @objc private func signupAction() {
+        self.navigationController?.pushViewController(CreateAccountViewController(), animated: true)
+    }
+    
+    @objc private func facebookAction() {
+        print("facebookAction")
+    }
+    
+    @objc private func googleAction() {
+        print("googleAction")
+    }
+    
+    @objc private func appleAction() {
+        print("applekAction")
+    }
+}
+
+// Setup layouts
+extension AuthenticationSelectionViewController {
     
     private func setupLayouts() {
         self.containerView.anchor(
@@ -191,7 +208,7 @@ extension AuthenticationSelectionViewController {
         )
         self.vStackButtonSocial.spacing = 10
         
-        self.facebookButton.anchor(
+        self.buttonFacebook.anchor(
             top: nil,
             leading: self.vStackButtonSocial.leadingAnchor,
             bottom: nil,
@@ -199,7 +216,7 @@ extension AuthenticationSelectionViewController {
             size: CGSize(width: 0, height: 55)
         )
         
-        self.googleButton.anchor(
+        self.buttonGoogle.anchor(
             top: nil,
             leading: self.vStackButtonSocial.leadingAnchor,
             bottom: nil,
@@ -207,7 +224,7 @@ extension AuthenticationSelectionViewController {
             size: CGSize(width: 0, height: 55)
         )
         
-        self.appleButton.anchor(
+        self.buttonApple.anchor(
             top: nil,
             leading: self.vStackButtonSocial.leadingAnchor,
             bottom: nil,

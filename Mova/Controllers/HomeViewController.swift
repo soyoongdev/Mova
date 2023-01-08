@@ -13,33 +13,34 @@ class HomeViewController: MasterViewController {
     
     // MARK: - Variables
     
-    private let homeFeedTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
-        return tableView
-    }()
-    
-    private let homeViewHeader: HomeViewHeader = HomeViewHeader()
+    private let homeFeedTableView: UITableView = UITableView(frame: .zero, style: .grouped)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configNavigation()
         self.setupViews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         self.setupLayouts()
-        self.reloadData()
     }
     
     private func setupViews() {
-        self.view.addSubview(self.homeFeedTableView)
         self.homeFeedTableView.delegate = self
         self.homeFeedTableView.dataSource = self
+        self.view.addSubview(self.homeFeedTableView)
+        
         self.homeFeedTableView.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         
-        // Header
-        self.homeViewHeader.frame = .init(origin: self.view.bounds.origin, size: .init(width: self.view.bounds.width, height: CGFloat(350).relativeToIphone8Height()))
-        self.homeFeedTableView.tableHeaderView = self.homeViewHeader
+        let header = StretchyTableHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 350))
+        header.imageView.image = UIImage(named: "doctor_strange2")
+        self.homeFeedTableView.tableHeaderView = header
         
         // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
         self.homeFeedTableView.refreshControl?.addTarget(self, action: #selector(self.reloadData), for: .valueChanged)
+        
+        self.reloadData()
     }
     
     // Config navigation
@@ -49,6 +50,7 @@ class HomeViewController: MasterViewController {
     
     private func setupLayouts() {
         self.homeFeedTableView.fillSuperview()
+        
     }
     
     @objc private func reloadData() {
@@ -103,9 +105,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let header = self.homeFeedTableView.tableHeaderView as? HomeViewHeader else { return }
-
-        header.stretchyHeader.scrollViewDidScroll(scrollView: self.homeFeedTableView)
+        if let headerView = self.homeFeedTableView.tableHeaderView as? StretchyTableHeaderView {
+            headerView.scrollViewDidScroll(scrollView: scrollView)
+        }
     }
 
 }
