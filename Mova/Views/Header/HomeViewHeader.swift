@@ -10,11 +10,11 @@ import SwiftUI
 
 class HomeViewHeader: MasterView {
     
-    private let containerView = UIView()
+    private var containerView = UIView()
 
     public var stretchyHeader: StretchyTableHeaderView = {
         let header = StretchyTableHeaderView()
-        //header.imageView.image = UIImage(named: "doctor_strange2")
+        header.imageView.image = UIImage(named: "doctor_strange2")
         return header
     }()
     
@@ -28,7 +28,7 @@ class HomeViewHeader: MasterView {
     private let buttonList: PrimaryButton = {
         let button = PrimaryButton()
         button.setTitle(text: "My List", for: .normal)
-        button.setIcon(UIImage(named: "add"), color: .white, size: 14, for: .normal)
+        button.setIcon(UIImage(named: "plus"), color: .white, size: 14, for: .normal)
         return button
     }()
     
@@ -52,8 +52,9 @@ class HomeViewHeader: MasterView {
         super.setupViews()
         self.addSubview(self.stretchyHeader)
         self.addSubview(self.containerView)
+        self.bringSubviewToFront(self.containerView)
         
-        let views = [self.largeTitle, subTitle, buttonPlay, buttonList]
+        let views = [largeTitle, subTitle, buttonPlay, buttonList]
         views.forEach { view in
             self.containerView.insertSubview(view, at: views.firstIndex(of: view)!)
         }
@@ -62,17 +63,17 @@ class HomeViewHeader: MasterView {
     override func setupLayoutSubviews() {
         super.setupLayoutSubviews()
         self.stretchyHeader.fillSuperview()
-        
+                
         self.containerView.anchor(
-            top: nil,
+            top: self.topAnchor,
             leading: self.leadingAnchor,
             bottom: self.bottomAnchor,
-            trailing: nil,
+            trailing: self.trailingAnchor,
             padding: UIEdgeInsets(top: 0, left: 20, bottom: -20, right: 0)
         )
         
         self.largeTitle.anchor(
-            top: self.containerView.topAnchor,
+            top: nil,
             leading: self.containerView.leadingAnchor,
             bottom: nil,
             trailing: nil,
@@ -84,23 +85,26 @@ class HomeViewHeader: MasterView {
             leading: self.containerView.leadingAnchor,
             bottom: nil,
             trailing: nil,
+            padding: UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 24)
         )
         
         self.buttonPlay.anchor(
             top: self.subTitle.bottomAnchor,
             leading: self.containerView.leadingAnchor,
-            bottom: nil,
+            bottom: self.containerView.bottomAnchor,
             trailing: nil,
+            padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 78, height: 30)
         )
         self.buttonPlay.layer.cornerRadius = self.buttonPlay.bounds.size.height/2
         
         self.buttonList.anchor(
-            top: self.subTitle.bottomAnchor,
+            top: nil,
             leading: self.buttonPlay.trailingAnchor,
-            bottom: nil,
+            bottom: self.containerView.bottomAnchor,
             trailing: nil,
+            padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 0),
             size: CGSize(width: 95, height: 30)
         )
         self.buttonList.layer.cornerRadius = self.buttonList.bounds.size.height/2

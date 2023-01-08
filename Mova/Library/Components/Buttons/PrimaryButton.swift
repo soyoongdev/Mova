@@ -15,8 +15,6 @@ class PrimaryButton: MasterButton {
         self.setBackgroundColor(color: .primaryRed, for: .normal)
         self.titleLabel?.font = .semiBold(size: .small)
         self.setTitleColor(.textColor, for: .normal)
-        self.tintColor = .textColor
-        self.translatesAutoresizingMaskIntoConstraints = false
         let space: CGFloat = 16.0
         self.contentEdgeInsets = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
         self.layer.cornerRadius = self.bounds.height/2

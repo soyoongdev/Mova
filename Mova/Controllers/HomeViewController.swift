@@ -13,7 +13,15 @@ class HomeViewController: MasterViewController {
     
     // MARK: - Variables
     
-    private let homeFeedTableView: UITableView = UITableView(frame: .zero, style: .grouped)
+    private var homeFeedTableView: UITableView = {
+        return UITableView(frame: .zero, style: .grouped)
+    }()
+    
+    private lazy var homeViewHeader: HomeViewHeader = {
+        let header = HomeViewHeader()
+        
+        return header
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +41,8 @@ class HomeViewController: MasterViewController {
         
         self.homeFeedTableView.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         
-        let header = StretchyTableHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 350))
-        header.imageView.image = UIImage(named: "doctor_strange2")
-        self.homeFeedTableView.tableHeaderView = header
+        self.homeViewHeader = HomeViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height/2))
+        self.homeFeedTableView.tableHeaderView = self.homeViewHeader
         
         // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
         self.homeFeedTableView.refreshControl?.addTarget(self, action: #selector(self.reloadData), for: .valueChanged)
@@ -50,7 +57,6 @@ class HomeViewController: MasterViewController {
     
     private func setupLayouts() {
         self.homeFeedTableView.fillSuperview()
-        
     }
     
     @objc private func reloadData() {
@@ -105,8 +111,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if let headerView = self.homeFeedTableView.tableHeaderView as? StretchyTableHeaderView {
-            headerView.scrollViewDidScroll(scrollView: scrollView)
+        if let headerView = self.homeFeedTableView.tableHeaderView as? HomeViewHeader {
+            headerView.stretchyHeader.scrollViewDidScroll(scrollView: scrollView)
         }
     }
 
