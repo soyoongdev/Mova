@@ -91,7 +91,7 @@ class LoginAccountViewController: MasterViewController {
     }()
     
     /// Button get started to skip onboarding
-    private let buttonSignUp: PrimaryButton = {
+    private let buttonSignIn: PrimaryButton = {
         let button = PrimaryButton()
         button.setTitle(text: "Sign in", for: .normal)
         return button
@@ -121,7 +121,7 @@ class LoginAccountViewController: MasterViewController {
         return _self
     }()
     
-    private let buttonSignIn: MasterButton = {
+    private let buttonSignUp: MasterButton = {
         let button = MasterButton()
         button.setTitle(text: "Sign up", for: .normal)
         button.titleLabel?.font = .semiBold(size: .small)
@@ -171,7 +171,7 @@ class LoginAccountViewController: MasterViewController {
         self.view.insertSubview(self.containerView, at: 0)
         self.view.insertSubview(self.headerNavBar, at: 1)
         
-        let views = [imageView, titleLabel, vStackTextField, hStackCheckBox, buttonSignUp, buttonForgotPassword, titleDivider, hStackButtonSocial, hStackFooter]
+        let views = [imageView, titleLabel, vStackTextField, hStackCheckBox, buttonSignIn, buttonForgotPassword, titleDivider, hStackButtonSocial, hStackFooter]
         views.forEach { view in
             self.containerView.insertSubview(view, at: self.index(ofAccessibilityElement: view))
         }
@@ -197,6 +197,11 @@ class LoginAccountViewController: MasterViewController {
         self.textFieldPassword.setIconRightAction(self.rightPasswordAction)
         self.checkBoxButton.blockAction(self.checkBoxAction)
         self.headerNavBar.leftAction(self.headerBackButton)
+        self.buttonSignIn.addTarget(self, action: #selector(signinAction), for: .touchUpInside)
+        self.buttonForgotPassword.addTarget(self, action: #selector(forgotPasswordAction), for: .touchUpInside)
+        self.buttonFacebook.addTarget(self, action: #selector(facebookAction), for: .touchUpInside)
+        self.buttonGoogle.addTarget(self, action: #selector(googleAction), for: .touchUpInside)
+        self.buttonApple.addTarget(self, action: #selector(appleAction), for: .touchUpInside)
     }
     
     private func rightMailAction() {
@@ -214,6 +219,26 @@ class LoginAccountViewController: MasterViewController {
     
     private func headerBackButton() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func signinAction() {
+        print("signin action")
+    }
+    
+    @objc private func forgotPasswordAction() {
+        print("signup action")
+    }
+    
+    @objc private func facebookAction() {
+        print("facebook action")
+    }
+    
+    @objc private func googleAction() {
+        print("google action")
+    }
+    
+    @objc private func appleAction() {
+        print("Apple action")
     }
     
 }
@@ -283,7 +308,7 @@ extension LoginAccountViewController {
         self.hStackCheckBox.anchor(
             top: self.vStackTextField.bottomAnchor,
             leading: nil,
-            bottom: self.buttonSignUp.topAnchor,
+            bottom: self.buttonSignIn.topAnchor,
             trailing: nil,
             padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
@@ -291,7 +316,7 @@ extension LoginAccountViewController {
         self.hStackCheckBox.centerXSuperview(self.containerView)
         self.hStackCheckBox.spacing = 10
         
-        self.buttonSignUp.anchor(
+        self.buttonSignIn.anchor(
             top: self.hStackCheckBox.bottomAnchor,
             leading: self.containerView.leadingAnchor,
             bottom: self.buttonForgotPassword.topAnchor,
@@ -299,10 +324,10 @@ extension LoginAccountViewController {
             padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
         )
-        self.buttonSignUp.centerXSuperview(self.vStackTextField)
+        self.buttonSignIn.centerXSuperview(self.vStackTextField)
         
         self.buttonForgotPassword.anchor(
-            top: self.buttonSignUp.bottomAnchor,
+            top: self.buttonSignIn.bottomAnchor,
             leading: self.containerView.leadingAnchor,
             bottom: self.titleDivider.topAnchor,
             trailing: self.containerView.trailingAnchor,

@@ -130,13 +130,9 @@ class AuthenticationSelectionViewController: MasterViewController {
         
         // Make action for sign in button
         self.buttonSignIn.addTarget(self, action: #selector(self.signiniAction), for: .touchUpInside)
-        
         self.buttonSignUp.addTarget(self, action: #selector(self.signupAction), for: .touchUpInside)
-        
         self.buttonFacebook.addTarget(self, action: #selector(self.facebookAction), for: .touchUpInside)
-        
         self.buttonGoogle.addTarget(self, action: #selector(self.googleAction), for: .touchUpInside)
-        
         self.buttonApple.addTarget(self, action: #selector(self.appleAction), for: .touchUpInside)
         
     }

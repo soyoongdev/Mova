@@ -17,7 +17,15 @@ class PrimaryButton: MasterButton {
         self.setTitleColor(.textColor, for: .normal)
         let space: CGFloat = 16.0
         self.contentEdgeInsets = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
-        self.layer.cornerRadius = self.bounds.height/2
     }
     
 }
+
+import SwiftUI
+
+struct PrimaryButton_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewUIViewController(viewController: AuthenticationSelectionViewController())
+    }
+}
+

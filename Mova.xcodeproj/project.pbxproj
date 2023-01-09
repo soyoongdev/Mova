@@ -39,6 +39,7 @@
 		B23EB76A295023A000940D50 /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23EB769295023A000940D50 /* HomeViewHeader.swift */; };
 		B244B33C2948DD3E00E92915 /* Extension+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244B33B2948DD3E00E92915 /* Extension+NSObject.swift */; };
 		B2514788296ACD4E0009A270 /* StretchyTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2514787296ACD4E0009A270 /* StretchyTableHeaderView.swift */; };
+		B251478A296C036D0009A270 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2514789296C036D0009A270 /* ResetPasswordViewController.swift */; };
 		B26448762962E07E0049580F /* TextableDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26448752962E07E0049580F /* TextableDivider.swift */; };
 		B27FF2B62942D50300371CD1 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B52942D50300371CD1 /* MasterView.swift */; };
 		B27FF2BA2942D6C000371CD1 /* PreviewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B92942D6C000371CD1 /* PreviewUI.swift */; };
@@ -164,6 +165,7 @@
 		B23EB769295023A000940D50 /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
 		B244B33B2948DD3E00E92915 /* Extension+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSObject.swift"; sourceTree = "<group>"; };
 		B2514787296ACD4E0009A270 /* StretchyTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyTableHeaderView.swift; sourceTree = "<group>"; };
+		B2514789296C036D0009A270 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		B26448752962E07E0049580F /* TextableDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextableDivider.swift; sourceTree = "<group>"; };
 		B27FF2B52942D50300371CD1 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		B27FF2B92942D6C000371CD1 /* PreviewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewUI.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				B2CAEB1F295E9D3D0049B371 /* AuthenticationSelectionViewController.swift */,
 				B288DCEB29643EEE00E33417 /* CreateAccountViewController.swift */,
 				B2BD7E072969CD400010E696 /* LoginAccountViewController.swift */,
+				B2514789296C036D0009A270 /* ResetPasswordViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				B2CAEB20295E9D3D0049B371 /* AuthenticationSelectionViewController.swift in Sources */,
 				B244B33C2948DD3E00E92915 /* Extension+NSObject.swift in Sources */,
 				B29FACEE295A0DED00517A28 /* OnBoardingFirstViewController.swift in Sources */,
+				B251478A296C036D0009A270 /* ResetPasswordViewController.swift in Sources */,
 				B2927CBE2952DD4B00DB1975 /* List.swift in Sources */,
 				B2EC918C2941F7740099FD08 /* Extension+CAGradientLayer.swift in Sources */,
 				B288DCEC29643EEE00E33417 /* CreateAccountViewController.swift in Sources */,
