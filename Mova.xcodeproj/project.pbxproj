@@ -40,6 +40,7 @@
 		B244B33C2948DD3E00E92915 /* Extension+NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B244B33B2948DD3E00E92915 /* Extension+NSObject.swift */; };
 		B2514788296ACD4E0009A270 /* StretchyTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2514787296ACD4E0009A270 /* StretchyTableHeaderView.swift */; };
 		B251478A296C036D0009A270 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2514789296C036D0009A270 /* ResetPasswordViewController.swift */; };
+		B2514792296C13600009A270 /* OTPInputForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2514791296C13600009A270 /* OTPInputForm.swift */; };
 		B26448762962E07E0049580F /* TextableDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26448752962E07E0049580F /* TextableDivider.swift */; };
 		B27FF2B62942D50300371CD1 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B52942D50300371CD1 /* MasterView.swift */; };
 		B27FF2BA2942D6C000371CD1 /* PreviewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27FF2B92942D6C000371CD1 /* PreviewUI.swift */; };
@@ -166,6 +167,7 @@
 		B244B33B2948DD3E00E92915 /* Extension+NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSObject.swift"; sourceTree = "<group>"; };
 		B2514787296ACD4E0009A270 /* StretchyTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyTableHeaderView.swift; sourceTree = "<group>"; };
 		B2514789296C036D0009A270 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		B2514791296C13600009A270 /* OTPInputForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPInputForm.swift; sourceTree = "<group>"; };
 		B26448752962E07E0049580F /* TextableDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextableDivider.swift; sourceTree = "<group>"; };
 		B27FF2B52942D50300371CD1 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		B27FF2B92942D6C000371CD1 /* PreviewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewUI.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				B220628C296569D500B65928 /* AuthenTextField.swift */,
+				B2514791296C13600009A270 /* OTPInputForm.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				B2C0B0A5293CD30500DB441B /* Enums.swift in Sources */,
 				B2C5631B295F475300E9A908 /* PrimaryButton.swift in Sources */,
 				B2B8DEDA295766D1009ECBF2 /* AuthenticationResponse.swift in Sources */,
+				B2514792296C13600009A270 /* OTPInputForm.swift in Sources */,
 				B20567512963C06900847CA5 /* Extension+CGRect.swift in Sources */,
 				B22EA401296717D000046542 /* Extension+Double.swift in Sources */,
 				B2EC918E2941F8B40099FD08 /* Extension+UIView.swift in Sources */,
