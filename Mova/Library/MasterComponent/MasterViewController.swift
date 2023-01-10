@@ -34,18 +34,10 @@ public class MasterViewController: UIViewController {
         // Make sure the top constraint of the TableView is equal to Superview and not Safe Area
         
         // Hide the navigation bar completely
-        //self.navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         
         // Make the Navigation Bar background transparent
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.tintColor = .white
-
-        // Remove 'Back' text and Title from Navigation Bar
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.title = ""
     }
     
     /// 3

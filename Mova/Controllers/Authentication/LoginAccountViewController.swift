@@ -37,7 +37,7 @@ class LoginAccountViewController: MasterViewController {
         title.font = .bold(size: .large26)
         title.textColor = .textColor
         title.numberOfLines = 1
-        title.text = "Login to Your Account"
+        title.text = "Login To Your Account"
         title.textAlignment = .center
         return title
     }()
@@ -65,7 +65,6 @@ class LoginAccountViewController: MasterViewController {
     
     private let checkBoxButton: CheckBox = {
         let checkBox = CheckBox()
-        checkBox.translatesAutoresizingMaskIntoConstraints = false
         return checkBox
     }()
     
@@ -84,6 +83,14 @@ class LoginAccountViewController: MasterViewController {
         return _self
     }()
     
+    private let buttonForgotPassword: MasterButton = {
+        let button = MasterButton()
+        button.setTitle(text: "Fotgot the password?", for: .normal)
+        button.titleLabel?.font = .semiBold(size: .small)
+        button.setTitleColor(.primaryRed, for: .normal)
+        return button
+    }()
+    
     private let titleDivider: TextableDivider = {
         let _self = TextableDivider()
         _self.titleLabel.text = "or continue with"
@@ -94,14 +101,6 @@ class LoginAccountViewController: MasterViewController {
     private let buttonSignIn: PrimaryButton = {
         let button = PrimaryButton()
         button.setTitle(text: "Sign in", for: .normal)
-        return button
-    }()
-    
-    private let buttonForgotPassword: MasterButton = {
-        let button = MasterButton()
-        button.setTitle(text: "Forgot the password?", for: .normal)
-        button.titleLabel?.font = .semiBold(size: .small)
-        button.setTitleColor(.primaryRed, for: .normal)
         return button
     }()
     
@@ -133,7 +132,6 @@ class LoginAccountViewController: MasterViewController {
         let _self = UIStackView()
         _self.axis = .horizontal
         _self.alignment = .center
-        _self.translatesAutoresizingMaskIntoConstraints = false
         return _self
     }()
     
@@ -173,7 +171,7 @@ class LoginAccountViewController: MasterViewController {
         
         let views = [imageView, titleLabel, vStackTextField, hStackCheckBox, buttonSignIn, buttonForgotPassword, titleDivider, hStackButtonSocial, hStackFooter]
         views.forEach { view in
-            self.containerView.insertSubview(view, at: self.index(ofAccessibilityElement: view))
+            self.containerView.insertSubview(view, at: views.firstIndex(of: view)!)
         }
         
         // Vertical Stack TextField
@@ -191,14 +189,16 @@ class LoginAccountViewController: MasterViewController {
         
         // Horizontal Stack Footer
         self.hStackFooter.insertArrangedSubview(self.titleLabelFooter, at: 0)
-        self.hStackFooter.insertArrangedSubview(self.buttonSignIn, at: 1)
+        self.hStackFooter.insertArrangedSubview(self.buttonSignUp, at: 1)
         
         self.textFieldEmail.setIconRightAction(self.rightMailAction)
         self.textFieldPassword.setIconRightAction(self.rightPasswordAction)
         self.checkBoxButton.blockAction(self.checkBoxAction)
         self.headerNavBar.leftAction(self.headerBackButton)
-        self.buttonSignIn.addTarget(self, action: #selector(signinAction), for: .touchUpInside)
+        self.buttonSignIn.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
         self.buttonForgotPassword.addTarget(self, action: #selector(forgotPasswordAction), for: .touchUpInside)
+        self.buttonSignUp.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
+        self.checkBoxButton.addTarget(self, action: #selector(rememberAction), for: .touchUpInside)
         self.buttonFacebook.addTarget(self, action: #selector(facebookAction), for: .touchUpInside)
         self.buttonGoogle.addTarget(self, action: #selector(googleAction), for: .touchUpInside)
         self.buttonApple.addTarget(self, action: #selector(appleAction), for: .touchUpInside)
@@ -221,24 +221,36 @@ class LoginAccountViewController: MasterViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc private func signinAction() {
-        print("signin action")
+    @objc private func signUpAction() {
+        if ((self.navigationController?.isExistViewController(CreateAccountViewController())) != nil) {
+            self.navigationController?.popToViewController(CreateAccountViewController(), animated: true)
+        } else {
+            self.navigationController?.pushViewController(CreateAccountViewController(), animated: true)
+        }
     }
     
     @objc private func forgotPasswordAction() {
-        print("signup action")
+        self.navigationController?.pushViewController(ResetPasswordViewController(), animated: true)
+    }
+    
+    @objc private func signInAction() {
+        // Do something
+    }
+    
+    @objc private func rememberAction() {
+        print("Remember")
     }
     
     @objc private func facebookAction() {
-        print("facebook action")
+        print("facebookAction")
     }
     
     @objc private func googleAction() {
-        print("google action")
+        print("googleAction")
     }
     
     @objc private func appleAction() {
-        print("Apple action")
+        print("applekAction")
     }
     
 }
@@ -281,8 +293,7 @@ extension LoginAccountViewController {
             top: nil,
             leading: self.containerView.leadingAnchor,
             bottom: nil,
-            trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            trailing: self.containerView.trailingAnchor
         )
         self.vStackTextField.spacing = 10
         
@@ -310,7 +321,6 @@ extension LoginAccountViewController {
             leading: nil,
             bottom: self.buttonSignIn.topAnchor,
             trailing: nil,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
         )
         self.hStackCheckBox.centerXSuperview(self.containerView)
@@ -321,37 +331,34 @@ extension LoginAccountViewController {
             leading: self.containerView.leadingAnchor,
             bottom: self.buttonForgotPassword.topAnchor,
             trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: -20, right: 0),
             size: CGSize(width: 0, height: 55)
         )
-        self.buttonSignIn.centerXSuperview(self.vStackTextField)
+        self.buttonSignIn.centerXSuperview(self.containerView)
         
         self.buttonForgotPassword.anchor(
-            top: self.buttonSignIn.bottomAnchor,
+            top: nil,
             leading: self.containerView.leadingAnchor,
-            bottom: self.titleDivider.topAnchor,
+            bottom: nil,
             trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
-            size: CGSize(width: 0, height: 55)
+            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         )
-        self.buttonForgotPassword.centerXSuperview(self.vStackTextField)
+        self.buttonForgotPassword.centerXSuperview(self.containerView)
         
         self.titleDivider.anchor(
-            top: nil,
+            top: self.buttonForgotPassword.bottomAnchor,
             leading: self.containerView.leadingAnchor,
             bottom: self.hStackButtonSocial.topAnchor,
             trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
         )
-        self.titleDivider.centerXSuperview(self.vStackTextField)
+        self.titleDivider.centerXSuperview(self.containerView)
         
         self.hStackButtonSocial.anchor(
             top: self.titleDivider.bottomAnchor,
             leading: nil,
             bottom: self.hStackFooter.topAnchor,
-            trailing: nil,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: -20, right: 0)
+            trailing: nil
         )
         self.hStackButtonSocial.centerXSuperview(self.containerView)
         self.hStackButtonSocial.spacing = 10
@@ -367,13 +374,14 @@ extension LoginAccountViewController {
             leading: nil,
             bottom: self.containerView.safeAreaLayoutGuide.bottomAnchor,
             trailing: nil,
-            padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+            size: CGSize(width: 0, height: 55)
         )
         self.hStackFooter.centerXSuperview(self.containerView)
         self.hStackFooter.spacing = 10
     }
     
 }
+
 
 import SwiftUI
 

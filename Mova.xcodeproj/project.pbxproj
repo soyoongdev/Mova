@@ -77,6 +77,7 @@
 		B2927CDE2953479300DB1975 /* StatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2927CDD2953479300DB1975 /* StatusResponse.swift */; };
 		B2927CE0295353F900DB1975 /* APICaller+Certification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2927CDF295353F900DB1975 /* APICaller+Certification.swift */; };
 		B2927CE32953545100DB1975 /* CertificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2927CE22953545100DB1975 /* CertificationResponse.swift */; };
+		B296E079296C4FEA00810EAC /* Extension+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B296E078296C4FEA00810EAC /* Extension+UINavigationController.swift */; };
 		B29FACEB295A015000517A28 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FACEA295A015000517A28 /* DashboardViewController.swift */; };
 		B29FACEE295A0DED00517A28 /* OnBoardingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29FACED295A0DED00517A28 /* OnBoardingFirstViewController.swift */; };
 		B2A0FA85294761D200346E2E /* Extension+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0FA84294761D200346E2E /* Extension+CGPoint.swift */; };
@@ -204,6 +205,7 @@
 		B2927CDD2953479300DB1975 /* StatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusResponse.swift; sourceTree = "<group>"; };
 		B2927CDF295353F900DB1975 /* APICaller+Certification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Certification.swift"; sourceTree = "<group>"; };
 		B2927CE22953545100DB1975 /* CertificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificationResponse.swift; sourceTree = "<group>"; };
+		B296E078296C4FEA00810EAC /* Extension+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UINavigationController.swift"; sourceTree = "<group>"; };
 		B29FACEA295A015000517A28 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		B29FACED295A0DED00517A28 /* OnBoardingFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFirstViewController.swift; sourceTree = "<group>"; };
 		B2A0FA84294761D200346E2E /* Extension+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CGPoint.swift"; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 				B20567522963D36500847CA5 /* Extension+NSLayoutConstraint.swift */,
 				B22EA3FE296717BB00046542 /* Extension+Float.swift */,
 				B22EA400296717D000046542 /* Extension+Double.swift */,
+				B296E078296C4FEA00810EAC /* Extension+UINavigationController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -931,6 +934,7 @@
 				B2927CE0295353F900DB1975 /* APICaller+Certification.swift in Sources */,
 				B214A04A295AEEB600F43A0E /* DashboardSecondView.swift in Sources */,
 				B2927CD02952DD4B00DB1975 /* CastMember.swift in Sources */,
+				B296E079296C4FEA00810EAC /* Extension+UINavigationController.swift in Sources */,
 				B2B8DED829575F85009ECBF2 /* ConfigurationResponse.swift in Sources */,
 				B2927CCE2952DD4B00DB1975 /* Country.swift in Sources */,
 				B29FACEB295A015000517A28 /* DashboardViewController.swift in Sources */,

@@ -65,7 +65,6 @@ class CreateAccountViewController: MasterViewController {
     
     private let checkBoxButton: CheckBox = {
         let checkBox = CheckBox()
-        checkBox.translatesAutoresizingMaskIntoConstraints = false
         return checkBox
     }()
     
@@ -125,7 +124,6 @@ class CreateAccountViewController: MasterViewController {
         let _self = UIStackView()
         _self.axis = .horizontal
         _self.alignment = .center
-        _self.translatesAutoresizingMaskIntoConstraints = false
         return _self
     }()
     
@@ -222,11 +220,11 @@ class CreateAccountViewController: MasterViewController {
     }
     
     @objc private func signUpAction() {
-        print("Sign up")
+        
     }
     
     @objc private func signInAction() {
-        print("Sign in")
+        self.navigationController?.pushViewController(LoginAccountViewController(), animated: true)
     }
     
     @objc private func rememberAction() {
@@ -285,8 +283,7 @@ extension CreateAccountViewController {
             top: nil,
             leading: self.containerView.leadingAnchor,
             bottom: nil,
-            trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            trailing: self.containerView.trailingAnchor
         )
         self.vStackTextField.spacing = 10
         
@@ -314,7 +311,6 @@ extension CreateAccountViewController {
             leading: nil,
             bottom: self.buttonSignUp.topAnchor,
             trailing: nil,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
         )
         self.hStackCheckBox.centerXSuperview(self.containerView)
@@ -325,7 +321,6 @@ extension CreateAccountViewController {
             leading: self.containerView.leadingAnchor,
             bottom: self.titleDivider.topAnchor,
             trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
         )
         self.buttonSignUp.centerXSuperview(self.vStackTextField)
@@ -335,7 +330,6 @@ extension CreateAccountViewController {
             leading: self.containerView.leadingAnchor,
             bottom: self.hStackButtonSocial.topAnchor,
             trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 55)
         )
         self.titleDivider.centerXSuperview(self.vStackTextField)
@@ -344,8 +338,7 @@ extension CreateAccountViewController {
             top: self.titleDivider.bottomAnchor,
             leading: nil,
             bottom: self.hStackFooter.topAnchor,
-            trailing: nil,
-            padding: UIEdgeInsets(top: 0, left: 0, bottom: -20, right: 0)
+            trailing: nil
         )
         self.hStackButtonSocial.centerXSuperview(self.containerView)
         self.hStackButtonSocial.spacing = 10
@@ -361,7 +354,7 @@ extension CreateAccountViewController {
             leading: nil,
             bottom: self.containerView.safeAreaLayoutGuide.bottomAnchor,
             trailing: nil,
-            padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+            size: CGSize(width: 0, height: 55)
         )
         self.hStackFooter.centerXSuperview(self.containerView)
         self.hStackFooter.spacing = 10
