@@ -18,45 +18,13 @@ class OTPInputForm: MasterView, UITextFieldDelegate {
         return stack
     }()
     
-    private var inputField0: MasterTextField = {
-        let field = MasterTextField()
-        field.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
-        field.setBordered(color: .grayOutline, width: 1, for: .normal)
-        field.textAlignment = .center
-        field.textColor = .textColor
-        field.font = .bold(size: .large18)
-        return field
-    }()
+    private var inputField0 = MasterTextField()
     
-    private var inputField1: MasterTextField = {
-        let field = MasterTextField()
-        field.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
-        field.setBordered(color: .grayOutline, width: 1, for: .normal)
-        field.textAlignment = .center
-        field.textColor = .textColor
-        field.font = .bold(size: .large18)
-        return field
-    }()
+    private var inputField1 = MasterTextField()
     
-    private var inputField2: MasterTextField = {
-        let field = MasterTextField()
-        field.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
-        field.setBordered(color: .grayOutline, width: 1, for: .normal)
-        field.textAlignment = .center
-        field.textColor = .textColor
-        field.font = .bold(size: .large18)
-        return field
-    }()
+    private var inputField2 = MasterTextField()
     
-    private var inputField3: MasterTextField = {
-        let field = MasterTextField()
-        field.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
-        field.setBordered(color: .grayOutline, width: 1, for: .normal)
-        field.textAlignment = .center
-        field.textColor = .textColor
-        field.font = .bold(size: .large18)
-        return field
-    }()
+    private var inputField3 = MasterTextField()
 
     override func setupViews() {
         super.setupViews()
@@ -66,8 +34,9 @@ class OTPInputForm: MasterView, UITextFieldDelegate {
         
         let views = [inputField0, inputField1, inputField2, inputField3]
         views.forEach { view in
-            self.hStackContainer.insertArrangedSubview(view, at: views.firstIndex(of: view)!)
-            view.delegate = self
+            let getView = self.createSettingTextField(view)
+            self.hStackContainer.insertArrangedSubview(getView, at: views.firstIndex(of: getView)!)
+            getView.delegate = self
         }
     }
 
@@ -95,6 +64,20 @@ class OTPInputForm: MasterView, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("\(textField.text!.description)")
     }
+}
+
+extension OTPInputForm {
+    
+    func createSettingTextField(_ textField: MasterTextField) -> MasterTextField {
+        textField.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
+        textField.setBordered(color: .grayOutline, width: 1, for: .normal)
+        textField.textAlignment = .center
+        textField.textColor = .textColor
+        textField.font = .bold(size: .large18)
+        textField.keyboardType = .numberPad
+        return textField
+    }
+    
 }
 
 

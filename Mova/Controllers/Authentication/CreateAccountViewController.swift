@@ -184,8 +184,11 @@ class CreateAccountViewController: MasterViewController {
         self.hStackFooter.insertArrangedSubview(self.buttonSignIn, at: 1)
         
         self.textFieldEmail.setIconRightAction(self.rightMailAction)
+        
         self.textFieldPassword.setIconRightAction(self.rightPasswordAction)
+        
         self.checkBoxButton.blockAction(self.checkBoxAction)
+        
         self.headerNavBar.leftAction(self.headerBackButton)
         
         self.buttonSignUp.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
@@ -200,6 +203,7 @@ class CreateAccountViewController: MasterViewController {
         
         self.buttonApple.addTarget(self, action: #selector(appleAction), for: .touchUpInside)
         
+        self.containerView.addGestureRecognizer(.tapGesture(target: self, action: #selector(dismissKeyboard)))
     }
     
     private func rightMailAction() {

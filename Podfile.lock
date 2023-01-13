@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (5.6.4)
+  - CHIOTPField/Three (0.1.0)
+  - CHIOTPField/Two (0.1.0)
   - CHIPageControl/Jaloro (0.2)
   - Codextended (0.3.0)
   - Gifu (3.3.1)
@@ -13,6 +15,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - CHIOTPField/Three
+  - CHIOTPField/Two
   - CHIPageControl/Jaloro
   - Codextended
   - NukeUI
@@ -21,6 +25,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CHIOTPField
     - CHIPageControl
     - Codextended
     - Gifu
@@ -30,6 +35,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  CHIOTPField: 5df19b433ccfad2a80e944d3abde128a236aaf01
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   Codextended: f384271b8694376ad766ddbf2a011efbfdcee905
   Gifu: 416d4e38c4c2fed012f019e0a1d3ffcb58e5b842
@@ -37,6 +43,6 @@ SPEC CHECKSUMS:
   NukeUI: 6e99837a8d066c93baa4262692d9ea9ffbc863ba
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
 
-PODFILE CHECKSUM: dd930d8d60233424ad1f6078aee17d0d38fb7a86
+PODFILE CHECKSUM: 051c196a1cb195706c6d39446695086a5643fb46
 
 COCOAPODS: 1.11.3

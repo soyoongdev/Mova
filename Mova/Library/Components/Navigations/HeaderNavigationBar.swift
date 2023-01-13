@@ -22,7 +22,7 @@ class HeaderNavigationBar: MasterView {
     
     var titleLabel: MasterLabel = {
         let label = MasterLabel()
-        label.font = .bold(size: .large20)
+        label.font = .bold(size: .large22)
         label.textColor = .white
         label.textAlignment = .left
         

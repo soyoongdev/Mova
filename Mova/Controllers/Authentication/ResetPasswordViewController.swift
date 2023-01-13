@@ -6,15 +6,61 @@
 //
 
 import UIKit
+import CHIOTPField
 
 class ResetPasswordViewController: MasterViewController {
-    
+        
     private let containerView = UIView()
     
-    var otpInputForm: OTPInputForm = {
-        let form = OTPInputForm()
-        
-        return form
+    private var headerNavBar: HeaderNavigationBar = {
+        let header = HeaderNavigationBar()
+        header.titleLabel.text = "Forgot Password"
+        return header
+    }()
+    
+    private let titleMessage: UILabel = {
+        let title = UILabel()
+        title.font = .semiBold(size: .large18)
+        title.textColor = .textColor
+        title.text = "Login To Your Account"
+        title.textAlignment = .center
+        return title
+    }()
+    
+    var otpField: CHIOTPFieldTwo = {
+        let field = CHIOTPFieldTwo()
+        field.numberOfDigits = 4
+        field.spacing = 14
+        field.cornerRadius = 14
+        field.boxBackgroundColor = .primaryBackgroundLight
+        field.activeBoxBackgroundColor = .primaryRedTextFieldSelected
+        field.filledBoxBackgroundColor = .primaryBackgroundLight
+        field.borderColor = .grayOutline
+        field.activeBorderColor = .primaryRed
+        field.tintColor = .primaryRed
+        field.labels.forEach { label in
+            label.textColor = .textColor
+            label.font = .bold(size: .large20)
+        }
+        return field
+    }()
+    
+    private let buttonVerify: PrimaryButton = {
+        let button = PrimaryButton()
+        button.setTitle(text: "Verify", for: .normal)
+        return button
+    }()
+    
+    private let buttonOTPCodeKeyboard: MasterButton = {
+        let button = MasterButton()
+        button.setTitle(text: "1234", for: .normal)
+        return button
+    }()
+    
+    private let buttonBarItem: UIBarButtonItem = {
+        let item = UIBarButtonItem()
+        item.tintColor = .primaryRed
+        return item
     }()
 
     override func viewDidLoad() {
@@ -29,26 +75,90 @@ class ResetPasswordViewController: MasterViewController {
     }
     
     private func setupViews() {
-        self.view.addSubview(containerView)
-        self.containerView.backgroundColor = .primaryBackground
+        self.view.backgroundColor = .primaryBackground
+        self.view.insertSubview(containerView, at: 0)
+        self.view.insertSubview(headerNavBar, at: 1)
         
-        self.containerView.addSubview(otpInputForm)
+        self.containerView.addSubview(titleMessage)
+        self.containerView.addSubview(otpField)
+//        self.containerView.addSubview(buttonVerify)
+        
+        self.headerNavBar.leftAction(backButtonAction)
+        
+        self.buttonVerify.addTarget(self, action: #selector(verifyAction), for: .touchUpInside)
+        self.otpField.inputAccessoryView = self.buttonVerify
+        
+        self.containerView.addGestureRecognizer(.tapGesture(target: self, action: #selector(dismissKeyboard)))
+        
+        self.buttonBarItem.customView = buttonOTPCodeKeyboard
+        self.buttonOTPCodeKeyboard.addTarget(self, action: #selector(otpCodeMessageAction), for: .touchUpInside)
+        
+        self.otpField.toolbarAccessoryView([buttonBarItem])
     }
     
-    private func setupLayoutSubviews() {
-        self.containerView.fillSuperview(self.view)
+    private func backButtonAction() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func verifyAction() {
+        print("Verified")
+    }
+    
+    @objc private func otpCodeMessageAction() {
+        if let otpCode = self.buttonOTPCodeKeyboard.titleLabel?.text {
+            self.otpField.text = otpCode
+        }
         
-        self.otpInputForm.anchor(
+        self.dismissKeyboard()
+    }
+    
+}
+
+extension ResetPasswordViewController {
+    
+    private func setupLayoutSubviews() {
+        self.headerNavBar.anchor(
+            top: self.view.safeAreaLayoutGuide.topAnchor,
+            leading: self.view.leadingAnchor,
+            bottom: nil,
+            trailing: self.view.trailingAnchor
+        )
+        
+        self.containerView.anchor(
+            top: self.view.topAnchor,
+            leading: self.view.leadingAnchor,
+            bottom: self.view.bottomAnchor,
+            trailing: self.view.trailingAnchor,
+            padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20)
+        )
+        
+        self.titleMessage.anchor(
             top: nil,
             leading: self.containerView.leadingAnchor,
             bottom: nil,
+            trailing: self.containerView.trailingAnchor
+        )
+        
+        self.otpField.anchor(
+            top: self.titleMessage.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
             trailing: self.containerView.trailingAnchor,
-            padding: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20),
+            padding: UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0),
             size: CGSize(width: 0, height: 58)
         )
-        self.otpInputForm.centerYSuperview(self.containerView)
+        self.otpField.centerAllSuperview(self.containerView)
+        
+//        self.buttonVerify.anchor(
+//            top: nil,
+//            leading: self.containerView.leadingAnchor,
+//            bottom: self.containerView.safeAreaLayoutGuide.bottomAnchor,
+//            trailing: self.containerView.trailingAnchor,
+//            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0),
+//            size: CGSize(width: 0, height: 58)
+//        )
+
     }
-    
 }
 
 import SwiftUI

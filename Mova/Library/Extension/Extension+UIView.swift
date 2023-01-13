@@ -9,6 +9,10 @@ import UIKit
 
 extension UIView {
     
+    @objc func dismissKeyboard() {
+        self.endEditing(true)
+    }
+    
     class func blurView(frame: CGRect) -> UIView {
         let effectView = UIVisualEffectView()
         let blurEffect = UIBlurEffect(style: .dark)

@@ -192,18 +192,36 @@ class LoginAccountViewController: MasterViewController {
         self.hStackFooter.insertArrangedSubview(self.buttonSignUp, at: 1)
         
         self.textFieldEmail.setIconRightAction(self.rightMailAction)
+        
         self.textFieldPassword.setIconRightAction(self.rightPasswordAction)
+        
         self.checkBoxButton.blockAction(self.checkBoxAction)
+        
         self.headerNavBar.leftAction(self.headerBackButton)
+        
         self.buttonSignIn.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
+        
         self.buttonForgotPassword.addTarget(self, action: #selector(forgotPasswordAction), for: .touchUpInside)
+        
         self.buttonSignUp.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
+        
         self.checkBoxButton.addTarget(self, action: #selector(rememberAction), for: .touchUpInside)
+        
         self.buttonFacebook.addTarget(self, action: #selector(facebookAction), for: .touchUpInside)
+        
         self.buttonGoogle.addTarget(self, action: #selector(googleAction), for: .touchUpInside)
+        
         self.buttonApple.addTarget(self, action: #selector(appleAction), for: .touchUpInside)
+        
+        self.containerView.addGestureRecognizer(.tapGesture(target: self, action: #selector(dismissKeyboard)))
+        
     }
     
+}
+
+extension LoginAccountViewController {
+    
+    // MARK: - Function
     private func rightMailAction() {
         self.textFieldEmail.text = ""
     }

@@ -12,6 +12,7 @@
 		B20567532963D36500847CA5 /* Extension+NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20567522963D36500847CA5 /* Extension+NSLayoutConstraint.swift */; };
 		B207D09129570BCB001B3C89 /* APICaller+Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207D09029570BCB001B3C89 /* APICaller+Collections.swift */; };
 		B207D0932957264A001B3C89 /* APICaller+Companies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B207D0922957264A001B3C89 /* APICaller+Companies.swift */; };
+		B2120F59296E6C7300EC1B90 /* Extension+UIGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2120F58296E6C7300EC1B90 /* Extension+UIGestureRecognizer.swift */; };
 		B214A04A295AEEB600F43A0E /* DashboardSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B214A049295AEEB600F43A0E /* DashboardSecondView.swift */; };
 		B220628D296569D500B65928 /* AuthenTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B220628C296569D500B65928 /* AuthenTextField.swift */; };
 		B22E3ABE2956D10000C3897E /* APICaller+Changes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E3ABD2956D10000C3897E /* APICaller+Changes.swift */; };
@@ -140,6 +141,7 @@
 		B20567522963D36500847CA5 /* Extension+NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSLayoutConstraint.swift"; sourceTree = "<group>"; };
 		B207D09029570BCB001B3C89 /* APICaller+Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Collections.swift"; sourceTree = "<group>"; };
 		B207D0922957264A001B3C89 /* APICaller+Companies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Companies.swift"; sourceTree = "<group>"; };
+		B2120F58296E6C7300EC1B90 /* Extension+UIGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIGestureRecognizer.swift"; sourceTree = "<group>"; };
 		B214A049295AEEB600F43A0E /* DashboardSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardSecondView.swift; sourceTree = "<group>"; };
 		B220628C296569D500B65928 /* AuthenTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenTextField.swift; sourceTree = "<group>"; };
 		B22E3ABD2956D10000C3897E /* APICaller+Changes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APICaller+Changes.swift"; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				B22EA3FE296717BB00046542 /* Extension+Float.swift */,
 				B22EA400296717D000046542 /* Extension+Double.swift */,
 				B296E078296C4FEA00810EAC /* Extension+UINavigationController.swift */,
+				B2120F58296E6C7300EC1B90 /* Extension+UIGestureRecognizer.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -873,6 +876,7 @@
 				B2C0B082293CC72800DB441B /* MainTabBarViewController.swift in Sources */,
 				B2EC91842941F02A0099FD08 /* Extension+UIImage.swift in Sources */,
 				B2C0B09C293CCDE100DB441B /* DownloadViewController.swift in Sources */,
+				B2120F59296E6C7300EC1B90 /* Extension+UIGestureRecognizer.swift in Sources */,
 				B2927CBD2952DD4B00DB1975 /* Translation.swift in Sources */,
 				B2ADBD782965C2DB001CA83C /* CheckBox.swift in Sources */,
 				B22E3AC02956E0B800C3897E /* ResultWrapper.swift in Sources */,

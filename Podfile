@@ -16,6 +16,9 @@ pod 'NVActivityIndicatorView'
 
 # Custom your UIPageControl
 pod 'CHIPageControl/Jaloro'
+# OTP input view
+pod 'CHIOTPField/Two'
+pod 'CHIOTPField/Three'
 
 # Lazily loads and displays images.
 pod 'NukeUI'
