@@ -11,14 +11,14 @@ class AuthenTextField: MasterTextField {
     
     override func setupViews() {
         super.setupViews()
-        self.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
-        self.setBackgroundColor(color: .primaryRedTextFieldSelected, for: .highlighted)
+        self.setBackgroundColor(color: .appResource.primaryBackground, for: .normal)
+        self.setBackgroundColor(color: .appResource.primaryRedThinBlack, for: .highlighted)
         self.setBordered(color: .clear, for: .normal)
-        self.setBordered(color: .primaryRed, width: 1, for: .highlighted)
-        self.contentPaddingHorizontal = 10
-        self.inputPaddingHorizontal = 5
-        self.textColor = .textColor
-        self.font = .semiBold(size: .small)
+        self.setBordered(color: .appResource.primaryRed, width: 1, for: .highlighted)
+        self.contentPaddingHorizontal = 16
+        self.inputPaddingHorizontal = 14
+        self.textColor = .appResource.textColor
+        self.font = .semiBold(size: .appResource.primaryTextSizePopular)
     }
     
     override func textFieldDidBeginEditing(_ textField: UITextField) {

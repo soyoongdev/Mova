@@ -26,8 +26,8 @@ class OnBoardingSecondViewController: UIPageViewController {
         let _self = CHIPageControlJaloro(frame: .zero)
         _self.padding = 6
         _self.radius = 4
-        _self.tintColor = .grayDark
-        _self.currentPageTintColor = .primaryRed
+        _self.tintColor = .appResource.primaryBackgroundLight
+        _self.currentPageTintColor = .appResource.primaryRed
         return _self
     }()
     

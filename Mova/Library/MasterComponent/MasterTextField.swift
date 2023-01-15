@@ -120,7 +120,7 @@ class MasterTextField: UITextField {
         self.rightViewAction = action
     }
     
-    func setPlaceholder(_ string: String? = "", color: UIColor? = .placeholder, textSize: CGFloat? = 14.0, font: UIFont? = nil) {
+    func setPlaceholder(_ string: String? = "", color: UIColor? = .appResource.placeholderColor, textSize: CGFloat? = .appResource.primaryTextSizePopular, font: UIFont? = nil) {
         self.attributedPlaceholder = NSAttributedString(
             string: string!,
             attributes: [

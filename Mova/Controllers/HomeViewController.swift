@@ -74,7 +74,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         header.textLabel?.font = .medium(size: 18)
         header.textLabel?.frame = CGRect(origin: header.bounds.origin, size: .init(width: 100, height: header.bounds.height))
-        header.textLabel?.textColor = .textColor
+        header.textLabel?.textColor = .appResource.textColor
         header.textLabel?.text = header.textLabel?.text?.lowercased()
     }
     

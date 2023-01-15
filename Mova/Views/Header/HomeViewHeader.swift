@@ -35,15 +35,15 @@ class HomeViewHeader: MasterView {
     private let largeTitle: MasterLabel = {
         let title = MasterLabel()
         title.text = "Dr.Strange 2"
-        title.font = .bold(size: .large26)
-        title.textColor = .textColor
+        title.font = .bold(size: .appResource.primaryTextSizeLarge26)
+        title.textColor = .appResource.textColor
         return title
     }()
     
     private let subTitle: MasterLabel = {
         let title = MasterLabel()
         title.text = "Action, Superhero, Science Fiction."
-        title.font = .medium(size: .small)
+        title.font = .medium(size: .appResource.primarySmall)
         title.textColor = .white
         return title
     }()

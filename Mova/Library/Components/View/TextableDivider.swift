@@ -15,13 +15,13 @@ class TextableDivider: UIView {
     
     public var titleLabel: MasterLabel = {
         let title = MasterLabel()
-        title.font = .semiBold(size: .small)
-        title.textColor = .textColor
+        title.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        title.textColor = .appResource.textColor
         title.numberOfLines = 1
         title.textAlignment = .center
         let size: CGFloat = 20
         title.setPadding(UIEdgeInsets(top: 0, left: size, bottom: 0, right: size))
-        title.backgroundColor = .primaryBackground
+        title.backgroundColor = .appResource.primaryBackground
         return title
     }()
     
@@ -44,7 +44,7 @@ class TextableDivider: UIView {
         self.addSubview(self.containerView)
         
         self.dividerView = UIView()
-        self.dividerView?.backgroundColor = .primaryBackgroundLight
+        self.dividerView?.backgroundColor = .appResource.primaryBackgroundLight
         
         self.containerView.insertSubview(self.dividerView!, at: 0)
         self.containerView.insertSubview(self.titleLabel, at: 1)

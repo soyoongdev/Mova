@@ -31,16 +31,16 @@ class OnBoardingPageViewController: UIViewController {
     
     private let titleLabel: UILabel = {
         let _self = UILabel()
-        _self.font = .bold(size: .extra32)
-        _self.textColor = .textColor
+        _self.font = .bold(size: .appResource.primaryTextSizeLarge32)
+        _self.textColor = .appResource.textColor
         _self.numberOfLines = 1
         return _self
     }()
     
     private let subTitle: UILabel = {
         let _self = UILabel()
-        _self.font = .medium(size: .medium)
-        _self.textColor = .textColor
+        _self.font = .medium(size: .appResource.primarySmall)
+        _self.textColor = .appResource.textColor
         _self.numberOfLines = 2
         _self.textAlignment = .center
         return _self

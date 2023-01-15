@@ -14,7 +14,7 @@ class HeaderNavigationBar: MasterView {
     private let backButton: MasterButton = {
         let button = MasterButton()
         var uiimage = UIImage(named: "back-left")
-        uiimage = uiimage?.resize(with: 28.0)
+        uiimage = uiimage?.resize(with: .appResource.primaryIconPopular)
         uiimage = uiimage?.tintColor(.white)
         button.setBackgroundImage(uiimage, for: .normal)
         return button
@@ -22,7 +22,7 @@ class HeaderNavigationBar: MasterView {
     
     var titleLabel: MasterLabel = {
         let label = MasterLabel()
-        label.font = .bold(size: .large22)
+        label.font = .bold(size: .appResource.primaryTextSizeLarge20)
         label.textColor = .white
         label.textAlignment = .left
         
@@ -38,7 +38,7 @@ class HeaderNavigationBar: MasterView {
         self.insertSubview(self.backButton, at: 0)
         self.insertSubview(self.titleLabel, at: 1)
         self.insertSubview(self.rightViewContainer, at: 2)
-        self.anchorSize(size: CGSize(width: 0, height: 52))
+        self.anchorSize(size: CGSize(width: 0, height: .appResource.primaryButtonPopular.height))
         
         self.backButton.addTarget(self, action: #selector(self.leftBlockAction), for: .touchUpInside)
         

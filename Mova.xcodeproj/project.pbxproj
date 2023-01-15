@@ -120,6 +120,7 @@
 		B2E61E25295C164A008ACD43 /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */; };
 		B2E61E27295C1D43008ACD43 /* Extension+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E61E26295C1D43008ACD43 /* Extension+UIImageView.swift */; };
 		B2E62AC92944FC3000FC7BE9 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E62AC82944FC3000FC7BE9 /* Extension+UIButton.swift */; };
+		B2E73A9B2972D4F8009A4520 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E73A9A2972D4F8009A4520 /* AppStyle.swift */; };
 		B2EB97FC295D5E9D000A3838 /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EB97FB295D5E9D000A3838 /* OnBoardingViewModel.swift */; };
 		B2EC91822941EEBA0099FD08 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91812941EEBA0099FD08 /* Extension+String.swift */; };
 		B2EC91842941F02A0099FD08 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2EC91832941F02A0099FD08 /* Extension+UIImage.swift */; };
@@ -251,6 +252,7 @@
 		B2E61E24295C164A008ACD43 /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
 		B2E61E26295C1D43008ACD43 /* Extension+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImageView.swift"; sourceTree = "<group>"; };
 		B2E62AC82944FC3000FC7BE9 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		B2E73A9A2972D4F8009A4520 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		B2EB97FB295D5E9D000A3838 /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		B2EC91812941EEBA0099FD08 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		B2EC91832941F02A0099FD08 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
@@ -712,6 +714,7 @@
 				B2EC919329420FF80099FD08 /* AppManager.swift */,
 				B2358770294231DA001C8BB0 /* AppConfig.swift */,
 				B2D2B5132950C39100EC39F5 /* AppService.swift */,
+				B2E73A9A2972D4F8009A4520 /* AppStyle.swift */,
 			);
 			path = AppManagement;
 			sourceTree = "<group>";
@@ -940,6 +943,7 @@
 				B2927CD02952DD4B00DB1975 /* CastMember.swift in Sources */,
 				B296E079296C4FEA00810EAC /* Extension+UINavigationController.swift in Sources */,
 				B2B8DED829575F85009ECBF2 /* ConfigurationResponse.swift in Sources */,
+				B2E73A9B2972D4F8009A4520 /* AppStyle.swift in Sources */,
 				B2927CCE2952DD4B00DB1975 /* Country.swift in Sources */,
 				B29FACEB295A015000517A28 /* DashboardViewController.swift in Sources */,
 				B2D2B5262951FF4300EC39F5 /* Extension+Codable.swift in Sources */,

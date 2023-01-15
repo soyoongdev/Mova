@@ -31,7 +31,7 @@ class CheckBox: MasterButton {
     
     override func setupViews() {
         super.setupViews()
-        self.setBordered(color: .primaryRed, width: 2.5, cornerRadius: 6.0)
+        self.setBordered(color: .appResource.primaryRed, width: 2.5, cornerRadius: 6.0)
         self.addSubview(self.checkImageView)
         self.bringSubviewToFront(self.checkImageView)
         self.checkImageView.isHidden = !self.isChecked
@@ -55,7 +55,7 @@ class CheckBox: MasterButton {
     @objc private func checkBoxAction() {
         self.isChecked.toggle()
         self.checkImageView.isHidden = !self.isChecked
-        self.backgroundColor = self.checkImageView.isHidden ? .clear : .primaryRed
+        self.backgroundColor = self.checkImageView.isHidden ? .clear : .appResource.primaryRed
         self.makeAction?(self.isChecked)
     }
 }

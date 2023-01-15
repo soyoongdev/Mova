@@ -69,11 +69,11 @@ class OTPInputForm: MasterView, UITextFieldDelegate {
 extension OTPInputForm {
     
     func createSettingTextField(_ textField: MasterTextField) -> MasterTextField {
-        textField.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
-        textField.setBordered(color: .grayOutline, width: 1, for: .normal)
+        textField.setBackgroundColor(color: .appResource.primaryBackgroundLight, for: .normal)
+        textField.setBordered(color: .appResource.primaryGrey, width: 1, for: .normal)
         textField.textAlignment = .center
-        textField.textColor = .textColor
-        textField.font = .bold(size: .large18)
+        textField.textColor = .appResource.textColor
+        textField.font = .bold(size: .appResource.primaryTextSizeLarge18)
         textField.keyboardType = .numberPad
         return textField
     }

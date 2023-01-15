@@ -11,19 +11,21 @@ class PrimaryButtonSocial: MasterButton {
     
     override func setupViews() {
         super.setupViews()
-        self.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
-        self.setBordered(color: .grayOutline, width: 1)
-        self.titleLabel?.font = .semiBold(size: .small)
-        self.tintColor = .textColor
+        let radius: CGFloat = .appResource.primaryButtonPopular.height/2
+        self.setBackgroundColor(color: .appResource.primaryGreyDark, cornerRadius: radius, for: .normal)
+        self.setBordered(color:  .appResource.primaryGrey, width: 1, cornerRadius: radius)
+        self.titleLabel?.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        self.tintColor =  .appResource.textColor
     }
 
 }
 
-class PrimaryButtonSocialSmaller: MasterButton {
+class PrimaryButtonGroundIcon: MasterButton {
     
     override func setupViews() {
         super.setupViews()
-        self.setBackgroundColor(color: .primaryBackgroundLight, for: .normal)
-        self.setBordered(color: .grayOutline, width: 1, cornerRadius: 16)
+        let radius: CGFloat = .appResource.primaryButtonGroundSize.height/2
+        self.setBackgroundColor(color: .appResource.primaryGreyDark, cornerRadius: radius, for: .normal)
+        self.setBordered(color: .appResource.primaryGrey, width: 1, cornerRadius: radius)
     }
 }

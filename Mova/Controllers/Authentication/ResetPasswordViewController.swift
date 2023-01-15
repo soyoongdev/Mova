@@ -20,8 +20,8 @@ class ResetPasswordViewController: MasterViewController {
     
     private let titleMessage: UILabel = {
         let title = UILabel()
-        title.font = .semiBold(size: .large18)
-        title.textColor = .textColor
+        title.font = .semiBold(size: .appResource.primaryTextSizeLarge18)
+        title.textColor = .appResource.textColor
         title.text = "Login To Your Account"
         title.textAlignment = .center
         return title
@@ -32,15 +32,15 @@ class ResetPasswordViewController: MasterViewController {
         field.numberOfDigits = 4
         field.spacing = 14
         field.cornerRadius = 14
-        field.boxBackgroundColor = .primaryBackgroundLight
-        field.activeBoxBackgroundColor = .primaryRedTextFieldSelected
-        field.filledBoxBackgroundColor = .primaryBackgroundLight
-        field.borderColor = .grayOutline
-        field.activeBorderColor = .primaryRed
-        field.tintColor = .primaryRed
+        field.boxBackgroundColor = .appResource.primaryBackgroundLight
+        field.activeBoxBackgroundColor = .appResource.primaryRedThinBlack
+        field.filledBoxBackgroundColor = .appResource.primaryBackgroundLight
+        field.borderColor = .appResource.primaryGrey
+        field.activeBorderColor = .appResource.primaryRed
+        field.tintColor = .appResource.primaryRed
         field.labels.forEach { label in
-            label.textColor = .textColor
-            label.font = .bold(size: .large20)
+            label.textColor = .appResource.textColor
+            label.font = .bold(size: .appResource.primaryTextSizeLarge20)
         }
         return field
     }()
@@ -59,7 +59,7 @@ class ResetPasswordViewController: MasterViewController {
     
     private let buttonBarItem: UIBarButtonItem = {
         let item = UIBarButtonItem()
-        item.tintColor = .primaryRed
+        item.tintColor = .appResource.primaryRed
         return item
     }()
 
@@ -75,7 +75,7 @@ class ResetPasswordViewController: MasterViewController {
     }
     
     private func setupViews() {
-        self.view.backgroundColor = .primaryBackground
+        self.view.backgroundColor = .appResource.primaryBackground
         self.view.insertSubview(containerView, at: 0)
         self.view.insertSubview(headerNavBar, at: 1)
         

@@ -21,7 +21,7 @@ class OnBoardingFirstViewController: UIViewController {
         let frame: CGRect = .init(origin: .zero, size: .init(relative: 55, relative: 55))
         let indicator = NVActivityIndicatorView(frame: frame)
         indicator.type = .ballSpinFadeLoader
-        indicator.color = UIColor.primaryRed
+        indicator.color = .appResource.primaryRed
         return indicator
     }()
     
@@ -37,7 +37,7 @@ class OnBoardingFirstViewController: UIViewController {
     
     private func setupViews() {
         self.navigationController?.isNavigationBarHidden = true
-        self.view.backgroundColor = .primaryBackground
+        self.view.backgroundColor = .appResource.primaryBackground
         self.view.addSubview(self.logoImage)
         self.view.addSubview(self.loadingIndicator)
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

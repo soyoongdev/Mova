@@ -56,11 +56,11 @@ class MasterButton: UIButton {
             if state == .normal {
                 let bounds: CGRect = self.titleLabel!.getFrame()
                 let gradient = self.getGradientLayer(colors: _colors, startPoint: startPoint!, endPoint: endPoint!, bounds: bounds)
-                self.setTitleColor(bounds.isEmpty ? .primaryBackground : gradient.toColor(), for: .normal)
+                self.setTitleColor(bounds.isEmpty ? .appResource.primaryBackground : gradient.toColor(), for: .normal)
             } else {
                 let bounds: CGRect = self.titleLabel!.getFrame()
                 let gradient = self.getGradientLayer(colors: _colors, startPoint: startPoint!, endPoint: endPoint!, bounds: bounds)
-                self.setTitleColor(bounds.isEmpty ? .primaryBackground : gradient.toColor(), for: .highlighted)
+                self.setTitleColor(bounds.isEmpty ? .appResource.primaryBackground : gradient.toColor(), for: .highlighted)
             }
         }
         self.setTitle(text, for: state == .normal ? .normal : .highlighted)
@@ -137,7 +137,7 @@ class MasterButton: UIButton {
         self.clipsToBounds = true
     }
     
-    func makeShadow(color: UIColor? = .primaryBackground, radius: CGFloat? = 6, opacity: Float? = 1, offset: CGSize? = CGSize(width: 6.0, height: 6.0), path: CGPath? = nil) {
+    func makeShadow(color: UIColor? = .appResource.primaryBackground, radius: CGFloat? = 6, opacity: Float? = 1, offset: CGSize? = CGSize(width: 6.0, height: 6.0), path: CGPath? = nil) {
         
         self.layer.shadowColor = color!.cgColor
         self.layer.shadowRadius = radius!

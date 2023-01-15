@@ -29,8 +29,8 @@ class AuthenticationSelectionViewController: MasterViewController {
     
     private let titleLabel: UILabel = {
         let title = UILabel()
-        title.font = .bold(size: .extra42)
-        title.textColor = .textColor
+        title.font = .bold(size: .appResource.primaryTextSizeLarge38)
+        title.textColor = .appResource.textColor
         title.numberOfLines = 1
         title.text = "Let's you in"
         title.textAlignment = .center
@@ -39,24 +39,34 @@ class AuthenticationSelectionViewController: MasterViewController {
     
     private let buttonFacebook: PrimaryButtonSocial = {
         let button = PrimaryButtonSocial()
-        button.setTitle(text: "Continue with Facebook", color: .textColor, for: .normal)
-        button.setIcon(UIImage(named: "facebook_circle-icon"), for: .normal)
+        button.setTitle(text: "Continue with Facebook",
+                        color: .appResource.textColor,
+                        for: .normal)
+        button.setIcon(UIImage(named: "facebook_circle-icon"),
+                       for: .normal)
         
         return button
     }()
     
     private let buttonGoogle: PrimaryButtonSocial = {
         let button = PrimaryButtonSocial()
-        button.setTitle(text: "Continue with Google", color: .textColor, for: .normal)
-        button.setIcon(UIImage(named: "google-icon"), for: .normal)
+        button.setTitle(text: "Continue with Google",
+                        color: .appResource.textColor,
+                        for: .normal)
+        button.setIcon(UIImage(named: "google-icon"),
+                       for: .normal)
         
         return button
     }()
     
     private let buttonApple: PrimaryButtonSocial = {
         let button = PrimaryButtonSocial()
-        button.setTitle(text: "Continue with Apple", color: .textColor, for: .normal)
-        button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
+        button.setTitle(text: "Continue with Apple",
+                        color: .appResource.textColor,
+                        for: .normal)
+        button.setIcon(UIImage(named: "apple-icon"),
+                       color: .white,
+                       for: .normal)
         
         return button
     }()
@@ -83,8 +93,8 @@ class AuthenticationSelectionViewController: MasterViewController {
     
     private let titleLabelFooter: UILabel = {
         let _self = UILabel(frame: .zero)
-        _self.font = .semiBold(size: .small)
-        _self.textColor = .textColor
+        _self.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        _self.textColor = .appResource.textColor
         _self.numberOfLines = 1
         _self.text = "Don't have an account?"
         return _self
@@ -93,8 +103,8 @@ class AuthenticationSelectionViewController: MasterViewController {
     private let buttonSignUp: MasterButton = {
         let button = MasterButton()
         button.setTitle(text: "Sign up", for: .normal)
-        button.titleLabel?.font = .semiBold(size: .small)
-        button.setTitleColor(.primaryRed, for: .normal)
+        button.titleLabel?.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        button.setTitleColor(.appResource.primaryRed, for: .normal)
         return button
     }()
 
@@ -110,7 +120,7 @@ class AuthenticationSelectionViewController: MasterViewController {
     }
     
     private func setupViews() {
-        self.view.backgroundColor = .primaryBackground
+        self.view.backgroundColor = .appResource.primaryBackground
         self.view.insertSubview(self.containerView, at: 0)
         self.view.insertSubview(self.headerNavBar, at: 1)
         

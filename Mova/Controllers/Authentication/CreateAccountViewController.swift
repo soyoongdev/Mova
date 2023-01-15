@@ -34,8 +34,8 @@ class CreateAccountViewController: MasterViewController {
     
     private let titleLabel: UILabel = {
         let title = UILabel()
-        title.font = .bold(size: .large26)
-        title.textColor = .textColor
+        title.font = .bold(size: .appResource.primaryTextSizeLarge26)
+        title.textColor = .appResource.textColor
         title.numberOfLines = 1
         title.text = "Create Your Account"
         title.textAlignment = .center
@@ -44,8 +44,8 @@ class CreateAccountViewController: MasterViewController {
     
     private let textFieldEmail: AuthenTextField = {
         let tf = AuthenTextField()
-        tf.setIconLeft(UIImage(named: "envelope-fill"), color: .placeholder, viewMode: .always)
-        tf.setIconRight(UIImage(named: "cross-small"), color: .placeholder, viewMode: .whileEditing)
+        tf.setIconLeft(UIImage(named: "envelope-fill"), color: .appResource.placeholderColor, viewMode: .always)
+        tf.setIconRight(UIImage(named: "cross-small"), color: .appResource.placeholderColor, viewMode: .whileEditing)
         tf.setPlaceholder("Email")
         tf.keyboardType = .emailAddress
         
@@ -54,8 +54,8 @@ class CreateAccountViewController: MasterViewController {
     
     private let textFieldPassword: AuthenTextField = {
         let tf = AuthenTextField()
-        tf.setIconLeft(UIImage(named: "lock-fill"), color: .placeholder, viewMode: .always)
-        tf.setIconRight(UIImage(named: "eye-fill"), color: .placeholder, viewMode: .always)
+        tf.setIconLeft(UIImage(named: "lock-fill"), color: .appResource.placeholderColor, viewMode: .always)
+        tf.setIconRight(UIImage(named: "eye-fill"), color: .appResource.placeholderColor, viewMode: .always)
         tf.setPlaceholder("Password")
         tf.isSecureTextEntry = true
         tf.keyboardType = .default
@@ -71,8 +71,8 @@ class CreateAccountViewController: MasterViewController {
     private let titleRememberMe: UILabel = {
         let _self = UILabel()
         _self.text = "Remember me"
-        _self.textColor = .textColor
-        _self.font = .semiBold(size: .small)
+        _self.textColor = .appResource.textColor
+        _self.font = .semiBold(size: .appResource.primarySmall)
         return _self
     }()
     
@@ -105,8 +105,8 @@ class CreateAccountViewController: MasterViewController {
     
     private let titleLabelFooter: UILabel = {
         let _self = UILabel(frame: .zero)
-        _self.font = .semiBold(size: .small)
-        _self.textColor = .textColor
+        _self.font = .semiBold(size: .appResource.primarySmall)
+        _self.textColor = .appResource.textColor
         _self.numberOfLines = 1
         _self.text = "Already have an account?"
         return _self
@@ -115,8 +115,8 @@ class CreateAccountViewController: MasterViewController {
     private let buttonSignIn: MasterButton = {
         let button = MasterButton()
         button.setTitle(text: "Sign in", for: .normal)
-        button.titleLabel?.font = .semiBold(size: .small)
-        button.setTitleColor(.primaryRed, for: .normal)
+        button.titleLabel?.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        button.setTitleColor(.appResource.primaryRed, for: .normal)
         return button
     }()
     
@@ -127,20 +127,20 @@ class CreateAccountViewController: MasterViewController {
         return _self
     }()
     
-    private let buttonFacebook: PrimaryButtonSocialSmaller = {
-        let button = PrimaryButtonSocialSmaller()
+    private let buttonFacebook: PrimaryButtonGroundIcon = {
+        let button = PrimaryButtonGroundIcon()
         button.setIcon(UIImage(named: "facebook_circle-icon"), for: .normal)
         return button
     }()
     
-    private let buttonGoogle: PrimaryButtonSocialSmaller = {
-        let button = PrimaryButtonSocialSmaller()
+    private let buttonGoogle: PrimaryButtonGroundIcon = {
+        let button = PrimaryButtonGroundIcon()
         button.setIcon(UIImage(named: "google-icon"), for: .normal)
         return button
     }()
     
-    private let buttonApple: PrimaryButtonSocialSmaller = {
-        let button = PrimaryButtonSocialSmaller()
+    private let buttonApple: PrimaryButtonGroundIcon = {
+        let button = PrimaryButtonGroundIcon()
         button.setIcon(UIImage(named: "apple-icon"), color: .white, for: .normal)
         return button
     }()
@@ -157,7 +157,7 @@ class CreateAccountViewController: MasterViewController {
     }
     
     private func setupViews() {
-        self.view.backgroundColor = .primaryBackground
+        self.view.backgroundColor = .appResource.primaryBackground
         self.view.insertSubview(self.containerView, at: 0)
         self.view.insertSubview(self.headerNavBar, at: 1)
         
@@ -212,7 +212,7 @@ class CreateAccountViewController: MasterViewController {
     
     private func rightPasswordAction() {
         self.textFieldPassword.isSecureTextEntry.toggle()
-        self.textFieldPassword.setIconRight(UIImage(named: self.textFieldPassword.isSecureTextEntry ? "eye" : "eye-fill"), color: .placeholder, viewMode: .always)
+        self.textFieldPassword.setIconRight(UIImage(named: self.textFieldPassword.isSecureTextEntry ? "eye" : "eye-fill"), color: .appResource.placeholderColor, viewMode: .always)
     }
     
     private func checkBoxAction(_ state: Bool) {
