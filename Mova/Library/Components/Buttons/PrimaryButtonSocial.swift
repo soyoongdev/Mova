@@ -24,7 +24,7 @@ class PrimaryButtonGroundIcon: MasterButton {
     
     override func setupViews() {
         super.setupViews()
-        let radius: CGFloat = .appResource.primaryButtonGroundSize.height/2
+        let radius: CGFloat = .appResource.primaryButtonGroundSize.height/4
         self.setBackgroundColor(color: .appResource.primaryGreyDark, cornerRadius: radius, for: .normal)
         self.setBordered(color: .appResource.primaryGrey, width: 1, cornerRadius: radius)
     }

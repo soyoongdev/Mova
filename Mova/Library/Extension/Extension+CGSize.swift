@@ -14,3 +14,11 @@ extension CGSize {
     }
     
 }
+
+extension CGSize {
+    
+    static var appResource: AppStyle {
+        return AppStyle.shared
+    }
+    
+}

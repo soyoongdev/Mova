@@ -11,12 +11,13 @@ class AuthenTextField: MasterTextField {
     
     override func setupViews() {
         super.setupViews()
-        self.setBackgroundColor(color: .appResource.primaryBackground, for: .normal)
-        self.setBackgroundColor(color: .appResource.primaryRedThinBlack, for: .highlighted)
-        self.setBordered(color: .clear, for: .normal)
-        self.setBordered(color: .appResource.primaryRed, width: 1, for: .highlighted)
+        let radius: CGFloat = .appResource.primaryTextFieldSizePopular.height/4
+        self.setBackgroundColor(color: .appResource.primaryGreyDark, cornerRadius: radius, for: .normal)
+        self.setBackgroundColor(color: .appResource.primaryRedThinBlack, cornerRadius: radius, for: .highlighted)
+        self.setBordered(color: .clear, cornerRadius: radius, for: .normal)
+        self.setBordered(color: .appResource.primaryRed, width: 1, cornerRadius: radius, for: .highlighted)
         self.contentPaddingHorizontal = 16
-        self.inputPaddingHorizontal = 14
+        self.inputPaddingHorizontal = 8
         self.textColor = .appResource.textColor
         self.font = .semiBold(size: .appResource.primaryTextSizePopular)
     }
@@ -30,4 +31,12 @@ class AuthenTextField: MasterTextField {
         super.textFieldDidEndEditing(textField)
     }
 
+}
+
+import SwiftUI
+
+struct AuthenTextField_Previews: PreviewProvider {
+    static var previews: some View {
+        PreviewUIViewController(viewController: LoginAccountViewController())
+    }
 }

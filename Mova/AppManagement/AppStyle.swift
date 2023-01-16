@@ -194,3 +194,11 @@ extension AppStyle {
     }
     
 }
+
+extension AppStyle {
+    
+    var primaryTextFieldSizePopular: CGSize {
+        return CGSize(width: 52.0 * 2, height: 52.0)
+    }
+    
+}
