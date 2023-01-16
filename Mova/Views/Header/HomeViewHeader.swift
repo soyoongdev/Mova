@@ -43,7 +43,7 @@ class HomeViewHeader: MasterView {
     private let subTitle: MasterLabel = {
         let title = MasterLabel()
         title.text = "Action, Superhero, Science Fiction."
-        title.font = .medium(size: .appResource.primarySmall)
+        title.font = .medium(size: .appResource.primaryTextSizeSmall)
         title.textColor = .white
         return title
     }()

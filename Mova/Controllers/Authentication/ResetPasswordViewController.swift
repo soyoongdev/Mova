@@ -20,9 +20,21 @@ class ResetPasswordViewController: MasterViewController {
     
     private let titleMessage: UILabel = {
         let title = UILabel()
-        title.font = .semiBold(size: .appResource.primaryTextSizeLarge18)
+        title.font = .semiBold(size: .appResource.primaryTextSizeLarge16)
         title.textColor = .appResource.textColor
-        title.text = "Login To Your Account"
+        title.text = "Code has been send to +111******99"
+        title.numberOfLines = .max
+        title.textAlignment = .center
+        return title
+    }()
+    
+    private var secondCount: String = "0"
+    
+    private let titleMessageCount: UILabel = {
+        let title = UILabel()
+        title.font = .semiBold(size: .appResource.primaryTextSizeLarge16)
+        title.textColor = .appResource.textColor
+        title.text = "Resend code in 0"
         title.textAlignment = .center
         return title
     }()
@@ -31,10 +43,11 @@ class ResetPasswordViewController: MasterViewController {
         let field = CHIOTPFieldTwo()
         field.numberOfDigits = 4
         field.spacing = 14
-        field.cornerRadius = 14
-        field.boxBackgroundColor = .appResource.primaryBackgroundLight
+        let radius: CGFloat = .appResource.primaryButtonGroundSize.height/4
+        field.cornerRadius = radius
+        field.boxBackgroundColor = .appResource.primaryGreyDark
         field.activeBoxBackgroundColor = .appResource.primaryRedThinBlack
-        field.filledBoxBackgroundColor = .appResource.primaryBackgroundLight
+        field.filledBoxBackgroundColor = .appResource.primaryGreyDark
         field.borderColor = .appResource.primaryGrey
         field.activeBorderColor = .appResource.primaryRed
         field.tintColor = .appResource.primaryRed
@@ -81,6 +94,7 @@ class ResetPasswordViewController: MasterViewController {
         
         self.containerView.addSubview(titleMessage)
         self.containerView.addSubview(otpField)
+        self.containerView.addSubview(titleMessageCount)
 //        self.containerView.addSubview(buttonVerify)
         
         self.headerNavBar.leftAction(backButtonAction)
@@ -94,6 +108,12 @@ class ResetPasswordViewController: MasterViewController {
         self.buttonOTPCodeKeyboard.addTarget(self, action: #selector(otpCodeMessageAction), for: .touchUpInside)
         
         self.otpField.toolbarAccessoryView([buttonBarItem])
+        
+        let range = (titleMessageCount.text! as NSString).range(of: secondCount)
+
+        let attributedText = NSMutableAttributedString.init(string: titleMessageCount.text!)
+        attributedText.addAttribute(.foregroundColor, value: UIColor.appResource.primaryRed , range: range)
+        titleMessageCount.attributedText = attributedText
     }
     
     private func backButtonAction() {
@@ -108,7 +128,6 @@ class ResetPasswordViewController: MasterViewController {
         if let otpCode = self.buttonOTPCodeKeyboard.titleLabel?.text {
             self.otpField.text = otpCode
         }
-        
         self.dismissKeyboard()
     }
     
@@ -145,9 +164,17 @@ extension ResetPasswordViewController {
             bottom: nil,
             trailing: self.containerView.trailingAnchor,
             padding: UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0),
-            size: CGSize(width: 0, height: 58)
+            size: CGSize(width: 0, height: .appResource.primaryButtonLarge.height)
         )
         self.otpField.centerAllSuperview(self.containerView)
+        
+        self.titleMessageCount.anchor(
+            top: self.otpField.bottomAnchor,
+            leading: self.containerView.leadingAnchor,
+            bottom: nil,
+            trailing: self.containerView.trailingAnchor,
+            padding: UIEdgeInsets(top: 60, left: 0, bottom: 0, right: 0)
+        )
         
 //        self.buttonVerify.anchor(
 //            top: nil,

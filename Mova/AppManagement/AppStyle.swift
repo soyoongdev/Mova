@@ -76,7 +76,7 @@ extension AppStyle {
 extension AppStyle {
     
     /// Primary text size 14
-    var primarySmall: CGFloat {
+    var primaryTextSizeSmall: CGFloat {
         return 14
     }
     

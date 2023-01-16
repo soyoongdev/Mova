@@ -39,7 +39,7 @@ class OnBoardingPageViewController: UIViewController {
     
     private let subTitle: UILabel = {
         let _self = UILabel()
-        _self.font = .medium(size: .appResource.primarySmall)
+        _self.font = .medium(size: .appResource.primaryTextSizeSmall)
         _self.textColor = .appResource.textColor
         _self.numberOfLines = 2
         _self.textAlignment = .center
