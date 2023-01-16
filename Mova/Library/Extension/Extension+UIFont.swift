@@ -20,16 +20,6 @@ extension UIFont {
         return UIFont(name: FontFamily.robotoThinItalic.rawValue, size: size)
     }
     
-    /// ExtraLight 200
-    public static func extraLight(size: CGFloat) -> UIFont? {
-        return UIFont(name: FontFamily.robotoExtraLight.rawValue, size: size)
-    }
-    
-    /// ExtraLight 200 Italic
-    public static func extraLightItalic(size: CGFloat) -> UIFont? {
-        return UIFont(name: FontFamily.robotoExtraLightItalic.rawValue, size: size)
-    }
-    
     /// Light 300
     public static func light(size: CGFloat) -> UIFont? {
         return UIFont(name: FontFamily.robotoLight.rawValue, size: size)
@@ -60,16 +50,6 @@ extension UIFont {
         return UIFont(name: FontFamily.robotoMediumItalic.rawValue, size: size)
     }
     
-    /// SemiBold 600
-    public static func semiBold(size: CGFloat) -> UIFont? {
-        return UIFont(name: FontFamily.robotoSemiBold.rawValue, size: size)
-    }
-    
-    /// SemiBold 600 Italic
-    public static func semiBoldItalic(size: CGFloat) -> UIFont? {
-        return UIFont(name: FontFamily.robotoSemiBoldItalic.rawValue, size: size)
-    }
-    
     /// Bold 700
     public static func bold(size: CGFloat) -> UIFont? {
         return UIFont(name: FontFamily.robotoBold.rawValue, size: size)
@@ -80,27 +60,34 @@ extension UIFont {
         return UIFont(name: FontFamily.robotoBoldItalic.rawValue, size: size)
     }
     
+    /// Black 900
+    public static func black(size: CGFloat) -> UIFont? {
+        return UIFont(name: FontFamily.robotoBlack.rawValue, size: size)
+    }
+    
+    /// Black 900 Italic
+    public static func blackItalic(size: CGFloat) -> UIFont? {
+        return UIFont(name: FontFamily.robotoBlackItalic.rawValue, size: size)
+    }
+    
 }
 
 
 extension UIFont {
     
     enum FontFamily : String {
-        case robotoThin = "RobotoMono-Thin"
-        case robotoThinItalic = "RobotoMono-ThinIralic"
-        case robotoSemiBold = "RobotoMono-SemiBold"
-        case robotoSemiBoldItalic = "RobotoMono-SemiBoldItalic"
-        case robotoRegular = "RobotoMono-Regular"
-        case robotoRegularItalic = "RobotoMono-RegularItalic"
-        case robotoMedium = "RobotoMono-Medium"
-        case robotoMediumItalic = "RobotoMono-MediumItalic"
-        case robotoLight = "RobotoMono-Light"
-        case robotoLightItalic = "RobotoMono-LightItalic"
-        case robotoItalic = "RobotoMono-Italic"
-        case robotoExtraLight = "RobotoMono-ExtraLight"
-        case robotoExtraLightItalic = "RobotoMono-ExtraLightItalic"
-        case robotoBold = "RobotoMono-Bold"
-        case robotoBoldItalic = "RobotoMono-BoldItalic"
+        case robotoThin = "Roboto-Thin"
+        case robotoThinItalic = "Roboto-ThinIralic"
+        case robotoRegular = "Roboto-Regular"
+        case robotoMedium = "Roboto-Medium"
+        case robotoMediumItalic = "Roboto-MediumItalic"
+        case robotoLight = "Roboto-Light"
+        case robotoLightItalic = "Roboto-LightItalic"
+        case robotoItalic = "Roboto-Italic"
+        case robotoBold = "Roboto-Bold"
+        case robotoBoldItalic = "Roboto-BoldItalic"
+        case robotoBlack = "Roboto-Black"
+        case robotoBlackItalic = "Roboto-BlackItalic"
     }
     
 }
