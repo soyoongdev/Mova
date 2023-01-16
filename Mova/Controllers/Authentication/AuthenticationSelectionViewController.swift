@@ -93,7 +93,7 @@ class AuthenticationSelectionViewController: MasterViewController {
     
     private let titleLabelFooter: UILabel = {
         let _self = UILabel(frame: .zero)
-        _self.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        _self.font = .medium(size: .appResource.primaryTextSizePopular)
         _self.textColor = .appResource.textColor
         _self.numberOfLines = 1
         _self.text = "Don't have an account?"
@@ -103,7 +103,7 @@ class AuthenticationSelectionViewController: MasterViewController {
     private let buttonSignUp: MasterButton = {
         let button = MasterButton()
         button.setTitle(text: "Sign up", for: .normal)
-        button.titleLabel?.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        button.titleLabel?.font = .medium(size: .appResource.primaryTextSizePopular)
         button.setTitleColor(.appResource.primaryRed, for: .normal)
         return button
     }()

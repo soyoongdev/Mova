@@ -72,7 +72,7 @@ class CreateAccountViewController: MasterViewController {
         let _self = UILabel()
         _self.text = "Remember me"
         _self.textColor = .appResource.textColor
-        _self.font = .semiBold(size: .appResource.primaryTextSizeSmall)
+        _self.font = .medium(size: .appResource.primaryTextSizeSmall)
         return _self
     }()
     
@@ -105,7 +105,7 @@ class CreateAccountViewController: MasterViewController {
     
     private let titleLabelFooter: UILabel = {
         let _self = UILabel(frame: .zero)
-        _self.font = .semiBold(size: .appResource.primaryTextSizeSmall)
+        _self.font = .medium(size: .appResource.primaryTextSizeSmall)
         _self.textColor = .appResource.textColor
         _self.numberOfLines = 1
         _self.text = "Already have an account?"
@@ -115,7 +115,7 @@ class CreateAccountViewController: MasterViewController {
     private let buttonSignIn: MasterButton = {
         let button = MasterButton()
         button.setTitle(text: "Sign in", for: .normal)
-        button.titleLabel?.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        button.titleLabel?.font = .medium(size: .appResource.primaryTextSizePopular)
         button.setTitleColor(.appResource.primaryRed, for: .normal)
         return button
     }()

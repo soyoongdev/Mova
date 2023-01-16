@@ -14,7 +14,7 @@ class PrimaryButtonSocial: MasterButton {
         let radius: CGFloat = .appResource.primaryButtonPopular.height/4
         self.setBackgroundColor(color: .appResource.primaryGreyDark, cornerRadius: radius, for: .normal)
         self.setBordered(color:  .appResource.primaryGrey, width: 1, cornerRadius: radius)
-        self.titleLabel?.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        self.titleLabel?.font = .medium(size: .appResource.primaryTextSizePopular)
         self.tintColor =  .appResource.textColor
     }
 

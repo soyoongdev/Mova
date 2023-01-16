@@ -19,7 +19,7 @@ class AuthenTextField: MasterTextField {
         self.contentPaddingHorizontal = 16
         self.inputPaddingHorizontal = 8
         self.textColor = .appResource.textColor
-        self.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        self.font = .medium(size: .appResource.primaryTextSizePopular)
     }
     
     override func textFieldDidBeginEditing(_ textField: UITextField) {

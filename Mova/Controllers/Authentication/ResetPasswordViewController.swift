@@ -20,7 +20,7 @@ class ResetPasswordViewController: MasterViewController {
     
     private let titleMessage: UILabel = {
         let title = UILabel()
-        title.font = .semiBold(size: .appResource.primaryTextSizeLarge16)
+        title.font = .medium(size: .appResource.primaryTextSizeLarge16)
         title.textColor = .appResource.textColor
         title.text = "Code has been send to +111******99"
         title.numberOfLines = .max
@@ -32,7 +32,7 @@ class ResetPasswordViewController: MasterViewController {
     
     private let titleMessageCount: UILabel = {
         let title = UILabel()
-        title.font = .semiBold(size: .appResource.primaryTextSizeLarge16)
+        title.font = .medium(size: .appResource.primaryTextSizeLarge16)
         title.textColor = .appResource.textColor
         title.text = "Resend code in 0"
         title.textAlignment = .center

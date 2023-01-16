@@ -15,7 +15,7 @@ class TextableDivider: UIView {
     
     public var titleLabel: MasterLabel = {
         let title = MasterLabel()
-        title.font = .semiBold(size: .appResource.primaryTextSizePopular)
+        title.font = .medium(size: .appResource.primaryTextSizePopular)
         title.textColor = .appResource.textColor
         title.numberOfLines = 1
         title.textAlignment = .center
