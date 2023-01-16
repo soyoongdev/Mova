@@ -32,7 +32,7 @@ extension AppStyle {
     
     /// Unified background color change with theme mode
     var primaryBackground: UIColor {
-        return AppManager.shared.isDarkMode ? primaryBackgroundDark : primaryBackgroundLight
+        return primaryBackgroundDark
     }
     
     /// Main color
@@ -82,6 +82,11 @@ extension AppStyle {
     
     /// Primary text size 16 and popular text size
     var primaryTextSizePopular: CGFloat {
+        return 14
+    }
+    
+    /// Primary text size 16
+    var primaryTextSizeLarge16: CGFloat {
         return 16
     }
     

@@ -44,7 +44,7 @@ class TextableDivider: UIView {
         self.addSubview(self.containerView)
         
         self.dividerView = UIView()
-        self.dividerView?.backgroundColor = .appResource.primaryBackgroundLight
+        self.dividerView?.backgroundColor = .appResource.primaryGreyDark
         
         self.containerView.insertSubview(self.dividerView!, at: 0)
         self.containerView.insertSubview(self.titleLabel, at: 1)
@@ -59,7 +59,7 @@ class TextableDivider: UIView {
             leading: self.containerView.leadingAnchor,
             bottom: nil,
             trailing: self.containerView.trailingAnchor,
-            size: CGSize(width: 0, height: 2.0)
+            size: CGSize(width: 0, height: 1.5)
         )
         self.dividerView?.centerYSuperview(self.containerView)
         
