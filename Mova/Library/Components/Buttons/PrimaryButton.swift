@@ -22,6 +22,20 @@ class PrimaryButton: MasterButton {
     
 }
 
+class PrimaryButtonSmall: MasterButton {
+    
+    override func setupViews() {
+        super.setupViews()
+        let radius: CGFloat = .appResource.primaryButtonPopular.height/2
+        self.setBackgroundColor(color: .appResource.primaryRed, cornerRadius: radius, for: .normal)
+        self.titleLabel?.font = .medium(size: .appResource.primaryTextSizePopular)
+        self.setTitleColor(.appResource.textColor, for: .normal)
+        let space: CGFloat = 16.0
+        self.contentEdgeInsets = UIEdgeInsets(top: space/2, left: space, bottom: space/2, right: space)
+    }
+    
+}
+
 import SwiftUI
 
 struct PrimaryButton_Previews: PreviewProvider {

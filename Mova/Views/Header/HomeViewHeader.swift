@@ -18,17 +18,28 @@ class HomeViewHeader: MasterView {
         return header
     }()
     
-    private let buttonPlay: PrimaryButton = {
-        let button = PrimaryButton()
+    private let buttonPlay: PrimaryButtonSmall = {
+        let button = PrimaryButtonSmall()
         button.setTitle(text: "Play", for: .normal)
-        button.setIcon(UIImage(named: "play-fill"), color: .white, size: 14, for: .normal)
+        button.setIcon(
+            UIImage(named: "play-fill"),
+            color: .white,
+            size: .appResource.primaryIconSmall,
+            for: .normal
+        )
         return button
     }()
     
-    private let buttonList: PrimaryButton = {
-        let button = PrimaryButton()
+    private let buttonList: PrimaryButtonSmall = {
+        let button = PrimaryButtonSmall()
         button.setTitle(text: "My List", for: .normal)
-        button.setIcon(UIImage(named: "plus"), color: .white, size: 14, for: .normal)
+        button.setBackgroundColor(color: .clear, for: .normal)
+        button.setBordered(color: .white, width: 1)
+        button.setIcon(
+            UIImage(named: "plus"),
+            color: .white,
+            size: .appResource.primaryIconSmall, for: .normal
+        )
         return button
     }()
     
@@ -76,8 +87,7 @@ class HomeViewHeader: MasterView {
             top: nil,
             leading: self.containerView.leadingAnchor,
             bottom: nil,
-            trailing: nil,
-            size: CGSize(width: 0, height: 24)
+            trailing: nil
         )
         
         self.subTitle.anchor(
@@ -85,8 +95,7 @@ class HomeViewHeader: MasterView {
             leading: self.containerView.leadingAnchor,
             bottom: nil,
             trailing: nil,
-            padding: UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0),
-            size: CGSize(width: 0, height: 24)
+            padding: UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
         )
         
         self.buttonPlay.anchor(
